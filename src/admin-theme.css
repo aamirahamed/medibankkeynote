@@ -1,0 +1,246 @@
+/* ============================================================================
+   Medibank Conversion Engine — Design Tokens
+   ============================================================================ */
+
+/* Geist + Instrument Serif loaded via index.html */
+
+:root {
+  /* ─── Brand colours ──────────────────────────────────────────────────────── */
+  --medibank-red:        #DD0822;
+  --medibank-red-deep:   #B30219;
+  --medibank-red-glow:   #FF334D;
+  --medibank-blue:       #007AC0;
+  --medibank-blue-deep:  #005A8F;
+  --medibank-blue-glow:  #38B6FF;
+
+  /* ─── Surface scale ─────────────────────────────────────────────────────── */
+  --bg-0:   #07080B;
+  --bg-1:   #0C0E13;
+  --bg-2:   #11141B;
+  --bg-3:   #161A23;
+  --bg-4:   #1D2230;
+  --bg-5:   #262B3B;
+
+  /* Hairlines */
+  --line-soft:    rgba(255, 255, 255, 0.04);
+  --line:         rgba(255, 255, 255, 0.07);
+  --line-strong:  rgba(255, 255, 255, 0.12);
+  --line-bright:  rgba(255, 255, 255, 0.20);
+
+  /* ─── Foreground ────────────────────────────────────────────────────────── */
+  --fg-1:   #F4F6FA;
+  --fg-2:   #C9CFDC;
+  --fg-3:   #8A93A6;
+  --fg-4:   #5D6577;
+  --fg-5:   #3A4053;
+
+  /* ─── Semantic accents ──────────────────────────────────────────────────── */
+  --ai:           #6EE7F2;
+  --ai-deep:      #0AB8C9;
+  --ai-glow:      rgba(110, 231, 242, 0.55);
+  --ai-wash:      rgba(110, 231, 242, 0.08);
+
+  --success:      #4ADE80;
+  --success-wash: rgba(74, 222, 128, 0.10);
+  --warning:      #F5B544;
+  --warning-wash: rgba(245, 181, 68, 0.10);
+  --danger:       #FF4D6A;
+  --danger-wash:  rgba(255, 77, 106, 0.10);
+  --info:         var(--medibank-blue-glow);
+  --info-wash:    rgba(56, 182, 255, 0.10);
+
+  --accent:       var(--medibank-red);
+  --accent-wash:  rgba(221, 8, 34, 0.10);
+  --human:        var(--medibank-blue-glow);
+  --human-wash:   rgba(56, 182, 255, 0.10);
+
+  /* ─── Typography ────────────────────────────────────────────────────────── */
+  --font-sans:    "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono:    "Geist Mono", "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-display: "Instrument Serif", "Times New Roman", serif;
+
+  --fs-micro: 10px;  --lh-micro: 14px;
+  --fs-xs:    11px;  --lh-xs:    16px;
+  --fs-sm:    13px;  --lh-sm:    20px;
+  --fs-md:    14px;  --lh-md:    22px;
+  --fs-lg:    16px;  --lh-lg:    24px;
+  --fs-xl:    20px;  --lh-xl:    28px;
+  --fs-2xl:   24px;  --lh-2xl:   32px;
+  --fs-3xl:   32px;  --lh-3xl:   40px;
+  --fs-4xl:   44px;  --lh-4xl:   52px;
+
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  --tracking-tight:  -0.02em;
+  --tracking-snug:   -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.04em;
+  --tracking-caps:   0.08em;
+
+  /* ─── Radii ─────────────────────────────────────────────────────────────── */
+  --r-1:   4px;
+  --r-2:   6px;
+  --r-3:   8px;
+  --r-4:   10px;
+  --r-5:   14px;
+  --r-6:   20px;
+  --r-full: 999px;
+
+  /* ─── Spacing ───────────────────────────────────────────────────────────── */
+  --s-1:  2px;  --s-2:  4px;  --s-3:  8px;  --s-4:  12px;
+  --s-5:  16px; --s-6:  20px; --s-7:  24px; --s-8:  32px;
+  --s-9:  40px; --s-10: 48px; --s-11: 64px; --s-12: 80px;
+
+  /* ─── Shadows ───────────────────────────────────────────────────────────── */
+  --shadow-1: 0 1px 0 rgba(255,255,255,0.04) inset, 0 1px 2px rgba(0,0,0,0.35);
+  --shadow-2: 0 1px 0 rgba(255,255,255,0.05) inset, 0 4px 12px rgba(0,0,0,0.40);
+  --shadow-3: 0 1px 0 rgba(255,255,255,0.06) inset, 0 12px 32px rgba(0,0,0,0.55);
+  --shadow-4: 0 1px 0 rgba(255,255,255,0.07) inset, 0 24px 64px rgba(0,0,0,0.65);
+
+  --glow-ai:    0 0 0 1px rgba(110,231,242,0.30), 0 8px 32px rgba(10,184,201,0.20);
+  --glow-brand: 0 0 0 1px rgba(221,8,34,0.30),    0 8px 32px rgba(221,8,34,0.18);
+  --glow-human: 0 0 0 1px rgba(56,182,255,0.30),  0 8px 32px rgba(0,122,192,0.18);
+
+  /* ─── Motion ────────────────────────────────────────────────────────────── */
+  --ease-out:    cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-1:  80ms;
+  --dur-2:  160ms;
+  --dur-3:  240ms;
+  --dur-4:  400ms;
+  --dur-5:  800ms;
+
+  /* ─── Glass ─────────────────────────────────────────────────────────────── */
+  --glass-bg:     rgba(17, 20, 27, 0.72);
+  --glass-bg-hi:  rgba(22, 26, 35, 0.82);
+  --glass-blur:   saturate(180%) blur(20px);
+  --glass-border: 1px solid var(--line-strong);
+
+  /* ─── Z-index ───────────────────────────────────────────────────────────── */
+  --z-base:    1;
+  --z-raised:  10;
+  --z-overlay: 100;
+  --z-modal:   1000;
+  --z-toast:   2000;
+
+  /* ─── Legacy aliases (consumed by Layout.css + older page styles) ────────── */
+  --bg-base:          var(--bg-0);
+  --bg-surface:       var(--bg-2);
+  --bg-surface-hover: var(--bg-4);
+  --bg-elevated:      var(--bg-3);
+  --text-primary:     var(--fg-1);
+  --text-secondary:   var(--fg-3);
+  --text-tertiary:    var(--fg-4);
+  --border-color:     var(--line-strong);
+  --border-light:     var(--line-soft);
+  --accent-red:       var(--medibank-red);
+  --accent-red-hover: var(--medibank-red-deep);
+  --accent-red-light: var(--accent-wash);
+  --accent-blue:      var(--medibank-blue);
+  --accent-blue-hover:var(--medibank-blue-deep);
+  --accent-blue-light:var(--human-wash);
+  --success-bg:       var(--success-wash);
+  --warning-bg:       var(--warning-wash);
+  --danger-bg:        var(--danger-wash);
+  --info-bg:          var(--info-wash);
+  --radius-sm:        var(--r-2);
+  --radius-md:        var(--r-4);
+  --radius-lg:        var(--r-5);
+  --radius-full:      var(--r-full);
+  --shadow-sm:        var(--shadow-1);
+  --shadow-md:        var(--shadow-2);
+  --shadow-lg:        var(--shadow-3);
+  --glow-red:         var(--glow-brand);
+  --glow-blue:        var(--glow-human);
+  --transition-fast:   var(--dur-2) var(--ease-out);
+  --transition-normal: var(--dur-3) var(--ease-out);
+}
+
+/* ─── Base reset ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.admin-engine-scope {
+  background: var(--bg-0);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+  font-size: var(--fs-md);
+  line-height: var(--lh-md);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--tracking-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+a { color: inherit; text-decoration: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.2;
+}
+
+::selection { background: rgba(56, 182, 255, 0.30); color: var(--fg-1); }
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-0); }
+::-webkit-scrollbar-thumb { background: var(--bg-5); border-radius: var(--r-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--fg-5); }
+
+/* ─── Utilities ──────────────────────────────────────────────────────────── */
+.glass {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+}
+
+.glass-panel {
+  background: var(--bg-2);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-4);
+  box-shadow: var(--shadow-2);
+}
+
+.cinematic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.eyebrow {
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  font-weight: var(--fw-medium);
+  color: var(--fg-3);
+}
+
+.num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+
+.flex-center  { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+
+/* ─── Mockup Scope Overrides ─────────────────────────────────────────────── */
+.admin-engine-scope .app-container {
+  height: 850px !important;
+  width: 1360px !important;
+}
+
+.admin-engine-scope .cop-panel {
+  height: 850px !important;
+  position: absolute !important;
+}
+
+.admin-engine-scope .cop-toggle {
+  position: absolute !important;
+  bottom: 24px !important;
+  right: 24px !important;
+}
+
