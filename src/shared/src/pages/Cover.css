@@ -1,0 +1,456 @@
+/* ── Cover Page ──────────────────────────────────── */
+
+.cover-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: var(--bg-light);
+}
+
+/* ── Header ──────────────────────────────────────── */
+.cover-header {
+  background: var(--gradient-medibank-red-header);
+  padding-bottom: 24px;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  box-shadow: 0 6px 24px rgba(205, 13, 45, 0.22);
+}
+
+.cover-header-top {
+  padding: 14px 24px 0;
+}
+
+.cover-logo {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.cover-header-content {
+  padding: 14px 24px 0;
+}
+
+.cover-header-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+  backdrop-filter: blur(4px);
+}
+
+.cover-header-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+/* Snapshot strip */
+.cover-snapshot-row {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(6px);
+}
+
+.cover-snapshot-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  flex: 1;
+}
+
+.snapshot-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.snapshot-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.snapshot-active {
+  color: #86efac;
+}
+
+.snapshot-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #86efac;
+  display: inline-block;
+}
+
+.cover-snapshot-divider {
+  width: 1px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* ── Content area ────────────────────────────────── */
+.cover-content {
+  padding: 20px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Digital Card ────────────────────────────────── */
+.digital-card-outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.digital-card {
+  width: 100%;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border-radius: 20px;
+  padding: 22px 24px 18px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28), 0 4px 12px rgba(205, 13, 45, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle shine overlay */
+.digital-card::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(205, 13, 45, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.digital-card::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.card-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.card-logo-area {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-logo-text {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.card-cover-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-status-pill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(134, 239, 172, 0.15);
+  color: #86efac;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+  border: 1px solid rgba(134, 239, 172, 0.3);
+}
+
+.card-member-id {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 3px;
+  margin-bottom: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+.card-member-id-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 18px;
+}
+
+.card-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 14px;
+}
+
+.card-field-label {
+  font-size: 9px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 3px;
+}
+
+.card-field-value {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Show card button */
+.show-card-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--medibank-red);
+  background: #fff;
+  border: 1.5px solid rgba(205, 13, 45, 0.15);
+  padding: 10px 20px;
+  border-radius: 100px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.18s;
+}
+
+.show-card-btn:active {
+  transform: scale(0.95);
+  box-shadow: none;
+}
+
+/* ── Section Header ──────────────────────────────── */
+.cover-section-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+}
+
+/* ── Action Cards Grid ───────────────────────────── */
+.action-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.action-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px 14px 16px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+
+.action-card:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+.action-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.action-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.25;
+}
+
+.action-card-sub {
+  font-size: 12px;
+  color: var(--text-gray);
+  line-height: 1.45;
+  flex: 1;
+}
+
+.action-card-cta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 4px;
+  transition: gap 0.18s;
+}
+
+.action-card:hover .action-card-cta {
+  gap: 7px;
+}
+
+/* ── Smart Insight Card ──────────────────────────── */
+.cover-insight-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  box-shadow: var(--shadow-card);
+  border-left: 4px solid var(--medibank-red);
+}
+
+.insight-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: rgba(205, 13, 45, 0.08);
+  color: var(--medibank-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.insight-body {
+  flex: 1;
+}
+
+.insight-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.insight-text {
+  font-size: 13px;
+  color: var(--text-gray);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.insight-cta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--medibank-red);
+  padding: 9px 18px;
+  border-radius: 100px;
+  box-shadow: 0 4px 14px rgba(205, 13, 45, 0.25);
+  transition: all 0.18s;
+}
+
+.insight-cta-pill:active {
+  transform: scale(0.95);
+}
+
+/* ── Support Section ─────────────────────────────── */
+.support-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.support-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.support-row:active {
+  background: var(--bg-light);
+}
+
+.support-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--bg-light);
+  color: var(--text-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.support-text {
+  flex: 1;
+}
+
+.support-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.support-sub {
+  font-size: 12px;
+  color: var(--text-gray);
+  display: block;
+}
+
+.support-chevron {
+  color: #d1d5db;
+  flex-shrink: 0;
+}
+
+.support-divider {
+  height: 1px;
+  background: #f3f4f6;
+  margin-left: 72px;
+}
+
+

@@ -1,0 +1,72 @@
+.bottom-nav {
+  position: absolute;
+  bottom: max(24px, env(safe-area-inset-bottom, 24px));
+  left: 20px;
+  right: 20px;
+  height: 72px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 36px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  z-index: 100;
+  padding: 0 12px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8; /* Soft premium grey */
+  flex: 1;
+  min-width: 0; /* Ensure equal flex basis */
+  height: 56px; /* Slightly shorter than container for padding */
+  border-radius: 28px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  text-decoration: none;
+}
+
+.nav-item:active {
+  transform: scale(0.92);
+}
+
+.nav-item.active {
+  color: var(--medibank-blue); /* Strong active color */
+}
+
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 56px;
+  background-color: rgba(30, 63, 138, 0.08);
+  border-radius: 20px;
+  z-index: -1;
+  opacity: 0;
+  animation: navPillFadeIn 0.3s forwards;
+}
+
+@keyframes navPillFadeIn {
+  to { opacity: 1; }
+}
+
+.nav-label {
+  font-size: 10px;
+  margin-top: 4px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}

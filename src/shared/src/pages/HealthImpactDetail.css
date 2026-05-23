@@ -1,0 +1,319 @@
+/* ── Health Impact Detail Page ───────────────────── */
+
+.hid-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: var(--bg-light);
+  padding-bottom: 40px;
+}
+
+/* Header */
+.hid-header {
+  background: #fff;
+  padding: 14px 20px 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid #f0f0f0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.hid-back-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--bg-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dark);
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.hid-back-btn:active { background: #e5e7eb; }
+
+.hid-header-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+/* Content */
+.hid-content {
+  padding: 20px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Sections */
+.hid-section {
+  margin-bottom: 20px;
+}
+
+.hid-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+/* Section 1 — Explanation card */
+.hid-explain-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--shadow-card);
+  border-left: 4px solid var(--medibank-red);
+}
+
+.hid-explain-text {
+  font-size: 14px;
+  color: var(--text-gray);
+  line-height: 1.7;
+}
+
+/* Section 2 — Flow */
+.hid-flow-row {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px 14px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hid-flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.hid-flow-icon {
+  font-size: 28px;
+  line-height: 1;
+  width: 52px;
+  height: 52px;
+  background: var(--bg-light);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hid-flow-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.hid-flow-arrow {
+  font-size: 18px;
+  color: #d1d5db;
+  font-weight: 700;
+  flex-shrink: 0;
+  padding: 0 2px;
+  padding-bottom: 18px;
+}
+
+/* Section 3 — Tiers */
+.hid-tiers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hid-tier-row {
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  border: 1.5px solid transparent;
+  position: relative;
+  transition: all 0.18s;
+}
+
+.hid-tier-active {
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+}
+
+.hid-tier-medal {
+  font-size: 28px;
+  line-height: 1;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.hid-tier-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hid-tier-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: block;
+}
+
+.hid-tier-benefit {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-gray);
+  display: block;
+}
+
+.hid-tier-desc {
+  font-size: 12px;
+  color: #9ca3af;
+  display: block;
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+.hid-tier-you-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 100px;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* Section 4 — Progress card */
+.hid-progress-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--shadow-card);
+}
+
+.hid-progress-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.hid-progress-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 4px;
+}
+
+.hid-progress-score {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.hid-progress-max {
+  font-size: 16px;
+  font-weight: 600;
+  color: #9ca3af;
+  margin-left: 4px;
+}
+
+.hid-current-tier-chip {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 100px;
+}
+
+.hid-progress-bar-track {
+  height: 8px;
+  background: #f0f0f0;
+  border-radius: 100px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.hid-progress-bar-fill {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 0.7s ease;
+}
+
+.hid-progress-note {
+  font-size: 12px;
+  color: var(--text-gray);
+  line-height: 1.5;
+}
+
+/* Section 5 — Benefits */
+.hid-benefit-row {
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.hid-benefit-row:active { transform: scale(0.985); }
+
+.hid-benefit-icon {
+  font-size: 26px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.hid-benefit-body { flex: 1; }
+
+.hid-benefit-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 3px;
+}
+
+.hid-benefit-desc {
+  font-size: 12px;
+  color: var(--text-gray);
+  line-height: 1.45;
+}
+
+.hid-benefit-chevron { color: #d1d5db; flex-shrink: 0; }
+
+/* Final CTA */
+.hid-final-cta {
+  width: 100%;
+  background: var(--medibank-red);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 17px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 6px 20px rgba(205, 13, 45, 0.28);
+  margin-top: 8px;
+  transition: transform 0.18s;
+}
+
+.hid-final-cta:active { transform: scale(0.975); }

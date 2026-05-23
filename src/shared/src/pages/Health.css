@@ -1,0 +1,1089 @@
+/* ── Health Page ──────────────────────────────────── */
+
+.health-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: var(--bg-light);
+}
+
+/* ── Header ──────────────────────────────────────── */
+.health-header {
+  background: var(--gradient-medibank-red-header);
+  padding-bottom: 24px;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  box-shadow: 0 6px 24px rgba(205, 13, 45, 0.22);
+}
+
+.health-header-top {
+  padding: 14px 24px 0;
+}
+
+.health-logo {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.health-header-content {
+  padding: 14px 24px 0;
+}
+
+.health-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+  backdrop-filter: blur(4px);
+}
+
+.health-header-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.health-header-sub {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+  margin-bottom: 18px;
+}
+
+/* Stats strip */
+.health-stats-strip {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  backdrop-filter: blur(6px);
+}
+
+.health-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.health-stat-num {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.health-stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.health-stat-div {
+  width: 1px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+/* ── Content ─────────────────────────────────────── */
+.health-content {
+  padding: 20px 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Shared card ─────────────────────────────────── */
+.health-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: var(--shadow-card-elevated);
+}
+
+/* ── Leaderboard ─────────────────────────────────── */
+.lb-tabs {
+  display: flex;
+  background: var(--bg-light);
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 18px;
+}
+
+.lb-tab {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-gray);
+  padding: 9px;
+  border-radius: 9px;
+  transition: all 0.18s;
+  text-align: center;
+}
+
+.lb-tab-active {
+  background: #fff;
+  color: var(--medibank-red);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Leaderboard rows */
+.lb-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lb-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 13px;
+  transition: background 0.15s;
+}
+
+.lb-row-top3 {
+  background: #fafafa;
+}
+
+.lb-row-user {
+  background: rgba(205, 13, 45, 0.05);
+  border: 1.5px solid rgba(205, 13, 45, 0.15);
+}
+
+.lb-rank-col {
+  width: 32px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.lb-medal {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.lb-rank-num {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-gray);
+}
+
+.lb-avatar {
+  font-size: 28px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.lb-name-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lb-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* Delta */
+.delta {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 100px;
+  padding: 2px 6px;
+  align-self: flex-start;
+}
+
+.delta.up   { color: #10b981; background: #ecfdf5; }
+.delta.down { color: #ef4444; background: #fef2f2; }
+.delta.flat { color: #94a3b8; background: #f3f4f6; }
+
+.lb-steps-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.lb-steps {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.3px;
+}
+
+.lb-steps-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* Gap row */
+.lb-gap-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 12px;
+  font-size: 11px;
+  color: #9ca3af;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* ── Group Challenge ─────────────────────────────── */
+.group-challenge-card {
+  background: linear-gradient(160deg, #fff 60%, #fef9fa 100%);
+  border: 1.5px solid rgba(205, 13, 45, 0.08);
+}
+
+.gc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.gc-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--medibank-red);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.gc-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+.gc-period {
+  font-size: 12px;
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+.gc-leading-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+/* VS Row */
+.gc-vs-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.gc-team {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.gc-team-a { align-items: flex-start; }
+.gc-team-b { align-items: flex-end; }
+
+.gc-team-name {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.gc-team-steps {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+}
+
+.gc-team-members {
+  font-size: 11px;
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+.gc-vs-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.gc-vs-text {
+  font-size: 14px;
+  font-weight: 800;
+  color: #d1d5db;
+  background: #f3f4f6;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Progress bars */
+.gc-bars {
+  margin-bottom: 16px;
+}
+
+.gc-bar-track {
+  height: 12px;
+  border-radius: 100px;
+  display: flex;
+  overflow: hidden;
+  gap: 3px;
+  background: #f3f4f6;
+  margin-bottom: 6px;
+}
+
+.gc-bar-fill {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gc-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Contribution row */
+.gc-contribution {
+  background: var(--bg-light);
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.gc-contrib-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gc-contrib-emoji {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.gc-contrib-text {
+  font-size: 11px;
+  color: var(--text-gray);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 3px;
+}
+
+.gc-contrib-steps {
+  font-size: 14px;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.gc-contrib-pct {
+  font-size: 12px;
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+.gc-cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--medibank-red);
+  padding: 10px 16px;
+  border-radius: 100px;
+  box-shadow: 0 4px 14px rgba(205, 13, 45, 0.25);
+  flex-shrink: 0;
+  transition: transform 0.18s;
+}
+
+.gc-cta-btn:active { transform: scale(0.94); }
+
+/* ── Personal Contribution ───────────────────────── */
+.personal-contrib-card {
+  background: linear-gradient(135deg, #fff 60%, #f8fbff 100%);
+  border: 1.5px solid rgba(205, 13, 45, 0.08);
+}
+
+.pc-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.pc-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(205, 13, 45, 0.08);
+  color: var(--medibank-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pc-label {
+  font-size: 12px;
+  color: var(--text-gray);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 2px;
+}
+
+.pc-steps {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+}
+
+.pc-unit {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-gray);
+}
+
+/* Percentile bar */
+.pc-percentile-bar-track {
+  height: 10px;
+  background: #f0f0f0;
+  border-radius: 100px;
+  margin-bottom: 6px;
+  position: relative;
+  overflow: visible;
+}
+
+.pc-percentile-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--medibank-blue), var(--medibank-red));
+  border-radius: 100px;
+  position: relative;
+}
+
+.pc-percentile-marker {
+  position: absolute;
+  top: -4px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.pc-marker-label {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--medibank-red);
+  white-space: nowrap;
+  background: #fff;
+  padding: 2px 6px;
+  border-radius: 100px;
+  border: 1.5px solid rgba(205, 13, 45, 0.2);
+  margin-top: 14px;
+}
+
+.pc-percentile-ends {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #9ca3af;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.pc-top15 {
+  color: #10b981;
+  font-weight: 700;
+}
+
+.pc-sub {
+  font-size: 13px;
+  color: var(--text-gray);
+  line-height: 1.5;
+}
+
+/* ── Nudges ──────────────────────────────────────── */
+.nudges-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.nudge-card {
+  border-radius: 16px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nudge-emoji {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.nudge-text {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* ── Activity Updates ────────────────────────────── */
+.updates-card {
+  padding: 16px 18px;
+}
+
+.updates-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+.updates-bell {
+  color: var(--text-gray);
+}
+
+.updates-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.update-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+.update-avatar {
+  font-size: 24px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.update-text {
+  flex: 1;
+  font-size: 13px;
+  color: var(--text-gray);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.update-time {
+  font-size: 11px;
+  color: #9ca3af;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.update-divider {
+  height: 1px;
+  background: #f3f4f6;
+}
+
+/* ── Health Impact Card ──────────────────────────── */
+
+.health-impact-card {
+  background: linear-gradient(160deg, #fff 55%, #f8fffe 100%);
+  border: 1.5px solid rgba(16, 185, 129, 0.12);
+}
+
+/* Header */
+.hi-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.hi-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  color: #10b981;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.hi-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.hi-saving-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: #ecfdf5;
+  border: 1.5px solid rgba(16, 185, 129, 0.2);
+  border-radius: 14px;
+  padding: 8px 14px;
+  flex-shrink: 0;
+}
+
+.hi-saving-amount {
+  font-size: 18px;
+  font-weight: 800;
+  color: #10b981;
+  letter-spacing: -0.3px;
+}
+
+.hi-saving-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #6ee7b7;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* Score Ring */
+.hi-score-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.hi-ring-wrap {
+  flex-shrink: 0;
+  width: 110px;
+  height: 110px;
+}
+
+.hi-ring-svg {
+  width: 110px;
+  height: 110px;
+  transform: rotate(-90deg);
+}
+
+/* SVG text — needs to counter the rotate */
+.hi-ring-num {
+  font-size: 28px;
+  font-weight: 900;
+  fill: var(--text-dark);
+  transform: rotate(90deg) translateX(7px);
+  transform-origin: center;
+  transform-box: fill-box;
+  dominant-baseline: middle;
+  font-family: inherit;
+}
+
+.hi-ring-denom {
+  font-size: 12px;
+  font-weight: 600;
+  fill: #9ca3af;
+  transform: rotate(90deg) translateX(7px);
+  transform-origin: center;
+  transform-box: fill-box;
+  dominant-baseline: middle;
+  font-family: inherit;
+}
+
+.hi-score-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.hi-tier-chip {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 100px;
+  align-self: flex-start;
+}
+
+.hi-score-basis {
+  font-size: 12px;
+  color: var(--text-gray);
+  line-height: 1.45;
+}
+
+/* Milestone bar */
+.hi-milestone-wrap {
+  margin-top: 2px;
+}
+
+.hi-milestone-bar-track {
+  height: 6px;
+  background: #f0f0f0;
+  border-radius: 100px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.hi-milestone-bar-fill {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 0.7s ease;
+}
+
+.hi-milestone-label {
+  font-size: 11px;
+  color: var(--text-gray);
+  line-height: 1.4;
+}
+
+/* ── Value Scale ─────────────────────────────────── */
+.hi-scale {
+  margin-bottom: 20px;
+}
+
+.hi-scale-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 12px;
+}
+
+.hi-scale-track {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.hi-scale-step {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+
+.hi-step-bar {
+  height: 5px;
+  border-radius: 100px;
+  margin-bottom: 2px;
+  transition: background 0.3s;
+}
+
+.hi-step-you {
+  font-size: 10px;
+  font-weight: 800;
+  margin-bottom: 1px;
+  letter-spacing: 0.2px;
+}
+
+.hi-step-activity {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+
+.hi-step-benefit {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-gray);
+}
+
+.hi-step-desc {
+  font-size: 10px;
+  color: #9ca3af;
+  line-height: 1.35;
+}
+
+.hi-step-active .hi-step-activity {
+  color: inherit; /* overridden inline */
+}
+
+/* ── Badges ──────────────────────────────────────── */
+.hi-badges-section {
+  margin-bottom: 18px;
+}
+
+.hi-badges-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 10px;
+}
+
+.hi-badges-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hi-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  min-width: 56px;
+  text-align: center;
+}
+
+.hi-badge-earned {
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.hi-badge-locked {
+  background: #f9fafb;
+  border: 1.5px dashed #e5e7eb;
+  opacity: 0.6;
+}
+
+.hi-badge-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.hi-badge-text {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-gray);
+  white-space: nowrap;
+}
+
+/* ── CTA row ─────────────────────────────────────── */
+.hi-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--bg-light);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.hi-cta-text {
+  flex: 1;
+}
+
+.hi-cta-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 3px;
+}
+
+.hi-cta-sub {
+  font-size: 11px;
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+.hi-cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--medibank-red);
+  padding: 10px 16px;
+  border-radius: 100px;
+  box-shadow: 0 4px 14px rgba(205,13,45,0.22);
+  flex-shrink: 0;
+  transition: transform 0.18s;
+}
+
+.hi-cta-btn:active { transform: scale(0.94); }
+
+/* ── Simplified Health Impact Card ───────────────── */
+
+.hi-simple-card {
+  background: linear-gradient(160deg, #fff 60%, #f8fffe 100%);
+  border: 1.5px solid rgba(16, 185, 129, 0.1);
+}
+
+.hi-simple-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.hi-simple-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.hi-tier-pill {
+  font-size: 12px;
+  font-weight: 700;
+  background: #fefce8;
+  color: #d97706;
+  border: 1.5px solid rgba(217, 119, 6, 0.18);
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+.hi-simple-body {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hi-simple-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hi-simple-insight {
+  font-size: 13px;
+  font-weight: 600;
+  color: #10b981;
+  line-height: 1.4;
+}
+
+.hi-simple-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hi-simple-bar-track {
+  height: 7px;
+  background: #f0f0f0;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.hi-simple-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #cd0d2d, #10b981);
+  border-radius: 100px;
+  transition: width 0.7s ease;
+}
+
+.hi-simple-next {
+  font-size: 11px;
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+.hi-simple-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--medibank-red);
+  background: rgba(205, 13, 45, 0.06);
+  padding: 9px 14px;
+  border-radius: 100px;
+  border: 1.5px solid rgba(205, 13, 45, 0.15);
+  align-self: flex-start;
+  transition: all 0.18s;
+}
+
+.hi-simple-cta:active { opacity: 0.75; }
+
+/* ── Reduce Cost Entry Card ──────────────────────── */
+
+.reduce-cost-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #fff;
+  border: 1.5px solid rgba(30, 63, 138, 0.08);
+  transition: transform 0.18s;
+}
+
+.reduce-cost-card:active { transform: scale(0.985); }
+
+.rc-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: #eff6ff;
+  color: var(--medibank-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rc-body { flex: 1; }
+
+.rc-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.rc-sub {
+  font-size: 12px;
+  color: var(--text-gray);
+  line-height: 1.45;
+}
+
+.rc-cta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--medibank-blue);
+  background: rgba(30, 63, 138, 0.08);
+  padding: 8px 12px;
+  border-radius: 100px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+
+.rc-cta:active { opacity: 0.75; }

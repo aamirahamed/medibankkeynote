@@ -1,0 +1,342 @@
+/* ── Profile & Settings Page ─────────────────────── */
+
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  /* Subtle gradient background for the whole page */
+  background: linear-gradient(180deg, #fdf6f7 0%, #f8fafc 15%, #ffffff 100%);
+  padding-bottom: 40px;
+}
+
+/* 1. Profile Header */
+.profile-header-card {
+  /* Premium Medibank Blue gradient to distinctly differentiate from Home screen */
+  background: linear-gradient(135deg, #1e3f8a 0%, #3b82f6 100%);
+  padding: 16px 20px 60px; /* Extra bottom padding for overlap */
+  border-bottom-left-radius: 36px;
+  border-bottom-right-radius: 36px;
+  box-shadow: 0 12px 32px rgba(30, 63, 138, 0.18);
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft fade pseudo-element to blur edge transition slightly */
+.profile-header-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.06) 100%);
+  border-bottom-left-radius: 36px;
+  border-bottom-right-radius: 36px;
+  pointer-events: none;
+}
+
+.profile-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.profile-back-btn,
+.profile-edit-btn {
+  background: transparent;
+  color: #ffffff; /* White to contrast with blue header */
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px;
+  border-radius: 50%;
+  transition: opacity 0.15s;
+}
+
+.profile-edit-btn {
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 100px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.profile-back-btn:active,
+.profile-edit-btn:active {
+  opacity: 0.7;
+}
+
+.profile-identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.profile-avatar-large {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 800;
+  color: #1e3f8a; /* Medibank blue to match the new header */
+  margin-bottom: 16px;
+}
+
+.profile-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+}
+
+.profile-subtitle {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.profile-status-badge {
+  background: rgba(255, 255, 255, 0.95);
+  color: #d97706;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Page Content Wrap */
+.profile-content {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+/* 2. Progress Overview */
+.profile-progress-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: -55px; /* Overlap into the red header gradient */
+  position: relative;
+  z-index: 10;
+}
+
+.progress-card {
+  /* Very subtle gradient overlay */
+  background: linear-gradient(145deg, #ffffff 0%, #fcfcfd 100%);
+  border-radius: 18px;
+  padding: 18px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.progress-card:active {
+  transform: scale(0.96);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.progress-value {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.progress-value.gold-tier {
+  color: #d97706;
+}
+
+.progress-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  text-align: center;
+}
+
+/* 3. Transition Status */
+.profile-transition-card {
+  /* Subtle red-tinted warm background */
+  background: linear-gradient(165deg, #ffffff 20%, #fff2f4 100%);
+  border-radius: 20px;
+  padding: 22px 20px;
+  box-shadow: 0 8px 24px rgba(205, 13, 45, 0.05), 0 2px 8px rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(205, 13, 45, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.transition-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.transition-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(205, 13, 45, 0.08);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.transition-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+.transition-subtext {
+  font-size: 13.5px;
+  color: var(--text-gray);
+  line-height: 1.4;
+}
+
+.transition-progress-bar {
+  height: 6px;
+  background: rgba(205, 13, 45, 0.1);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.transition-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #cd0d2d, #f43f5e);
+  border-radius: 100px;
+}
+
+.transition-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--medibank-red);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: none;
+  box-shadow: 0 4px 14px rgba(205, 13, 45, 0.22);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.transition-cta:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 8px rgba(205, 13, 45, 0.15);
+}
+
+/* 4, 5, 6. Settings Sections */
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  padding-left: 4px;
+}
+
+.settings-card {
+  /* Very subtle gradient overlay */
+  background: linear-gradient(180deg, #ffffff 0%, #fcfdfd 100%);
+  border-radius: 18px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.settings-item {
+  display: flex;
+  align-items: center;
+  padding: 16px 18px;
+  background: transparent;
+  transition: background 0.15s;
+}
+
+.settings-item:active {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.settings-item:not(.last) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.settings-icon-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 14px;
+}
+
+.settings-label {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.settings-chevron {
+  color: #cbd5e1;
+}
+
+/* 7. Logout */
+.profile-logout-section {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0 30px;
+}
+
+.logout-btn {
+  background: transparent;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ef4444;
+  padding: 12px 24px;
+  border-radius: 100px;
+  transition: background 0.15s;
+}
+
+.logout-btn:active {
+  background: rgba(239, 68, 68, 0.08);
+}

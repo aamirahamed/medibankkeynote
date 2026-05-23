@@ -1,0 +1,600 @@
+.ovhc-transition-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.transition-step {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-bottom: 120px; /* space for sticky footer */
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.transition-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 24px;
+  background: #f8fafc;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-dark);
+  padding: 8px 0;
+  margin-right: 20px;
+}
+
+.transition-progress {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+  justify-content: center;
+  padding-right: 44px; /* offset back btn to perfectly center */
+}
+
+.progress-dot {
+  width: 36px;
+  height: 6px;
+  border-radius: 4px;
+  background: #e2e8f0;
+  transition: background 0.3s;
+}
+
+.progress-dot.active {
+  background: var(--medibank-red);
+}
+
+.transition-content {
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.title-block {
+  margin-bottom: 0px;
+}
+
+.main-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.2;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.main-sub {
+  font-size: 15px;
+  color: var(--text-gray);
+  line-height: 1.4;
+}
+
+.magic-fill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ecfdf5;
+  color: #059669;
+  padding: 8px 14px;
+  border-radius: 100px;
+  font-size: 13.5px;
+  font-weight: 700;
+  margin-top: 12px;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* Hero Plan Card */
+.recommended-plan-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px 24px 24px;
+  box-shadow: 0 8px 24px rgba(205, 13, 45, 0.08);
+  border: 1.5px solid var(--medibank-red);
+  position: relative;
+}
+
+.plan-badge {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  background: var(--medibank-red);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 6px 14px;
+  border-radius: 100px;
+  box-shadow: 0 4px 12px rgba(205, 13, 45, 0.3);
+}
+
+.plan-name {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.plan-price {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  margin-bottom: 10px;
+}
+
+.price-val {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -1px;
+}
+
+.price-period {
+  font-size: 15px;
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+.plan-advantage-msg {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0fdf4;
+  color: #15803d;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+
+.plan-benefits-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.plan-benefits-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14.5px;
+  color: var(--text-dark);
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.benefit-icon {
+  color: var(--medibank-red);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Value Reinforcement */
+.value-reinforcement {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.value-box {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.value-box.keep {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.value-box.lose {
+  background: #fafafa;
+  opacity: 0.95;
+}
+
+.value-box-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.value-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.value-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.val-icon { flex-shrink: 0; }
+.val-icon.gold { color: #d97706; }
+.val-icon.blue { color: #2563eb; }
+.val-icon.red { color: var(--medibank-red); }
+.val-icon.grey { color: #9ca3af; }
+
+/* Add-ons */
+.addons-section {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.addon-card {
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.addon-card:active {
+  transform: scale(0.98);
+}
+
+.addon-card.selected {
+  border-color: var(--medibank-red);
+  background: #fffcfd;
+  box-shadow: 0 4px 12px rgba(205, 13, 45, 0.05);
+}
+
+.addon-info {
+  flex: 1;
+}
+
+.addon-info h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.addon-info p {
+  font-size: 14px;
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+.addon-price {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-right: 18px;
+}
+
+.addon-checkbox {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all 0.2s;
+}
+
+.addon-card.selected .addon-checkbox {
+  background: var(--medibank-red);
+  border-color: var(--medibank-red);
+}
+
+/* Step 2: Summary & Info Cards */
+.summary-card, .info-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 15px;
+}
+
+.summary-label {
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+.summary-value {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.summary-value.highlight {
+  color: #059669;
+}
+
+.summary-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 16px 0;
+}
+
+.summary-row.total {
+  font-size: 20px;
+}
+
+.summary-row.total .summary-label {
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.summary-row.total .summary-value {
+  font-weight: 800;
+  color: var(--medibank-red);
+}
+
+.info-card {
+  position: relative;
+}
+
+.info-card-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+}
+
+.info-card-text {
+  font-size: 15px;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.edit-link {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: transparent;
+  border: none;
+  color: var(--medibank-blue);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.edit-link:active {
+  opacity: 0.6;
+}
+
+.payment-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.payment-icon {
+  color: #64748b;
+}
+
+.payment-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* Sticky Footer */
+.sticky-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 414px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  padding: 16px 24px 32px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 20;
+}
+
+.sticky-footer.absolute-bottom {
+  position: absolute;
+}
+
+.time-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-gray);
+}
+
+.primary-btn {
+  width: 100%;
+  background: var(--medibank-red);
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  padding: 18px;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 6px 16px rgba(205, 13, 45, 0.25);
+  transition: transform 0.15s, opacity 0.15s;
+}
+
+.primary-btn:active {
+  transform: scale(0.98);
+}
+
+.primary-btn.loading {
+  opacity: 0.8;
+}
+
+/* Step 3: Success */
+.success-step {
+  justify-content: center;
+  align-items: center;
+  padding: 40px 24px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.success-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: -120px;
+}
+
+.success-icon-wrap {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.success-shield {
+  color: var(--medibank-red);
+  fill: rgba(205, 13, 45, 0.08);
+}
+
+.success-check {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  background: #10b981;
+  color: #fff;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-check svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 3;
+}
+
+.success-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+}
+
+.success-sub {
+  font-size: 16px;
+  color: var(--text-gray);
+  line-height: 1.5;
+  margin-bottom: 36px;
+  max-width: 290px;
+}
+
+.success-details-card {
+  width: 100%;
+  background: #f8fafc;
+  border-radius: 18px;
+  padding: 24px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.success-detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.success-detail-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.success-detail-row:first-child {
+  padding-top: 0;
+}
+
+.sd-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-gray);
+}
+
+.sd-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.sd-value.gold {
+  color: #d97706;
+}
+
+@keyframes keynoteBreath {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 8px 24px rgba(205, 13, 45, 0.08);
+  }
+  50% {
+    transform: scale(1.015);
+    box-shadow: 0 12px 30px rgba(205, 13, 45, 0.2), 0 0 15px rgba(255, 77, 106, 0.25);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 8px 24px rgba(205, 13, 45, 0.08);
+  }
+}
+
+.recommended-plan-card.keynote-breath {
+  animation: keynoteBreath 6s ease-in-out infinite;
+  transition: border-color 0.5s ease;
+}

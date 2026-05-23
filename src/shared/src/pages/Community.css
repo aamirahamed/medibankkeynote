@@ -1,0 +1,770 @@
+/* ── Community Page ──────────────────────────────── */
+
+.community-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background-color: var(--bg-light);
+}
+
+/* ── Header ──────────────────────────────────────── */
+.community-header {
+  background: var(--gradient-medibank-red-header);
+  padding-bottom: 20px;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  box-shadow: 0 6px 24px rgba(205, 13, 45, 0.22);
+}
+
+.community-header-top {
+  padding: 14px 24px 0;
+}
+
+.community-logo {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.community-header-content {
+  padding: 14px 24px 0;
+}
+
+.community-header-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+  backdrop-filter: blur(4px);
+}
+
+.community-header-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 6px;
+}
+
+.community-header-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.4;
+  margin-bottom: 18px;
+}
+
+/* Stats strip */
+.community-stats-strip {
+  background: rgba(255,255,255,0.15);
+  border-radius: 14px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  backdrop-filter: blur(6px);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.stat-number {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.78);
+}
+
+.stat-divider {
+  width: 1px;
+  height: 32px;
+  background: rgba(255,255,255,0.25);
+}
+
+/* ── Tab Bar ─────────────────────────────────────── */
+.community-tab-bar {
+  display: flex;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 0 4px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.community-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.community-tab.tab-active {
+  color: var(--medibank-red);
+  border-bottom-color: var(--medibank-red);
+}
+
+/* ── Shared tab content wrapper ──────────────────── */
+.community-tab-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.tab-content {
+  padding: 20px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  animation: tabFadeIn 0.2s ease;
+}
+
+@keyframes tabFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Shared: search bar ──────────────────────────── */
+.search-bar-wrapper {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+
+.search-input {
+  width: 100%;
+  background: #fff;
+  border: 1.5px solid #f0f0f0;
+  border-radius: 14px;
+  padding: 12px 14px 12px 40px;
+  font-size: 14px;
+  color: var(--text-dark);
+  box-shadow: var(--shadow-card);
+  outline: none;
+  font-family: inherit;
+}
+
+/* ── Shared: filter chips ────────────────────────── */
+.filter-chips {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.filter-chips::-webkit-scrollbar { display: none; }
+
+.filter-chip {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: 100px;
+  background: #fff;
+  color: var(--text-gray);
+  border: 1.5px solid #e5e7eb;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.18s;
+}
+
+.filter-chip.chip-active {
+  background: var(--medibank-red);
+  color: #fff;
+  border-color: var(--medibank-red);
+  box-shadow: 0 3px 10px rgba(205,13,45,0.22);
+}
+
+/* ── Shared: cards list ──────────────────────────── */
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Section intro ───────────────────────────────── */
+.section-intro {
+  margin-bottom: 16px;
+}
+
+.section-intro-text {
+  font-size: 14px;
+  color: var(--text-gray);
+  line-height: 1.4;
+}
+
+/* ── GROUP CARDS ─────────────────────────────────── */
+.group-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  gap: 14px;
+  box-shadow: var(--shadow-card);
+  border: 1.5px solid transparent;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+
+.group-card:active {
+  transform: scale(0.985);
+}
+
+.group-card-left {
+  flex-shrink: 0;
+}
+
+.group-icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.group-emoji {
+  font-size: 22px;
+}
+
+.group-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.group-card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.group-category-tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 100px;
+}
+
+.group-joined-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #10b981;
+  background: #ecfdf5;
+  padding: 2px 9px;
+  border-radius: 100px;
+}
+
+.group-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.group-desc {
+  font-size: 12px;
+  color: var(--text-gray);
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+
+.group-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.group-members {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+.group-join-btn {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 7px 18px;
+  border-radius: 100px;
+  transition: all 0.18s;
+}
+
+.btn-join {
+  background: var(--medibank-red);
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(205,13,45,0.22);
+}
+
+.btn-joined {
+  background: #f3f4f6;
+  color: #6b7280;
+  border: 1.5px solid #e5e7eb;
+}
+
+.btn-join:active { transform: scale(0.94); }
+
+/* ── EVENT CARDS ─────────────────────────────────── */
+.event-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: var(--shadow-card);
+  border: 1.5px solid transparent;
+  transition: transform 0.18s;
+}
+
+.event-card:active { transform: scale(0.985); }
+
+.event-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.event-icon-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-emoji {
+  font-size: 22px;
+}
+
+.event-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.event-type-tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+.event-registered-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #10b981;
+  background: #ecfdf5;
+  padding: 2px 9px;
+  border-radius: 100px;
+}
+
+.event-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.event-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+.meta-icon {
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+.event-join-btn {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: 14px;
+  transition: all 0.18s;
+  text-align: center;
+}
+
+.btn-join-event {
+  background: var(--medibank-red);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(205,13,45,0.22);
+}
+
+.btn-registered {
+  background: #ecfdf5;
+  color: #10b981;
+  border: 1.5px solid rgba(16,185,129,0.25);
+}
+
+.btn-join-event:active { transform: scale(0.98); }
+
+/* ── BUDDY CARDS ─────────────────────────────────── */
+.buddy-intro-card {
+  background: linear-gradient(135deg, #eff6ff, #fff);
+  border-radius: 18px;
+  padding: 18px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  border: 1.5px solid rgba(30,63,138,0.1);
+  margin-bottom: 20px;
+}
+
+.buddy-intro-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.buddy-intro-content h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.buddy-intro-content p {
+  font-size: 13px;
+  color: var(--text-gray);
+  line-height: 1.5;
+}
+
+.buddy-section-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-gray);
+  margin-bottom: 12px;
+}
+
+.buddy-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: var(--shadow-card);
+  border: 1.5px solid transparent;
+  transition: transform 0.18s;
+  margin-bottom: 12px;
+}
+
+.buddy-card:active { transform: scale(0.985); }
+
+.buddy-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.buddy-avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.buddy-avatar {
+  font-size: 38px;
+  display: block;
+  line-height: 1;
+}
+
+.buddy-online-dot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 11px;
+  height: 11px;
+  background: #10b981;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.buddy-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.buddy-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+.buddy-uni {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--medibank-blue);
+  margin-bottom: 2px;
+}
+
+.buddy-details {
+  font-size: 12px;
+  color: var(--text-gray);
+}
+
+.buddy-flag {
+  flex-shrink: 0;
+}
+
+.buddy-country-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+.buddy-bio {
+  font-size: 13px;
+  color: var(--text-gray);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.buddy-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.buddy-tag {
+  font-size: 11px;
+  font-weight: 600;
+  background: #eff6ff;
+  color: var(--medibank-blue);
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.buddy-connect-btn {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: all 0.18s;
+}
+
+.btn-connect {
+  background: var(--medibank-red);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(205,13,45,0.22);
+}
+
+.btn-requested {
+  background: #f3f4f6;
+  color: #6b7280;
+  border: 1.5px solid #e5e7eb;
+}
+
+.btn-connect:active { transform: scale(0.98); }
+
+.buddy-cta-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.buddy-cta-text {
+  font-size: 13px;
+  color: var(--text-gray);
+}
+
+.buddy-browse-btn {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--medibank-red);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ── DISCOVER TAB ────────────────────────────────── */
+.discover-section {
+  margin-bottom: 24px;
+}
+
+.discover-section-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 12px;
+}
+
+.discover-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.discover-section-icon {
+  flex-shrink: 0;
+}
+
+.discover-section-icon.flame {
+  color: #f97316;
+}
+
+.discover-section-icon.trending {
+  color: var(--medibank-blue);
+}
+
+.discover-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 10px;
+  border: 1.5px solid transparent;
+  transition: transform 0.18s;
+  cursor: pointer;
+}
+
+.discover-card:active { transform: scale(0.985); }
+
+.hot-card {
+  border-color: rgba(249,115,22,0.15);
+  background: linear-gradient(135deg, #fff 70%, #fff7ed 100%);
+}
+
+.discover-card-left {
+  flex-shrink: 0;
+}
+
+.discover-emoji {
+  font-size: 24px;
+  display: block;
+}
+
+.discover-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.discover-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+.discover-meta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #9ca3af;
+  font-weight: 500;
+  flex-wrap: wrap;
+}
+
+.discover-group {
+  font-weight: 600;
+  color: var(--medibank-blue);
+}
+
+.discover-dot {
+  color: #d1d5db;
+}
+
+.discover-chevron {
+  color: #d1d5db;
+  flex-shrink: 0;
+}
+
+/* Discover callout */
+.discover-callout {
+  background: linear-gradient(135deg, #fff1f2, #fff);
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1.5px solid rgba(205,13,45,0.12);
+  cursor: pointer;
+}
+
+.callout-icon {
+  color: var(--medibank-red);
+  flex-shrink: 0;
+}
+
+.callout-text {
+  flex: 1;
+}
+
+.callout-text strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.callout-text p {
+  font-size: 12px;
+  color: var(--text-gray);
+}
+
+.callout-chevron {
+  color: #c4c9d4;
+  flex-shrink: 0;
+}

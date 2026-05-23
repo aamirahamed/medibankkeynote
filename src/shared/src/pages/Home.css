@@ -1,0 +1,666 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background-color: var(--bg-light);
+  position: relative;
+}
+
+/* Premium Header Section */
+.premium-header-section {
+  background: var(--gradient-medibank-red-header);
+  padding-top: env(safe-area-inset-top, 40px);
+  padding-bottom: 70px; /* Extra padding for the overlapping card */
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  box-shadow: 0 4px 20px rgba(205, 13, 45, 0.2);
+}
+
+.premium-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 24px;
+}
+
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rewards-pill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 12px 6px 10px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  transition: transform 0.15s, background 0.15s;
+}
+
+.rewards-pill:active {
+  transform: scale(0.96);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.rewards-icon {
+  color: #fcd34d;
+  fill: #fcd34d;
+}
+
+.rewards-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.1px;
+}
+
+.rewards-notif-dot {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  width: 6px;
+  height: 6px;
+  background: #10b981; /* Green dot for new rewards/updates */
+  border-radius: 50%;
+  border: 1.5px solid var(--medibank-red);
+}
+
+.profile-avatar-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--medibank-red);
+  letter-spacing: 0.5px;
+  transition: transform 0.15s;
+}
+
+.profile-avatar-btn:active {
+  transform: scale(0.94);
+}
+
+.logo-text {
+  color: var(--white);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.premium-greeting-container {
+  padding: 16px 24px 20px;
+  color: var(--white);
+}
+
+.greeting-title {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.greeting-subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.95;
+  margin-bottom: 12px;
+}
+
+.greeting-dynamic-badge {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+}
+
+/* Main Content Area (Overlapping the header) */
+.premium-main-content {
+  margin-top: -50px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Journey Progress Card */
+.premium-journey-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-card-elevated);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.journey-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.journey-card-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.journey-progress-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--medibank-red);
+}
+
+.journey-progress-bar {
+  height: 8px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.journey-progress-fill {
+  height: 100%;
+  background-color: var(--medibank-red);
+  border-radius: 4px;
+  transition: width 0.5s ease-out;
+}
+
+.journey-current-stage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.stage-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.stage-badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--medibank-blue);
+  background-color: rgba(30, 63, 138, 0.1);
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+/* Tasks List */
+.journey-tasks-list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.journey-task-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.task-divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 0 12px;
+}
+
+.task-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.task-icon-wrapper.pending {
+  background-color: #f5f5f5;
+  color: var(--text-gray);
+}
+
+.task-icon-wrapper.active {
+  background-color: rgba(205, 13, 45, 0.1);
+  color: var(--medibank-red);
+}
+
+.task-icon-wrapper.completed {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.task-details {
+  flex: 1;
+}
+
+.task-details h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.task-title-completed {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-gray);
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+
+.task-status {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.task-status.pending {
+  color: var(--text-gray);
+}
+
+.task-status.active {
+  color: var(--medibank-red);
+}
+
+.task-status.completed {
+  color: #10b981;
+}
+
+.task-cta-btn {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+
+.task-cta-btn.primary {
+  background-color: var(--medibank-blue);
+  color: var(--white);
+}
+
+.task-cta-btn.secondary {
+  background-color: transparent;
+  color: var(--medibank-blue);
+  border: 1px solid rgba(30, 63, 138, 0.3);
+}
+
+/* Journey Footer */
+.journey-card-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.journey-footer-text {
+  font-size: 13px;
+  color: var(--text-gray);
+  text-align: center;
+}
+
+.journey-main-cta {
+  background-color: var(--medibank-red);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px;
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(205, 13, 45, 0.2);
+  transition: transform 0.2s;
+}
+
+.journey-main-cta:active {
+  transform: scale(0.98);
+}
+
+/* Smart Insight Card */
+.premium-insight-card {
+  background: var(--gradient-teal);
+  border-radius: var(--border-radius-lg);
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.insight-icon-wrapper {
+  background-color: var(--white);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  flex-shrink: 0;
+  color: #0d9488;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.insight-content h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.insight-content p {
+  font-size: 13px;
+  color: var(--text-gray);
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.insight-cta-btn {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0d9488;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+}
+
+/* Legacy Menu Section */
+.premium-menu-section {
+  padding: 0 20px 20px;
+}
+
+.menu-list {
+  background-color: var(--white);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 20px 16px;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-icon-placeholder {
+  margin-right: 16px;
+  color: var(--text-dark);
+}
+
+.menu-text {
+  flex: 1;
+}
+
+.menu-text h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.menu-text p {
+  font-size: 13px;
+  color: var(--text-gray);
+  line-height: 1.3;
+}
+
+.chevron {
+  color: var(--text-gray);
+  opacity: 0.5;
+  margin-left: 12px;
+}
+
+/* ── Community Widget ──────────────────────────────── */
+
+.home-community-widget {
+  background: #ffffff;
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-card-elevated);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.community-widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.community-widget-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.community-widget-icon-wrap {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: rgba(205, 13, 45, 0.08);
+  color: var(--medibank-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.community-widget-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.community-widget-see-all {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--medibank-red);
+  padding: 0;
+  background: none;
+}
+
+.community-preview-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 14px;
+  padding: 13px 14px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.community-event-preview {
+  border-color: rgba(30, 63, 138, 0.1);
+  background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
+}
+
+.community-group-preview {
+  border-color: rgba(205, 13, 45, 0.08);
+  background: linear-gradient(135deg, #fff9f9 0%, #ffffff 100%);
+}
+
+.community-preview-card:active {
+  transform: scale(0.984);
+}
+
+.preview-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.preview-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.preview-card-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.preview-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.3;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.preview-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+.preview-meta-dot {
+  color: #d1d5db;
+}
+
+.preview-card-cta {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--medibank-blue);
+  background: rgba(30, 63, 138, 0.08);
+  padding: 6px 11px;
+  border-radius: 100px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  transition: background 0.18s;
+}
+
+.community-group-preview .preview-card-cta {
+  color: var(--medibank-red);
+  background: rgba(205, 13, 45, 0.08);
+}
+
+.preview-card-cta:active {
+  opacity: 0.8;
+}
+
+.community-widget-explore-btn {
+  width: 100%;
+  background: var(--bg-light);
+  border: 1.5px solid #e5e7eb;
+  color: var(--text-dark);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.18s ease;
+  margin-top: 2px;
+}
+
+.community-widget-explore-btn:active {
+  background: #e9ebee;
+  transform: scale(0.98);
+}
+
+/* ── Quick Actions (Premium Grid) ─────────────────────── */
+
+.qa-section {
+  margin-bottom: 24px;
+}
+
+.qa-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+  padding-left: 4px;
+}
+
+.qa-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.qa-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1; /* distributes them evenly */
+}
+
+.qa-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px; /* subtle modern squircle */
+  background: rgba(30, 63, 138, 0.04); /* very soft Medibank blue tint */
+  color: var(--medibank-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.015);
+  transition: transform 0.15s, background 0.15s;
+}
+
+.qa-item:active .qa-icon-wrap {
+  transform: scale(0.96);
+  background: rgba(30, 63, 138, 0.08);
+}
+
+.qa-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: center;
+  line-height: 1.15;
+  width: 100%;
+  max-width: 60px; /* forces wrap if text is too long, keeps it tidy */
+}

@@ -5,17 +5,12 @@ import path from 'path';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  server: {
-    fs: {
-      // Allow serving files from the parent directory (workspace root)
-      allow: ['..'],
-    },
-  },
   resolve: {
     alias: {
-      '@src': path.resolve(__dirname, '../src'),
-      '@admin': path.resolve(__dirname, '../admin-engine/src'),
+      '@src': path.resolve(__dirname, 'src/shared/src'),
+      '@admin': path.resolve(__dirname, 'src/shared/admin-engine/src'),
     },
     dedupe: ['react', 'react-dom', 'lucide-react', 'react-router-dom']
   }
 });
+
