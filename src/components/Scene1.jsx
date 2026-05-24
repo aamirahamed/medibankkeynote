@@ -700,7 +700,7 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                 transition={{ delay: 0.6, duration: 1.0, ease: "easeOut" }}
                 style={{ display: 'flex', alignItems: 'center', gap: '16px' }}
               >
-                <TransparentMedibankLogo src="/Medibank.png" height="42px" />
+                <TransparentMedibankLogo src="/Medibank.png" height="52px" />
                 <span style={{ color: 'rgba(255, 255, 255, 0.35)', fontSize: '24px', fontWeight: 300 }}>×</span>
                 <WhiteTextRmitLogo src="/RMIT.png" height="48px" />
               </motion.div>
