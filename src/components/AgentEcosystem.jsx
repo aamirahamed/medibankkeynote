@@ -371,6 +371,35 @@ export default function AgentEcosystem({ step, agentPhase }) {
           const output = getAgentOutput(agent.id);
           const isGlowing = getAgentGlow(agent.id);
 
+          let popupAnimate = { opacity: 1, y: 0, scale: 1 };
+          let popupTransition = { duration: 0.5 };
+
+          if (step === 15) {
+            if (agent.id === 'visa') {
+              popupAnimate = {
+                opacity: [0, 0, 1, 1, 0],
+                y: [10, 10, 0, 0, 10],
+                scale: [0.95, 0.95, 1, 1, 0.95]
+              };
+              popupTransition = {
+                duration: 10.5,
+                times: [0, 0.095, 0.124, 0.495, 0.533],
+                ease: 'easeInOut'
+              };
+            } else if (agent.id === 'conversion') {
+              popupAnimate = {
+                opacity: [0, 0, 1, 1, 0],
+                y: [10, 10, 0, 0, 10],
+                scale: [0.95, 0.95, 1, 1, 0.95]
+              };
+              popupTransition = {
+                duration: 10.5,
+                times: [0, 0.343, 0.371, 0.495, 0.533],
+                ease: 'easeInOut'
+              };
+            }
+          }
+
           const baseAnimate = {
               x: tx,
               y: ty,
@@ -495,7 +524,8 @@ export default function AgentEcosystem({ step, agentPhase }) {
               {output && (
                 <motion.div
                   initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  animate={popupAnimate}
+                  transition={popupTransition}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   style={{
                     position: 'absolute',
