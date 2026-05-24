@@ -130,6 +130,12 @@ export default function AgentEcosystem({ step, agentPhase }) {
           desc: 'Behavior strongly aligns with successful transitions'
         };
       }
+      if (agentId === 'community') {
+        return {
+          title: 'Postgrad engagement up (2.6x)',
+          desc: 'Graduate Visa Q&A attendees show high conversion propensity'
+        };
+      }
       if (agentId === 'visa') {
         return {
           title: 'Stay intent confirmed (94%)',
@@ -384,6 +390,17 @@ export default function AgentEcosystem({ step, agentPhase }) {
               popupTransition = {
                 duration: 10.5,
                 times: [0, 0.095, 0.124, 0.495, 0.533],
+                ease: 'easeInOut'
+              };
+            } else if (agent.id === 'community') {
+              popupAnimate = {
+                opacity: [0, 0, 1, 1, 0],
+                y: [10, 10, 0, 0, 10],
+                scale: [0.95, 0.95, 1, 1, 0.95]
+              };
+              popupTransition = {
+                duration: 10.5,
+                times: [0, 0.219, 0.248, 0.495, 0.533],
                 ease: 'easeInOut'
               };
             } else if (agent.id === 'conversion') {
