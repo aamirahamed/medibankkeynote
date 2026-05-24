@@ -449,6 +449,70 @@ const WhiteTextRmitLogo = ({ src, height }) => {
   );
 };
 
+const TransparentMedibankLogo = ({ src, height }) => {
+  const [processedSrc, setProcessedSrc] = useState(src);
+
+  useEffect(() => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.src = src;
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+
+      const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imgData.data;
+
+      for (let i = 0; i < data.length; i += 4) {
+        const r = data[i];
+        const g = data[i + 1];
+        const b = data[i + 2];
+        const a = data[i + 3];
+
+        const rn = r / 255;
+        const gn = g / 255;
+        const bn = b / 255;
+        const an = a / 255;
+
+        // Estimate background (white) contribution
+        const minVal = Math.min(rn, gn, bn);
+        const alpha = (1 - minVal) * an;
+
+        if (alpha < 0.05) {
+          data[i + 3] = 0;
+        } else {
+          // De-blend: recover original logo color on transparent background
+          const rLogo = Math.max(0, Math.min(255, Math.round(((rn - minVal) / alpha) * 255)));
+          const gLogo = Math.max(0, Math.min(255, Math.round(((gn - minVal) / alpha) * 255)));
+          const bLogo = Math.max(0, Math.min(255, Math.round(((bn - minVal) / alpha) * 255)));
+
+          data[i] = rLogo;
+          data[i + 1] = gLogo;
+          data[i + 2] = bLogo;
+          data[i + 3] = Math.max(0, Math.min(255, Math.round(alpha * 255)));
+        }
+      }
+
+      ctx.putImageData(imgData, 0, 0);
+      setProcessedSrc(canvas.toDataURL());
+    };
+  }, [src]);
+
+  return (
+    <img 
+      src={processedSrc} 
+      alt="Medibank" 
+      style={{ 
+        height: height, 
+        objectFit: 'contain'
+      }} 
+    />
+  );
+};
+
 const Scene1 = ({ globalStep, onCompanionGlow }) => {
   // We use the globalStep to advance the narrative.
   // The global orchestrator (App.jsx) controls this step.
@@ -540,14 +604,6 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                     <feMergeNode in="blur" />
                     <feMergeNode in="SourceGraphic" />
                   </feMerge>
-                </filter>
-                <filter id="remove-white-bg">
-                  <feColorMatrix type="matrix" values="
-                    1 0 0 0 0
-                    0 1 0 0 0
-                    0 0 1 0 0
-                    -3 -3 -3 8.5 -0.5
-                  "/>
                 </filter>
               </defs>
 
@@ -644,15 +700,7 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                 transition={{ delay: 0.6, duration: 1.0, ease: "easeOut" }}
                 style={{ display: 'flex', alignItems: 'center', gap: '16px' }}
               >
-                <img 
-                  src="/Medibank.png" 
-                  alt="Medibank" 
-                  style={{ 
-                    height: '42px', 
-                    filter: 'url(#remove-white-bg)',
-                    objectFit: 'contain'
-                  }} 
-                />
+                <TransparentMedibankLogo src="/Medibank.png" height="42px" />
                 <span style={{ color: 'rgba(255, 255, 255, 0.35)', fontSize: '24px', fontWeight: 300 }}>×</span>
                 <WhiteTextRmitLogo src="/RMIT.png" height="48px" />
               </motion.div>
