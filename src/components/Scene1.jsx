@@ -721,7 +721,7 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                     textAlign: 'left'
                   }}
                 >
-                  Reimagining the<br />International Student<br />Journey
+                  Beyond Insurance.<br />Building Student Continuity.
                 </motion.h1>
                 
                 {/* Thin glowing red line */}
@@ -753,7 +753,7 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                     maxWidth: '520px'
                   }}
                 >
-                  Transforming OSHC engagement into long-term health continuity through behavioural intelligence and AI-powered conversion workflows.
+                  A connected ecosystem that helps Medibank engage international students earlier, understand them better, and retain them longer.
                 </motion.p>
               </div>
 
