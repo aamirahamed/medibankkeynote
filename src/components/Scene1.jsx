@@ -395,6 +395,60 @@ const teamMembers = [
   { name: "Yojit Kohli", initials: "YK", x: 285, y: 270 }
 ];
 
+const WhiteTextRmitLogo = ({ src, height }) => {
+  const [processedSrc, setProcessedSrc] = useState(src);
+
+  useEffect(() => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.src = src;
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+
+      const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imgData.data;
+
+      // Loop through all pixels and swap non-red dark pixels to white
+      for (let i = 0; i < data.length; i += 4) {
+        const r = data[i];
+        const g = data[i + 1];
+        const b = data[i + 2];
+        const a = data[i + 3];
+
+        if (a > 10) {
+          // RMIT Red is around R=230, G=30, B=42.
+          // We can classify a pixel as RMIT Red if it has a strong red dominance: (R - G) > 80.
+          // If a pixel is NOT red and is opaque, it is part of the black/grey text or borders.
+          const isRed = (r - g) > 80;
+          if (!isRed) {
+            data[i] = 255;     // R
+            data[i + 1] = 255; // G
+            data[i + 2] = 255; // B
+          }
+        }
+      }
+
+      ctx.putImageData(imgData, 0, 0);
+      setProcessedSrc(canvas.toDataURL());
+    };
+  }, [src]);
+
+  return (
+    <img 
+      src={processedSrc} 
+      alt="RMIT" 
+      style={{ 
+        height: height, 
+        objectFit: 'contain'
+      }} 
+    />
+  );
+};
+
 const Scene1 = ({ globalStep, onCompanionGlow }) => {
   // We use the globalStep to advance the narrative.
   // The global orchestrator (App.jsx) controls this step.
@@ -600,15 +654,7 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                   }} 
                 />
                 <span style={{ color: 'rgba(255, 255, 255, 0.35)', fontSize: '24px', fontWeight: 300 }}>×</span>
-                <img 
-                  src="/RMIT.png" 
-                  alt="RMIT" 
-                  style={{ 
-                    height: '48px', 
-                    filter: 'invert(1) hue-rotate(180deg)',
-                    objectFit: 'contain'
-                  }} 
-                />
+                <WhiteTextRmitLogo src="/RMIT.png" height="48px" />
               </motion.div>
 
               {/* Main Title Group */}
