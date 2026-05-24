@@ -487,6 +487,14 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                     <feMergeNode in="SourceGraphic" />
                   </feMerge>
                 </filter>
+                <filter id="remove-white-bg">
+                  <feColorMatrix type="matrix" values="
+                    1 0 0 0 0
+                    0 1 0 0 0
+                    0 0 1 0 0
+                    -3 -3 -3 8.5 -0.5
+                  "/>
+                </filter>
               </defs>
 
               {/* Curved paths */}
@@ -580,11 +588,26 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 1.0, ease: "easeOut" }}
-                style={{ display: 'flex', alignItems: 'center', gap: '14px', fontSize: '16px', fontWeight: 700, letterSpacing: '0.08em' }}
+                style={{ display: 'flex', alignItems: 'center', gap: '16px' }}
               >
-                <span style={{ color: '#ff4d6a' }}>MEDIBANK</span>
-                <span style={{ color: 'rgba(255, 255, 255, 0.35)', fontWeight: 300 }}>×</span>
-                <span style={{ color: '#ffffff' }}>RMIT</span>
+                <img 
+                  src="/medibank.png" 
+                  alt="Medibank" 
+                  style={{ 
+                    height: '24px', 
+                    filter: 'url(#remove-white-bg)',
+                    objectFit: 'contain'
+                  }} 
+                />
+                <span style={{ color: 'rgba(255, 255, 255, 0.35)', fontSize: '18px', fontWeight: 300 }}>×</span>
+                <img 
+                  src="/rmit.png" 
+                  alt="RMIT" 
+                  style={{ 
+                    height: '28px', 
+                    objectFit: 'contain'
+                  }} 
+                />
               </motion.div>
 
               {/* Main Title Group */}
