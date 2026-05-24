@@ -698,10 +698,10 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 1.0, ease: "easeOut" }}
-                style={{ display: 'flex', alignItems: 'center', gap: '16px' }}
+                style={{ display: 'flex', alignItems: 'center' }}
               >
                 <TransparentMedibankLogo src="/Medibank.png" height="52px" />
-                <div style={{ width: '1px', height: '28px', backgroundColor: 'rgba(255, 255, 255, 0.22)', margin: '0 4px' }} />
+                <div style={{ width: '1px', height: '28px', backgroundColor: 'rgba(255, 255, 255, 0.22)', margin: '0 20px' }} />
                 <WhiteTextRmitLogo src="/RMIT.png" height="48px" />
               </motion.div>
 
