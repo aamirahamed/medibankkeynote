@@ -388,11 +388,11 @@ const TeamProfile = ({ name, initials, index, x, y }) => {
 const teamMembers = [
   { name: "Aamir Ahamed", initials: "AA", x: 95, y: 0 },
   { name: "Akanksha Hiremath", initials: "AH", x: 285, y: 0 },
-  { name: "Harshitha Rupesh", initials: "HR", x: 0, y: 135 },
-  { name: "Lalit Aditya", initials: "LA", x: 190, y: 135 },
-  { name: "Navneet Krishna", initials: "NK", x: 380, y: 135 },
-  { name: "Umair Ahamed", initials: "UA", x: 95, y: 270 },
-  { name: "Yojit Kohli", initials: "YK", x: 285, y: 270 }
+  { name: "Harshitha Rupesh", initials: "HR", x: 0, y: 165 },
+  { name: "Lalit Aditya", initials: "LA", x: 190, y: 165 },
+  { name: "Navneet Krishna", initials: "NK", x: 380, y: 165 },
+  { name: "Umair Ahamed", initials: "UA", x: 95, y: 330 },
+  { name: "Yojit Kohli", initials: "YK", x: 285, y: 330 }
 ];
 
 const WhiteTextRmitLogo = ({ src, height }) => {
@@ -777,7 +777,7 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
             <div style={{
               position: 'relative',
               width: '500px',
-              height: '410px',
+              height: '460px',
               zIndex: 10
             }}>
               {teamMembers.map((member, idx) => (
