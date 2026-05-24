@@ -1354,9 +1354,9 @@ export default function Scene2({ globalStep }) {
         <AnimatePresence>
           {(step === 17 || step === 18) && (
             <motion.div
-              initial={{ opacity: 0, x: 460, y: -20, scale: 0.95 }}
-              animate={{ opacity: 1, x: 430, y: -20, scale: 1 }}
-              exit={{ opacity: 0, x: 460, y: -20, scale: 0.95 }}
+              initial={{ opacity: 0, x: 360, y: -20, scale: 0.95 }}
+              animate={{ opacity: 1, x: 320, y: -20, scale: 1 }}
+              exit={{ opacity: 0, x: 360, y: -20, scale: 0.95 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               style={{
                 position: 'absolute',
