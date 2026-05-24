@@ -591,7 +591,7 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                 style={{ display: 'flex', alignItems: 'center', gap: '16px' }}
               >
                 <img 
-                  src="/medibank.png" 
+                  src="/Medibank.png" 
                   alt="Medibank" 
                   style={{ 
                     height: '24px', 
@@ -601,7 +601,7 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                 />
                 <span style={{ color: 'rgba(255, 255, 255, 0.35)', fontSize: '18px', fontWeight: 300 }}>×</span>
                 <img 
-                  src="/rmit.png" 
+                  src="/RMIT.png" 
                   alt="RMIT" 
                   style={{ 
                     height: '28px', 
