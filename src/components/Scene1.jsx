@@ -768,7 +768,7 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                   Presented by
                 </span>
                 <span style={{ fontSize: '15px', fontWeight: 500, color: '#ffffff', letterSpacing: '0.01em' }}>
-                  RMIT MBIT Industry Project Team
+                  Group 6
                 </span>
               </motion.div>
             </div>
