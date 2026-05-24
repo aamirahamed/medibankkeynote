@@ -594,17 +594,17 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                   src="/Medibank.png" 
                   alt="Medibank" 
                   style={{ 
-                    height: '24px', 
+                    height: '42px', 
                     filter: 'url(#remove-white-bg)',
                     objectFit: 'contain'
                   }} 
                 />
-                <span style={{ color: 'rgba(255, 255, 255, 0.35)', fontSize: '18px', fontWeight: 300 }}>×</span>
+                <span style={{ color: 'rgba(255, 255, 255, 0.35)', fontSize: '24px', fontWeight: 300 }}>×</span>
                 <img 
                   src="/RMIT.png" 
                   alt="RMIT" 
                   style={{ 
-                    height: '28px', 
+                    height: '48px', 
                     objectFit: 'contain'
                   }} 
                 />
