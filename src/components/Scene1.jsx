@@ -792,23 +792,7 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
               ))}
             </div>
 
-            {/* Bottom-Right Footnote */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.35 }}
-              transition={{ delay: 2.2, duration: 1.2 }}
-              style={{
-                position: 'absolute',
-                bottom: '40px',
-                right: '8%',
-                fontSize: '11px',
-                color: '#ffffff',
-                letterSpacing: '0.05em',
-                zIndex: 10
-              }}
-            >
-              Medibank Industry Collaboration • 2026
-            </motion.div>
+
           </motion.div>
         ) : (
           <motion.div
