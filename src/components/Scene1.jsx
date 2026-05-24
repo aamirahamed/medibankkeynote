@@ -701,7 +701,7 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                 style={{ display: 'flex', alignItems: 'center', gap: '16px' }}
               >
                 <TransparentMedibankLogo src="/Medibank.png" height="52px" />
-                <span style={{ color: 'rgba(255, 255, 255, 0.35)', fontSize: '24px', fontWeight: 300 }}>×</span>
+                <div style={{ width: '1px', height: '28px', backgroundColor: 'rgba(255, 255, 255, 0.22)', margin: '0 4px' }} />
                 <WhiteTextRmitLogo src="/RMIT.png" height="48px" />
               </motion.div>
 
