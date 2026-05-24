@@ -495,14 +495,6 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                     -3 -3 -3 8.5 -0.5
                   "/>
                 </filter>
-                <filter id="rmit-invert-text">
-                  <feColorMatrix type="matrix" values="
-                    0  0  0  0  1
-                   -1  0  0  0  1
-                   -1  0  0  0  1
-                    0  0  0  1  0
-                  "/>
-                </filter>
               </defs>
 
               {/* Curved paths */}
@@ -613,7 +605,7 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                   alt="RMIT" 
                   style={{ 
                     height: '48px', 
-                    filter: 'url(#rmit-invert-text)',
+                    filter: 'invert(1) hue-rotate(180deg)',
                     objectFit: 'contain'
                   }} 
                 />
