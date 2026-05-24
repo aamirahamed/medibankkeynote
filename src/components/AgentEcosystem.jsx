@@ -253,8 +253,8 @@ export default function AgentEcosystem({ step, agentPhase }) {
                 `0 8px 32px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.02), 0 0 15px ${layer.color}05`
               ];
               transitionConfig = {
-                duration: 10.5,
-                times: [0, 0.44, 0.47, 0.50, 0.86, 1.0],
+                duration: 12.5,
+                times: [0, 0.44, 0.47, 0.50, 0.864, 1.0],
                 ease: 'easeInOut'
               };
             } else if (key === 'orchestration') {
@@ -270,8 +270,8 @@ export default function AgentEcosystem({ step, agentPhase }) {
                 `0 8px 32px rgba(0, 0, 0, 0.6), inset 0 0 0 1px ${layer.color}40, 0 0 35px ${layer.color}35`
               ];
               transitionConfig = {
-                duration: 10.5,
-                times: [0, 0.86, 1.0],
+                duration: 12.5,
+                times: [0, 0.864, 1.0],
                 ease: 'easeInOut'
               };
             }
@@ -388,8 +388,8 @@ export default function AgentEcosystem({ step, agentPhase }) {
                 scale: [0.95, 0.95, 1, 1, 0.95]
               };
               popupTransition = {
-                duration: 10.5,
-                times: [0, 0.095, 0.124, 0.495, 0.533],
+                duration: 12.5,
+                times: [0, 0.088, 0.112, 0.60, 0.632],
                 ease: 'easeInOut'
               };
             } else if (agent.id === 'community') {
@@ -399,8 +399,8 @@ export default function AgentEcosystem({ step, agentPhase }) {
                 scale: [0.95, 0.95, 1, 1, 0.95]
               };
               popupTransition = {
-                duration: 10.5,
-                times: [0, 0.219, 0.248, 0.495, 0.533],
+                duration: 12.5,
+                times: [0, 0.208, 0.232, 0.60, 0.632],
                 ease: 'easeInOut'
               };
             } else if (agent.id === 'conversion') {
@@ -410,8 +410,8 @@ export default function AgentEcosystem({ step, agentPhase }) {
                 scale: [0.95, 0.95, 1, 1, 0.95]
               };
               popupTransition = {
-                duration: 10.5,
-                times: [0, 0.343, 0.371, 0.495, 0.533],
+                duration: 12.5,
+                times: [0, 0.328, 0.352, 0.60, 0.632],
                 ease: 'easeInOut'
               };
             }
@@ -468,8 +468,8 @@ export default function AgentEcosystem({ step, agentPhase }) {
                   boxShadow: [normalShadow, normalShadow, glowShadow, glowShadow, glowShadow, dimmedGlowShadow]
                 };
                 transitionConfigForCard = {
-                  duration: 10.5,
-                  times: [0, 0.04, 0.08, 0.53, 0.59, 1.0],
+                  duration: 12.5,
+                  times: [0, 0.04, 0.08, 0.60, 0.65, 1.0],
                   ease: 'easeInOut'
                 };
               } else if (agent.id === 'community') {
@@ -481,8 +481,8 @@ export default function AgentEcosystem({ step, agentPhase }) {
                   boxShadow: [normalShadow, normalShadow, glowShadow, glowShadow, glowShadow, dimmedGlowShadow]
                 };
                 transitionConfigForCard = {
-                  duration: 10.5,
-                  times: [0, 0.17, 0.21, 0.53, 0.59, 1.0],
+                  duration: 12.5,
+                  times: [0, 0.16, 0.20, 0.60, 0.65, 1.0],
                   ease: 'easeInOut'
                 };
               } else if (agent.id === 'conversion') {
@@ -494,8 +494,8 @@ export default function AgentEcosystem({ step, agentPhase }) {
                   boxShadow: [normalShadow, normalShadow, glowShadow, glowShadow, glowShadow, dimmedGlowShadow]
                 };
                 transitionConfigForCard = {
-                  duration: 10.5,
-                  times: [0, 0.29, 0.33, 0.53, 0.59, 1.0],
+                  duration: 12.5,
+                  times: [0, 0.28, 0.32, 0.60, 0.65, 1.0],
                   ease: 'easeInOut'
                 };
               } else if (agent.layer === 'detection') {
@@ -748,7 +748,7 @@ export default function AgentEcosystem({ step, agentPhase }) {
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: [0, 432, 432, 0], opacity: [0, 1, 1, 0] }}
-                transition={{ duration: 1.6, times: [0, 0.375, 0.875, 1.0], delay: 4.6, ease: 'easeInOut' }}
+                transition={{ duration: 1.6, times: [0, 0.375, 0.875, 1.0], delay: 5.5, ease: 'easeInOut' }}
                 style={{
                   position: 'absolute',
                   top: '50%',
@@ -768,7 +768,7 @@ export default function AgentEcosystem({ step, agentPhase }) {
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: [0, 216, 216, 0], opacity: [0, 1, 1, 0] }}
-                transition={{ duration: 1.6, times: [0, 0.375, 0.875, 1.0], delay: 4.6, ease: 'easeInOut' }}
+                transition={{ duration: 1.6, times: [0, 0.375, 0.875, 1.0], delay: 5.5, ease: 'easeInOut' }}
                 style={{
                   position: 'absolute',
                   top: '50%',
@@ -788,7 +788,7 @@ export default function AgentEcosystem({ step, agentPhase }) {
               <motion.div
                 initial={{ scale: 0.8, opacity: 0, x: 0, y: 12 }}
                 animate={{ scale: [0.8, 1, 1, 0.1], opacity: [0, 1, 1, 0], x: [0, 0, 0, 0], y: [12, 12, 12, 12] }}
-                transition={{ duration: 2.8, times: [0, 0.18, 0.82, 1.0], delay: 6.2, ease: 'easeInOut' }}
+                transition={{ duration: 2.8, times: [0, 0.18, 0.82, 1.0], delay: 8.0, ease: 'easeInOut' }}
                 style={{
                   position: 'absolute',
                   top: '50%',
@@ -844,7 +844,7 @@ export default function AgentEcosystem({ step, agentPhase }) {
                 transition={{
                   duration: 1.5,
                   times: [0, 0.1, 1.0],
-                  delay: 9.0,
+                  delay: 10.8,
                   ease: "easeInOut"
                 }}
                 style={{
