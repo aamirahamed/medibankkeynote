@@ -325,12 +325,19 @@ const TeamProfile = ({ name, initials, index, x, y }) => {
             '0 0 20px rgba(255, 77, 106, 0.22), inset 0 0 15px rgba(255, 77, 106, 0.12)',
             '0 0 10px rgba(255, 77, 106, 0.08), inset 0 0 10px rgba(255, 255, 255, 0.03)'
           ],
-          scale: [1, 1.015, 1]
+          scale: [1, 1.015, 1],
+          y: [0, -6, 4, -4, 0]
         }}
         transition={{
           repeat: Infinity,
-          duration: 5 + index * 0.4,
+          duration: 6 + index * 0.5,
           ease: "easeInOut"
+        }}
+        whileHover={{
+          scale: 1.08,
+          borderColor: 'rgba(255, 77, 106, 0.65)',
+          boxShadow: '0 0 25px rgba(255, 77, 106, 0.45), inset 0 0 15px rgba(255, 77, 106, 0.2)',
+          transition: { duration: 0.3 }
         }}
         style={{
           width: '110px',
@@ -343,7 +350,8 @@ const TeamProfile = ({ name, initials, index, x, y }) => {
           justifyContent: 'center',
           position: 'relative',
           overflow: 'hidden',
-          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)'
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
+          cursor: 'pointer'
         }}
       >
         {/* Abstract gradient glow */}
@@ -394,6 +402,16 @@ const teamMembers = [
   { name: "Umair Ahamed", initials: "UA", x: 95, y: 330 },
   { name: "Yojit Kohli", initials: "YK", x: 285, y: 330 }
 ];
+
+const dustMotes = Array.from({ length: 15 }, (_, i) => ({
+  id: i,
+  size: Math.random() * 4 + 2.5,
+  x: Math.random() * 100,
+  y: Math.random() * 100,
+  duration: Math.random() * 22 + 20,
+  delay: Math.random() * -30,
+  opacity: Math.random() * 0.05 + 0.02
+}));
 
 const WhiteTextRmitLogo = ({ src, height }) => {
   const [processedSrc, setProcessedSrc] = useState(src);
@@ -578,9 +596,18 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
 
             {/* Bottom-left Ambient AI Globe background */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 2.0 }}
+              initial={{ opacity: 0, x: -50, y: 50, scale: 0.9 }}
+              animate={{ 
+                opacity: [0.7, 1.0, 0.8, 1.0, 0.7],
+                x: [-20, 30, -10, 40, -20],
+                y: [20, -30, 40, -10, 20],
+                scale: [0.95, 1.08, 0.92, 1.05, 0.95]
+              }}
+              transition={{ 
+                duration: 28, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
               style={{
                 position: 'absolute',
                 bottom: '-150px',
@@ -588,12 +615,68 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                 width: '650px',
                 height: '650px',
                 borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(255, 77, 106, 0.14) 0%, rgba(255, 77, 106, 0.03) 50%, transparent 80%)',
-                filter: 'blur(40px)',
+                background: 'radial-gradient(circle, rgba(255, 77, 106, 0.16) 0%, rgba(255, 77, 106, 0.03) 60%, transparent 80%)',
+                filter: 'blur(50px)',
                 pointerEvents: 'none',
                 zIndex: 2
               }}
             />
+
+            {/* Top-right Ambient AI Globe background */}
+            <motion.div
+              initial={{ opacity: 0, x: 50, y: -50, scale: 0.9 }}
+              animate={{ 
+                opacity: [0.6, 0.9, 0.7, 0.9, 0.6],
+                x: [20, -40, 10, -30, 20],
+                y: [-20, 30, -30, 10, -20],
+                scale: [1.02, 0.92, 1.08, 0.95, 1.02]
+              }}
+              transition={{ 
+                duration: 32, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
+              style={{
+                position: 'absolute',
+                top: '-150px',
+                right: '-150px',
+                width: '700px',
+                height: '700px',
+                borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(139, 92, 246, 0.02) 60%, transparent 80%)',
+                filter: 'blur(60px)',
+                pointerEvents: 'none',
+                zIndex: 2
+              }}
+            />
+
+            {/* Floating Dust Motes */}
+            {dustMotes.map((mote) => (
+              <motion.div
+                key={mote.id}
+                animate={{
+                  y: ['105vh', '-5vh'],
+                  x: [`${mote.x}vw`, `${mote.x + (Math.sin(mote.id) * 6)}vw`]
+                }}
+                transition={{
+                  duration: mote.duration,
+                  repeat: Infinity,
+                  ease: "linear",
+                  delay: mote.delay
+                }}
+                style={{
+                  position: 'absolute',
+                  width: `${mote.size}px`,
+                  height: `${mote.size}px`,
+                  borderRadius: '50%',
+                  background: '#ffffff',
+                  opacity: mote.opacity,
+                  filter: 'blur(1px)',
+                  pointerEvents: 'none',
+                  zIndex: 2
+                }}
+              />
+            ))}
 
             {/* SVG Curved Neural Lines */}
             <svg style={{ position: 'absolute', bottom: 0, left: 0, width: '600px', height: '600px', pointerEvents: 'none', zIndex: 3 }}>
@@ -670,7 +753,7 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                 fill="#ffffff"
                 opacity="0.4"
                 filter="url(#globe-glow)"
-                animate={{ scale: [1, 1.8, 1], opacity: [0.1, 0.5, 0.1] }}
+                animate={{ scale: [1, 2.2, 1], opacity: [0.15, 0.6, 0.15] }}
                 transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
               />
               <motion.circle
@@ -678,8 +761,24 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                 fill="#ff4d6a"
                 opacity="0.3"
                 filter="url(#globe-glow)"
-                animate={{ scale: [1, 1.5, 1], opacity: [0.1, 0.4, 0.1] }}
+                animate={{ scale: [1, 1.8, 1], opacity: [0.1, 0.5, 0.1] }}
                 transition={{ repeat: Infinity, duration: 8, ease: "easeInOut", delay: 1.5 }}
+              />
+              <motion.circle
+                cx="320" cy="510" r="3.5"
+                fill="#ff4d6a"
+                opacity="0.25"
+                filter="url(#globe-glow)"
+                animate={{ scale: [1, 2.0, 1], opacity: [0.08, 0.45, 0.08] }}
+                transition={{ repeat: Infinity, duration: 7, ease: "easeInOut", delay: 3 }}
+              />
+              <motion.circle
+                cx="90" cy="440" r="2"
+                fill="#ffffff"
+                opacity="0.35"
+                filter="url(#globe-glow)"
+                animate={{ scale: [1, 2.0, 1], opacity: [0.1, 0.55, 0.1] }}
+                transition={{ repeat: Infinity, duration: 9, ease: "easeInOut", delay: 0.5 }}
               />
             </svg>
 
@@ -709,13 +808,25 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.9, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                  animate={{ 
+                    opacity: 1, 
+                    y: 0,
+                    backgroundPosition: ['200% center', '-200% center']
+                  }}
+                  transition={{
+                    delay: 0.9,
+                    y: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+                    opacity: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+                    backgroundPosition: { repeat: Infinity, duration: 16, ease: "linear" }
+                  }}
                   style={{
                     fontSize: '3.4rem',
                     fontWeight: 800,
                     lineHeight: '1.15',
-                    color: '#ffffff',
+                    backgroundImage: 'linear-gradient(120deg, #ffffff 30%, #ff8093 50%, #ffffff 70%)',
+                    backgroundSize: '200% auto',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
                     margin: 0,
                     letterSpacing: '-0.03em',
                     textAlign: 'left'
@@ -780,6 +891,60 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
               height: '460px',
               zIndex: 10
             }}>
+              {/* Ambient Ripple Rings behind the team profiles */}
+              <motion.div
+                animate={{
+                  scale: [0.8, 1.8],
+                  opacity: [0, 0.14, 0]
+                }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 9,
+                  ease: "easeOut",
+                  delay: 2
+                }}
+                style={{
+                  position: 'absolute',
+                  left: '250px',
+                  top: '225px',
+                  width: '350px',
+                  height: '350px',
+                  marginLeft: '-175px',
+                  marginTop: '-175px',
+                  borderRadius: '50%',
+                  border: '1.5px solid rgba(255, 77, 106, 0.12)',
+                  pointerEvents: 'none',
+                  zIndex: 1,
+                  filter: 'blur(3px)'
+                }}
+              />
+              <motion.div
+                animate={{
+                  scale: [0.8, 1.8],
+                  opacity: [0, 0.1, 0]
+                }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 9,
+                  ease: "easeOut",
+                  delay: 6.5
+                }}
+                style={{
+                  position: 'absolute',
+                  left: '250px',
+                  top: '225px',
+                  width: '350px',
+                  height: '350px',
+                  marginLeft: '-175px',
+                  marginTop: '-175px',
+                  borderRadius: '50%',
+                  border: '1.5px solid rgba(99, 102, 241, 0.1)',
+                  pointerEvents: 'none',
+                  zIndex: 1,
+                  filter: 'blur(3px)'
+                }}
+              />
+
               {teamMembers.map((member, idx) => (
                 <TeamProfile
                   key={member.name}
