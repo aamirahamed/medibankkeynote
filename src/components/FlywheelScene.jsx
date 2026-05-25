@@ -158,7 +158,7 @@ export default function FlywheelScene() {
   ];
 
   const N = 7;
-  const R = 300; // Flywheel circle radius connecting centers of node cards
+  const R = 270; // Flywheel circle radius connecting centers of node cards
   const angleStep = (2 * Math.PI) / N;
 
   return (
@@ -628,6 +628,8 @@ export default function FlywheelScene() {
                   position: 'absolute',
                   left: `calc(50% + ${x}px)`,
                   top: `calc(50% + ${y}px)`,
+                  width: '0px',
+                  height: '0px',
                   zIndex: 10
                 }}
               >
@@ -678,6 +680,8 @@ export default function FlywheelScene() {
                   onClick={() => setActiveStage(idx)}
                   style={{
                     position: 'absolute',
+                    top: 0,
+                    left: 0,
                     width: '250px',
                     height: '74px',
                     borderRadius: '14px',
