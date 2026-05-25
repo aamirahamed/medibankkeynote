@@ -520,8 +520,9 @@ const SignalCapsule = ({ text, color, x, y, opacity = 1, scale = 1, pulseColor, 
 
 export default function Scene2({ globalStep }) {
   // Scene 2 starts at globalStep = 9.
-  // step = globalStep - 9
-  const step = globalStep - 9;
+  // Clamp globalStep to 29 so Scene 2 does not clear/change layout state during the exit transition.
+  const activeGlobalStep = Math.min(globalStep, 29);
+  const step = activeGlobalStep - 9;
   const homeScrollRef = useRef(null);
   const healthScrollRef = useRef(null);
   const [communityTab, setCommunityTab] = useState('groups');
