@@ -53,11 +53,11 @@ const ThankYouScene = () => {
         }}
       />
 
-      {/* Atmospheric Central Aura */}
+      {/* Atmospheric Central Aura (High Visibility) */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ 
-          opacity: [0.35, 0.45, 0.35],
+          opacity: [0.7, 0.9, 0.7],
           scale: [1, 1.05, 1]
         }}
         transition={{
@@ -67,23 +67,60 @@ const ThankYouScene = () => {
         }}
         style={{
           position: 'absolute',
-          width: '700px',
-          height: '700px',
-          background: 'radial-gradient(circle, rgba(255, 77, 106, 0.05) 0%, rgba(139, 92, 246, 0.04) 40%, rgba(37, 99, 235, 0.01) 70%, transparent 100%)',
+          width: '1000px',
+          height: '1000px',
+          background: 'radial-gradient(circle, rgba(255, 77, 106, 0.22) 0%, rgba(139, 92, 246, 0.16) 40%, rgba(37, 99, 235, 0.08) 70%, transparent 100%)',
           pointerEvents: 'none',
           zIndex: 1
         }}
       />
 
-      {/* Deep Corner Bloom */}
-      <div
+      {/* Deep Red Bloom bottom-left */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.75 }}
+        transition={{ duration: 4.0 }}
         style={{
           position: 'absolute',
           bottom: '-10%',
           left: '-10%',
+          width: '60%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(255, 77, 106, 0.15) 0%, transparent 70%)',
+          pointerEvents: 'none',
+          zIndex: 1
+        }}
+      />
+
+      {/* Purple/Navy Glow top-right */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.65 }}
+        transition={{ duration: 4.5, delay: 0.3 }}
+        style={{
+          position: 'absolute',
+          top: '-15%',
+          right: '-10%',
+          width: '60%',
+          height: '60%',
+          background: 'radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(37, 99, 235, 0.08) 60%, transparent 80%)',
+          pointerEvents: 'none',
+          zIndex: 1
+        }}
+      />
+
+      {/* Bottom-right glow to match particles */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.6 }}
+        transition={{ duration: 4.8, delay: 0.5 }}
+        style={{
+          position: 'absolute',
+          bottom: '-15%',
+          right: '-10%',
           width: '50%',
           height: '50%',
-          background: 'radial-gradient(circle, rgba(255, 77, 106, 0.03) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(255, 77, 106, 0.10) 0%, rgba(139, 92, 246, 0.08) 50%, transparent 80%)',
           pointerEvents: 'none',
           zIndex: 1
         }}
