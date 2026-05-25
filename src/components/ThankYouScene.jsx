@@ -2,29 +2,41 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const ThankYouScene = () => {
-  // Dust motes for the atmospheric particles (fewer, calmer)
-  const dustMotes = Array.from({ length: 8 }, (_, i) => ({
+  // Generate random stable stars for background depth
+  const backgroundStars = Array.from({ length: 40 }, (_, i) => ({
     id: i,
-    size: Math.random() * 2 + 1.5,
     x: Math.random() * 100,
     y: Math.random() * 100,
-    duration: Math.random() * 30 + 25,
-    delay: Math.random() * -30,
-    opacity: Math.random() * 0.05 + 0.02
+    size: Math.random() * 1.5 + 0.5,
+    opacity: Math.random() * 0.25 + 0.05
   }));
+
+  // Generate 8 slow-moving orbit particles
+  const particles = Array.from({ length: 8 }, (_, i) => {
+    const angle = (i * Math.PI * 2) / 8;
+    return {
+      id: i,
+      angle,
+      radius: i % 2 === 0 ? 200 : 280,
+      size: Math.random() * 2 + 2,
+      duration: Math.random() * 20 + 20,
+      direction: i % 3 === 0 ? -1 : 1,
+      color: i % 2 === 0 ? '#ff4d6a' : '#8b5cf6'
+    };
+  });
 
   return (
     <div style={{
       width: '100%',
       height: '100%',
-      background: '#020204',
+      background: '#030305',
       position: 'relative',
       overflow: 'hidden',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      fontFamily: '"SF Pro Display", "-apple-system", sans-serif'
+      fontFamily: '"Neue Montreal", "SF Pro Display", "-apple-system", sans-serif'
     }}>
       {/* Cinematic Grain Texture */}
       <div
@@ -41,248 +53,212 @@ const ThankYouScene = () => {
         }}
       />
 
-      {/* Atmospheric Ambient Glows */}
-      {/* Deep Red Bloom bottom-left */}
+      {/* Atmospheric Central Aura */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.3 }}
-        transition={{ duration: 4, ease: "easeOut" }}
-        style={{
-          position: 'absolute',
-          bottom: '-15%',
-          left: '-15%',
-          width: '65%',
-          height: '65%',
-          background: 'radial-gradient(circle, rgba(255, 77, 106, 0.08) 0%, transparent 70%)',
-          pointerEvents: 'none',
-          zIndex: 1
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ 
+          opacity: [0.35, 0.45, 0.35],
+          scale: [1, 1.05, 1]
         }}
-      />
-      
-      {/* Deep Purple/Navy Glow top-right */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.25 }}
-        transition={{ duration: 4.5, ease: "easeOut", delay: 0.3 }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
         style={{
           position: 'absolute',
-          top: '-20%',
-          right: '-10%',
-          width: '60%',
-          height: '60%',
-          background: 'radial-gradient(circle, rgba(139, 92, 246, 0.06) 0%, rgba(37, 99, 235, 0.02) 60%, transparent 80%)',
+          width: '700px',
+          height: '700px',
+          background: 'radial-gradient(circle, rgba(255, 77, 106, 0.05) 0%, rgba(139, 92, 246, 0.04) 40%, rgba(37, 99, 235, 0.01) 70%, transparent 100%)',
           pointerEvents: 'none',
           zIndex: 1
         }}
       />
 
-      {/* Subtle bottom-right bloom matching the YOU typography glow */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.2 }}
-        transition={{ duration: 4.8, ease: "easeOut", delay: 0.6 }}
+      {/* Deep Corner Bloom */}
+      <div
         style={{
           position: 'absolute',
-          bottom: '-20%',
-          right: '-15%',
-          width: '55%',
-          height: '55%',
-          background: 'radial-gradient(circle, rgba(255, 77, 106, 0.05) 0%, rgba(139, 92, 246, 0.04) 50%, transparent 80%)',
+          bottom: '-10%',
+          left: '-10%',
+          width: '50%',
+          height: '50%',
+          background: 'radial-gradient(circle, rgba(255, 77, 106, 0.03) 0%, transparent 70%)',
           pointerEvents: 'none',
           zIndex: 1
         }}
       />
 
-      {/* Floating Dust Motes */}
-      {dustMotes.map((mote) => (
-        <motion.div
-          key={mote.id}
-          animate={{
-            y: ['105vh', '-5vh'],
-            x: [`${mote.x}vw`, `${mote.x + (Math.sin(mote.id) * 3)}vw`]
-          }}
-          transition={{
-            duration: mote.duration,
-            repeat: Infinity,
-            ease: "linear",
-            delay: mote.delay
-          }}
+      {/* Background Starfield */}
+      {backgroundStars.map((star) => (
+        <div
+          key={star.id}
           style={{
             position: 'absolute',
-            width: `${mote.size}px`,
-            height: `${mote.size}px`,
+            left: `${star.x}%`,
+            top: `${star.y}%`,
+            width: `${star.size}px`,
+            height: `${star.size}px`,
             borderRadius: '50%',
             background: '#ffffff',
-            opacity: mote.opacity,
-            filter: 'blur(0.5px)',
+            opacity: star.opacity,
             pointerEvents: 'none',
-            zIndex: 2
+            zIndex: 1
           }}
         />
       ))}
 
-      {/* ASYMMETRIC BACKGROUND LAYER 1: "THANK" (Top Left) */}
-      <div 
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: 2,
-          pointerEvents: 'none'
-        }}
-      >
+      {/* Elegant Vector Orbital Rings */}
+      <div style={{
+        position: 'absolute',
+        width: '800px',
+        height: '800px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        pointerEvents: 'none',
+        zIndex: 2
+      }}>
+        <svg width="800" height="800" viewBox="0 0 800 800" style={{ transform: 'rotate(-45deg)' }}>
+          {/* Inner ring */}
+          <motion.circle
+            cx="400"
+            cy="400"
+            r="200"
+            fill="none"
+            stroke="rgba(255, 255, 255, 0.03)"
+            strokeWidth="0.8"
+            strokeDasharray="4, 12"
+            animate={{ rotate: 360 }}
+            transition={{ repeat: Infinity, duration: 80, ease: "linear" }}
+          />
+
+          {/* Middle ring */}
+          <motion.circle
+            cx="400"
+            cy="400"
+            r="280"
+            fill="none"
+            stroke="rgba(255, 77, 106, 0.05)"
+            strokeWidth="0.8"
+            animate={{ rotate: -360 }}
+            transition={{ repeat: Infinity, duration: 110, ease: "linear" }}
+          />
+
+          {/* Outer ring */}
+          <motion.circle
+            cx="400"
+            cy="400"
+            r="360"
+            fill="none"
+            stroke="rgba(139, 92, 246, 0.04)"
+            strokeWidth="1.2"
+            strokeDasharray="160, 400"
+            animate={{ rotate: 360 }}
+            transition={{ repeat: Infinity, duration: 140, ease: "linear" }}
+          />
+        </svg>
+
+        {/* Orbiting Signal Particles */}
+        {particles.map((p) => {
+          const rotationAngle = p.direction === 1 ? [0, 360] : [360, 0];
+          return (
+            <motion.div
+              key={p.id}
+              animate={{ rotate: rotationAngle }}
+              transition={{
+                repeat: Infinity,
+                duration: p.duration,
+                ease: "linear"
+              }}
+              style={{
+                position: 'absolute',
+                width: `${p.radius * 2}px`,
+                height: `${p.radius * 2}px`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'flex-end'
+              }}
+            >
+              <div
+                style={{
+                  width: `${p.size}px`,
+                  height: `${p.size}px`,
+                  borderRadius: '50%',
+                  background: p.color,
+                  boxShadow: `0 0 10px ${p.color}`,
+                  opacity: 0.35,
+                  marginRight: `-${p.size / 2}px`
+                }}
+              />
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* Main Core Typography Lockup */}
+      <div style={{
+        textAlign: 'center',
+        zIndex: 3,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        {/* Core Thank You Header */}
         <motion.h1
-          initial={{ opacity: 0, scale: 1.05, filter: 'blur(10px)' }}
-          animate={{ 
-            opacity: [0.08, 0.12, 0.08],
-            scale: 1,
-            filter: ['blur(3px)', 'blur(5px)', 'blur(3px)']
-          }}
-          transition={{
-            opacity: {
-              repeat: Infinity,
-              duration: 10,
-              ease: "easeInOut",
-              repeatType: "reverse"
-            },
-            filter: {
-              repeat: Infinity,
-              duration: 10,
-              ease: "easeInOut",
-              repeatType: "reverse"
-            },
-            scale: { duration: 4.0, ease: [0.16, 1, 0.3, 1] }
-          }}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
           style={{
-            position: 'absolute',
-            top: '-5%',
-            left: '-6%',
-            fontSize: '22vw',
-            fontWeight: 900,
-            textTransform: 'uppercase',
-            letterSpacing: '0.04em',
-            margin: 0,
-            padding: 0,
-            lineHeight: '0.8',
-            fontFamily: '"SF Pro Display", "Neue Montreal", "Satoshi", sans-serif',
+            fontSize: '4.2rem',
+            fontWeight: 200,
             color: '#ffffff',
-            whiteSpace: 'nowrap'
-          }}
-        >
-          THANK
-        </motion.h1>
-      </div>
-
-      {/* ASYMMETRIC BACKGROUND LAYER 2: "YOU" (Bottom Right) */}
-      <div 
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: 2,
-          pointerEvents: 'none'
-        }}
-      >
-        <motion.h1
-          initial={{ opacity: 0, scale: 0.96, filter: 'blur(6px)' }}
-          animate={{ 
-            opacity: [0.14, 0.22, 0.14],
-            scale: [1, 1.015, 1],
-            filter: 'blur(1.5px)'
-          }}
-          transition={{
-            opacity: {
-              repeat: Infinity,
-              duration: 12,
-              ease: "easeInOut",
-              repeatType: "reverse"
-            },
-            scale: {
-              repeat: Infinity,
-              duration: 15,
-              ease: "easeInOut",
-              repeatType: "reverse"
-            },
-            filter: { duration: 3.5, ease: "easeOut" }
-          }}
-          style={{
-            position: 'absolute',
-            bottom: '-6%',
-            right: '-5%',
-            fontSize: '24vw',
-            fontWeight: 900,
-            textTransform: 'uppercase',
-            letterSpacing: '0.04em',
             margin: 0,
             padding: 0,
-            lineHeight: '0.8',
-            fontFamily: '"SF Pro Display", "Neue Montreal", "Satoshi", sans-serif',
-            background: 'linear-gradient(135deg, #ffffff 0%, #ffffff 30%, #ff4d6a 65%, #8b5cf6 100%)',
-            backgroundSize: '300% auto',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            textShadow: '0 0 60px rgba(255, 77, 106, 0.25), 0 0 120px rgba(139, 92, 246, 0.15)',
-            whiteSpace: 'nowrap',
-            animation: 'gradientSweep 12s ease-in-out infinite'
+            letterSpacing: '-0.03em',
+            fontFamily: '"Neue Montreal", "SF Pro Display", sans-serif',
+            textShadow: '0 0 40px rgba(255, 255, 255, 0.1)'
           }}
         >
-          YOU
+          Thank you.
         </motion.h1>
+
+        {/* Subtitle / Caption */}
+        <motion.div
+          initial={{ opacity: 0, letterSpacing: '0.2em' }}
+          animate={{ opacity: 0.4, letterSpacing: '0.35em' }}
+          transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1], delay: 1.5 }}
+          style={{
+            marginTop: '20px',
+            fontSize: '9.5px',
+            fontWeight: 600,
+            color: '#ffffff',
+            textTransform: 'uppercase'
+          }}
+        >
+          Orbital Ecosystem &middot; Group 6
+        </motion.div>
       </div>
 
-      {/* FOREGROUND MESSAGE (Lower Center) */}
+      {/* Faint Continuity Footer Statement */}
       <motion.div
-        initial={{ opacity: 0, y: 25 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2.0, duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.3 }}
+        transition={{ duration: 2.0, ease: "easeOut", delay: 2.8 }}
         style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          textAlign: 'center',
-          zIndex: 3,
           position: 'absolute',
-          bottom: '22%'
+          bottom: '8%',
+          fontSize: '13px',
+          fontWeight: 300,
+          color: '#ffffff',
+          letterSpacing: '0.05em',
+          textAlign: 'center',
+          fontFamily: '"Neue Montreal", sans-serif'
         }}
       >
-        <p style={{
-          fontSize: '2.8rem',
-          fontWeight: 500,
-          color: '#ffffff',
-          margin: '0 0 10px 0',
-          letterSpacing: '-0.03em',
-          lineHeight: '1.2',
-          fontFamily: '"Neue Montreal", "Satoshi", "-apple-system", sans-serif',
-          opacity: 0.95
-        }}>
-          Built for continuity.
-        </p>
-        <p style={{
-          fontSize: '2.8rem',
-          fontWeight: 400,
-          color: 'rgba(255, 255, 255, 0.65)',
-          margin: 0,
-          letterSpacing: '-0.03em',
-          lineHeight: '1.2',
-          fontFamily: '"Neue Montreal", "Satoshi", "-apple-system", sans-serif'
-        }}>
-          Designed for the future.
-        </p>
+        Built for continuity. Designed for the future.
       </motion.div>
-
-      {/* Keyframe animation for YOU text color sweep */}
-      <style>{`
-        @keyframes gradientSweep {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-      `}</style>
     </div>
   );
 };
