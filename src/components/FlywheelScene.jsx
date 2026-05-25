@@ -44,6 +44,12 @@ export default function FlywheelScene() {
   const [activeStage, setActiveStage] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [bursts, setBursts] = useState([]);
+  const [hasEntered, setHasEntered] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setHasEntered(true), 2500);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Slow auto-cycle through stages
   useEffect(() => {
@@ -237,7 +243,12 @@ export default function FlywheelScene() {
         position: 'relative'
       }}>
         {/* Header Block */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}
+        >
           <span style={{
             fontSize: '11px',
             fontWeight: 800,
@@ -265,10 +276,15 @@ export default function FlywheelScene() {
           }}>
             The ecosystem compounds value over time.
           </p>
-        </div>
+        </motion.div>
 
         {/* Middle: Active Stage Details Card */}
-        <div style={{ margin: '30px 0', flexGrow: 1, display: 'flex', alignItems: 'center' }}>
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          style={{ margin: '30px 0', flexGrow: 1, display: 'flex', alignItems: 'center' }}
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={activeStage}
@@ -378,10 +394,15 @@ export default function FlywheelScene() {
               </div>
             </motion.div>
           </AnimatePresence>
-        </div>
+        </motion.div>
 
         {/* Bottom Closing Text Block */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'left' }}>
+        <motion.div 
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+          style={{ display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'left' }}
+        >
           <p style={{
             fontSize: '1.05rem',
             fontWeight: 500,
@@ -401,7 +422,7 @@ export default function FlywheelScene() {
           }}>
             The more students engage, the smarter the ecosystem becomes.
           </span>
-        </div>
+        </motion.div>
       </div>
 
       {/* ── RIGHT PANEL (70% Width - Center Flywheel) ── */}
@@ -415,14 +436,19 @@ export default function FlywheelScene() {
         zIndex: 5
       }}>
         {/* Flywheel Container */}
-        <div style={{
-          position: 'relative',
-          width: '850px',
-          height: '850px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            position: 'relative',
+            width: '850px',
+            height: '850px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
           
           {/* SVG Flowing Path, Signal Particles, and Neural Constellations */}
           <svg style={{ position: 'absolute', width: '850px', height: '850px', pointerEvents: 'none', zIndex: 3 }}>
@@ -579,14 +605,21 @@ export default function FlywheelScene() {
 
           {/* Center Glowing Intelligence Core (Heart of the Ecosystem) */}
           <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
             animate={{
+              opacity: 1,
+              scale: 1,
               boxShadow: [
                 '0 0 40px rgba(255, 77, 106, 0.08), inset 0 0 20px rgba(255, 77, 106, 0.03)',
                 '0 0 60px rgba(255, 77, 106, 0.2), inset 0 0 35px rgba(255, 77, 106, 0.08)',
                 '0 0 40px rgba(255, 77, 106, 0.08), inset 0 0 20px rgba(255, 77, 106, 0.03)'
               ]
             }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            transition={{
+              scale: { duration: 1.0, delay: 0.4, ease: [0.16, 1, 0.3, 1] },
+              opacity: { duration: 1.0, delay: 0.4, ease: "easeOut" },
+              boxShadow: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+            }}
             style={{
               position: 'absolute',
               width: '160px',
@@ -722,14 +755,20 @@ export default function FlywheelScene() {
                       ? `0 8px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(${hexToRgb(stage.color)}, 0.35)` 
                       : '0 4px 15px rgba(0,0,0,0.4)',
                     boxSizing: 'border-box',
-                    transform: 'translate(-50%, -50%)',
-                    opacity: isHovered ? (isActive ? 1 : 0.45) : 1,
-                    transition: 'opacity 0.4s ease'
+                    transform: 'translate(-50%, -50%)'
                   }}
+                  initial={{ opacity: 0, scale: 0.6 }}
                   animate={{
+                    opacity: isHovered ? (isActive ? 1 : 0.45) : 1,
                     scale: isActive ? 1.08 : 1
                   }}
-                  transition={{ type: 'spring', stiffness: 250, damping: 18 }}
+                  transition={hasEntered ? {
+                    opacity: { duration: 0.35 },
+                    scale: { type: 'spring', stiffness: 250, damping: 18 }
+                  } : {
+                    opacity: { duration: 0.8, delay: 0.5 + idx * 0.15, ease: "easeOut" },
+                    scale: { duration: 0.8, delay: 0.5 + idx * 0.15, ease: "easeOut" }
+                  }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '100%' }}>
                     
@@ -804,7 +843,7 @@ export default function FlywheelScene() {
               </div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );
