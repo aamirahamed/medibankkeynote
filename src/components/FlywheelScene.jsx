@@ -76,7 +76,8 @@ export default function FlywheelScene() {
       color: "#38B6FF", // soft blue
       border: "rgba(56, 182, 255, 0.25)",
       glow: "rgba(56, 182, 255, 0.4)",
-      desc: "Students engage daily through: health, rewards, support, community, and transition guidance.",
+      keyShift: "Student interactions evolve from transactional touchpoints into continuous daily engagement.",
+      businessImpact: "Creates stronger relationship foundations and increases long-term ecosystem stickiness.",
       cue: "Student joins a postgraduate community"
     },
     {
@@ -87,7 +88,8 @@ export default function FlywheelScene() {
       color: "#00E5FF", // warm white / soft cyan
       border: "rgba(0, 229, 255, 0.25)",
       glow: "rgba(0, 229, 255, 0.4)",
-      desc: "Medibank becomes part of the student’s everyday journey — not just an insurer.",
+      keyShift: "Medibank becomes part of the student’s everyday support and wellbeing journey.",
+      businessImpact: "Reduces disengagement risk and strengthens long-term continuity behaviour.",
       cue: "Student relies on Medibank during visa transition uncertainty"
     },
     {
@@ -98,18 +100,20 @@ export default function FlywheelScene() {
       color: "#8B5CF6", // purple-blue
       border: "rgba(139, 92, 246, 0.25)",
       glow: "rgba(139, 92, 246, 0.4)",
-      desc: "Every interaction creates behavioural intelligence and intent signals.",
+      keyShift: "Student interactions transform into measurable behavioural intent signals.",
+      businessImpact: "Enables earlier visibility into students most likely to continue beyond OSHC.",
       cue: "Repeated OVHC exploration detected"
     },
     {
       id: 3,
-      label: "AI Understanding",
+      label: "Student Understanding",
       icon: "Network",
       descSmall: "Cohort & intent intelligence",
       color: "#D946EF", // purple
       border: "rgba(217, 70, 239, 0.25)",
       glow: "rgba(217, 70, 239, 0.4)",
-      desc: "The Conversion Engine interprets intent, detects cohorts, and predicts transition readiness.",
+      keyShift: "Behavioural patterns evolve into actionable student continuity intelligence.",
+      businessImpact: "Improves segmentation accuracy, intervention timing, and retention prioritisation.",
       cue: "Graduate Transition Cohort identified"
     },
     {
@@ -120,7 +124,8 @@ export default function FlywheelScene() {
       color: "#EC4899", // red-purple
       border: "rgba(236, 72, 153, 0.25)",
       glow: "rgba(236, 72, 153, 0.4)",
-      desc: "The ecosystem delivers timely, personalised journeys and recommendations.",
+      keyShift: "Generic communication evolves into adaptive, student-specific engagement journeys.",
+      businessImpact: "Drives higher engagement, stronger conversion readiness, and improved continuity outcomes.",
       cue: "Graduate Transition Sequence triggered"
     },
     {
@@ -131,7 +136,8 @@ export default function FlywheelScene() {
       color: "#FF4D6A", // Medibank red
       border: "rgba(255, 77, 106, 0.25)",
       glow: "rgba(255, 77, 106, 0.4)",
-      desc: "Students transition seamlessly from OSHC to OVHC with reduced friction.",
+      keyShift: "Trust and engagement convert into seamless long-term health continuity.",
+      businessImpact: "Reduces churn while improving OSHC-to-OVHC conversion performance.",
       cue: "OSHC → OVHC continuity achieved"
     },
     {
@@ -142,7 +148,8 @@ export default function FlywheelScene() {
       color: "#10B981", // green
       border: "rgba(16, 185, 129, 0.25)",
       glow: "rgba(16, 185, 129, 0.4)",
-      desc: "Stronger engagement drives higher retention, loyalty, and long-term revenue.",
+      keyShift: "Student continuity evolves into long-term loyalty and ongoing health relationships.",
+      businessImpact: "Creates compounding retention value, advocacy, and future engagement opportunities.",
       cue: "Long-term Medibank relationship established"
     }
   ];
@@ -300,53 +307,73 @@ export default function FlywheelScene() {
                 </span>
               </div>
 
-              {/* Stage Label */}
+              {/* Stage Title */}
               <h2 style={{
-                fontSize: '1.45rem',
+                fontSize: '1.5rem',
                 fontWeight: 700,
                 color: '#ffffff',
-                margin: '0 0 8px 0',
+                margin: '0 0 20px 0',
                 letterSpacing: '-0.02em'
               }}>
                 {stages[activeStage].label}
               </h2>
 
-              {/* Description */}
-              <p style={{
-                fontSize: '0.94rem',
-                lineHeight: '1.5',
-                color: 'rgba(255, 255, 255, 0.72)',
-                margin: '0 0 18px 0',
-                fontWeight: 300
-              }}>
-                {stages[activeStage].desc}
-              </p>
-
-              {/* Micro-human cue */}
-              <div style={{
-                background: 'rgba(255, 255, 255, 0.02)',
-                borderLeft: `2.5px solid ${stages[activeStage].color}`,
-                padding: '10px 14px',
-                borderRadius: '0 8px 8px 0'
-              }}>
-                <div style={{
-                  fontSize: '8.5px',
-                  fontWeight: 700,
-                  color: 'rgba(255, 255, 255, 0.4)',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.08em',
-                  marginBottom: '2px'
-                }}>
-                  Emotional Continuity Moment
+              {/* Strategic Transformation Content */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+                {/* Key Shift */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'rgba(255,255,255,0.4)' }} />
+                    <span style={{
+                      fontSize: '9px',
+                      fontWeight: 800,
+                      letterSpacing: '0.12em',
+                      color: 'rgba(255, 255, 255, 0.45)',
+                      textTransform: 'uppercase'
+                    }}>
+                      Key Shift
+                    </span>
+                  </div>
+                  <p style={{
+                    fontSize: '0.92rem',
+                    lineHeight: '1.45',
+                    color: 'rgba(255, 255, 255, 0.8)',
+                    margin: 0,
+                    fontWeight: 300,
+                    letterSpacing: '-0.01em'
+                  }}>
+                    {stages[activeStage].keyShift}
+                  </p>
                 </div>
-                <div style={{
-                  fontSize: '0.88rem',
-                  fontWeight: 400,
-                  color: '#ffffff',
-                  fontStyle: 'italic',
-                  lineHeight: '1.4'
+
+                {/* Business Impact */}
+                <div style={{ 
+                  display: 'flex', 
+                  flexDirection: 'column', 
+                  gap: '6px',
+                  borderLeft: `2px solid ${stages[activeStage].color}`,
+                  paddingLeft: '12px',
+                  marginLeft: '1px'
                 }}>
-                  “{stages[activeStage].cue}”
+                  <span style={{
+                    fontSize: '9px',
+                    fontWeight: 800,
+                    letterSpacing: '0.12em',
+                    color: stages[activeStage].color,
+                    textTransform: 'uppercase'
+                  }}>
+                    Business Impact
+                  </span>
+                  <p style={{
+                    fontSize: '0.92rem',
+                    lineHeight: '1.45',
+                    color: '#ffffff',
+                    margin: 0,
+                    fontWeight: 500,
+                    letterSpacing: '-0.015em'
+                  }}>
+                    {stages[activeStage].businessImpact}
+                  </p>
                 </div>
               </div>
             </motion.div>
