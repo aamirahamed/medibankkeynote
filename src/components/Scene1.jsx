@@ -301,7 +301,20 @@ const CinematicRevealFlow = ({ globalStep, onCompanionGlow }) => {
   );
 };
 
+const nameToPhotoMap = {
+  "Aamir Ahamed": "/Aamir Ahamed.png",
+  "Akanksha Hiremath": "/Akanksha Hiremath.jpeg",
+  "Harshitha Rupesh": "/Harshitha Rupesh.jpeg",
+  "Lalit Aditya": "/Lalit Aditya.jpeg",
+  "Navneet Krishna": "/Navneet Krishna.jpeg",
+  "Umair Ahamed": "/Umair Ahamed.JPG",
+  "Yojit Kohli": "/Yojit Kohli.jpeg"
+};
+
 const TeamProfile = ({ name, initials, index, x, y }) => {
+  const [imgError, setImgError] = useState(false);
+  const photoUrl = nameToPhotoMap[name];
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
@@ -362,19 +375,37 @@ const TeamProfile = ({ name, initials, index, x, y }) => {
           width: '140%',
           height: '140%',
           background: 'radial-gradient(circle, rgba(255, 77, 106, 0.12) 0%, transparent 60%)',
-          pointerEvents: 'none'
+          pointerEvents: 'none',
+          zIndex: 1
         }} />
-        
-        {/* Initials */}
-        <span style={{
-          fontSize: '24px',
-          fontWeight: 600,
-          color: '#ffffff',
-          letterSpacing: '0.05em',
-          textShadow: '0 0 8px rgba(255, 255, 255, 0.2)'
-        }}>
-          {initials}
-        </span>
+
+        {photoUrl && !imgError ? (
+          <img
+            src={photoUrl}
+            alt={name}
+            onError={() => setImgError(true)}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              zIndex: 2
+            }}
+          />
+        ) : (
+          <span style={{
+            fontSize: '24px',
+            fontWeight: 600,
+            color: '#ffffff',
+            letterSpacing: '0.05em',
+            textShadow: '0 0 8px rgba(255, 255, 255, 0.2)',
+            zIndex: 3
+          }}>
+            {initials}
+          </span>
+        )}
       </motion.div>
       
       {/* Name */}
