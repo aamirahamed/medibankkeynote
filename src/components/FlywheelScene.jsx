@@ -682,7 +682,7 @@ export default function FlywheelScene() {
                   onMouseLeave={() => setIsHovered(false)}
                   onClick={() => setActiveStage(idx)}
                   style={{
-                    width: '300px',
+                    width: '320px',
                     height: '74px',
                     borderRadius: '14px',
                     background: isActive ? 'rgba(12, 12, 20, 0.88)' : 'rgba(8, 8, 12, 0.65)',
@@ -734,7 +734,7 @@ export default function FlywheelScene() {
                     </motion.div>
 
                     {/* Description Text */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', textAlign: 'left' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', textAlign: 'left', flex: 1, minWidth: 0 }}>
                       <span style={{
                         fontSize: '12.5px',
                         fontWeight: 700,
