@@ -798,13 +798,25 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.9, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                  animate={{ 
+                    opacity: 1, 
+                    y: 0,
+                    backgroundPosition: ['200% center', '-200% center']
+                  }}
+                  transition={{
+                    delay: 0.9,
+                    y: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+                    opacity: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+                    backgroundPosition: { repeat: Infinity, duration: 16, ease: "linear" }
+                  }}
                   style={{
                     fontSize: '3.4rem',
                     fontWeight: 800,
                     lineHeight: '1.15',
-                    color: '#ffffff',
+                    backgroundImage: 'linear-gradient(120deg, #ffffff 30%, #ff8093 50%, #ffffff 70%)',
+                    backgroundSize: '200% auto',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
                     margin: 0,
                     letterSpacing: '-0.03em',
                     textAlign: 'left'
