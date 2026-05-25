@@ -277,6 +277,7 @@ function App() {
         {globalStep === 31 && (
           <motion.div
             key="thank-you-scene-container"
+            className="thank-you-scene-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

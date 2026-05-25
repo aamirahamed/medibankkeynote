@@ -26,18 +26,21 @@ const ThankYouScene = () => {
   });
 
   return (
-    <div style={{
-      width: '100vw',
-      height: '100vh',
-      background: '#030305',
-      position: 'relative',
-      overflow: 'hidden',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      fontFamily: '"Neue Montreal", "SF Pro Display", "-apple-system", sans-serif'
-    }}>
+    <div 
+      className="thank-you-scene-full"
+      style={{
+        width: '100vw',
+        height: '100vh',
+        background: '#030305',
+        position: 'relative',
+        overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontFamily: '"Neue Montreal", "SF Pro Display", "-apple-system", sans-serif'
+      }}
+    >
       {/* Cinematic Grain Texture */}
       <div
         style={{
