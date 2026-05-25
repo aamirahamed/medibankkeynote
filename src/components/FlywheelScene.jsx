@@ -628,8 +628,9 @@ export default function FlywheelScene() {
                   position: 'absolute',
                   left: `calc(50% + ${x}px)`,
                   top: `calc(50% + ${y}px)`,
-                  width: '0px',
-                  height: '0px',
+                  width: '250px',
+                  height: '74px',
+                  transform: 'translate(-50%, -50%)',
                   zIndex: 10
                 }}
               >
@@ -661,8 +662,8 @@ export default function FlywheelScene() {
                       borderRadius: '8px',
                       whiteSpace: 'nowrap',
                       pointerEvents: 'none',
-                      left: `calc(-50px + ${burst.xOffset}px)`,
-                      top: `calc(-60px + ${burst.yOffset}px)`,
+                      left: `calc(20% + ${burst.xOffset}px)`,
+                      top: `calc(-30px + ${burst.yOffset}px)`,
                       zIndex: 120
                     }}
                   >
@@ -679,11 +680,8 @@ export default function FlywheelScene() {
                   onMouseLeave={() => setIsHovered(false)}
                   onClick={() => setActiveStage(idx)}
                   style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '250px',
-                    height: '74px',
+                    width: '100%',
+                    height: '100%',
                     borderRadius: '14px',
                     background: isActive ? 'rgba(12, 12, 20, 0.88)' : 'rgba(8, 8, 12, 0.65)',
                     border: `1.5px solid ${isActive ? stage.color : 'rgba(255, 255, 255, 0.08)'}`,
