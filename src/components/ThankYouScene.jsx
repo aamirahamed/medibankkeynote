@@ -243,21 +243,23 @@ const ThankYouScene = () => {
 
       {/* Faint Continuity Footer Statement */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.3 }}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 0.8, y: 0 }}
         transition={{ duration: 2.0, ease: "easeOut", delay: 2.8 }}
         style={{
           position: 'absolute',
-          bottom: '8%',
-          fontSize: '13px',
+          bottom: '10%',
+          fontSize: '1.6rem',
           fontWeight: 300,
           color: '#ffffff',
-          letterSpacing: '0.05em',
+          letterSpacing: '-0.02em',
           textAlign: 'center',
+          lineHeight: '1.3',
           fontFamily: '"Neue Montreal", sans-serif'
         }}
       >
-        Built for continuity. Designed for the future.
+        <span>Built for continuity. </span>
+        <span style={{ color: 'rgba(255, 255, 255, 0.55)' }}>Designed for the future.</span>
       </motion.div>
     </div>
   );
