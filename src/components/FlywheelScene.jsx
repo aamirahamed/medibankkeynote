@@ -456,12 +456,23 @@ export default function FlywheelScene() {
                 <stop offset="66%" stopColor="#FF4D6A" stopOpacity="0.3" />
                 <stop offset="100%" stopColor="#10B981" stopOpacity="0.2" />
               </linearGradient>
+              <linearGradient id="outer-glow-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#1E40AF" />
+                <stop offset="50%" stopColor="#7C3AED" />
+                <stop offset="100%" stopColor="#D93851" />
+              </linearGradient>
               <filter id="glow-filter" x="-20%" y="-20%" width="140%" height="140%">
                 <feGaussianBlur stdDeviation="5" result="blur" />
                 <feMerge>
                   <feMergeNode in="blur" />
                   <feMergeNode in="SourceGraphic" />
                 </feMerge>
+              </filter>
+              <filter id="flywheel-glow-large" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="16" result="blur" />
+              </filter>
+              <filter id="flywheel-glow-medium" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="6" result="blur" />
               </filter>
             </defs>
 
@@ -504,14 +515,46 @@ export default function FlywheelScene() {
               );
             })}
 
-            {/* Connection Ring */}
+            {/* Ambient Outer Ring Gradient Glow */}
             <circle
               cx="425"
               cy="425"
               r={R}
               fill="none"
-              stroke="rgba(255, 255, 255, 0.04)"
-              strokeWidth="1.5"
+              stroke="url(#outer-glow-gradient)"
+              strokeWidth="16"
+              filter="url(#flywheel-glow-large)"
+              opacity="0.22"
+            />
+            <circle
+              cx="425"
+              cy="425"
+              r={R}
+              fill="none"
+              stroke="url(#outer-glow-gradient)"
+              strokeWidth="6"
+              filter="url(#flywheel-glow-medium)"
+              opacity="0.4"
+            />
+
+            {/* Main Base Outer Ring for Structural Definition */}
+            <circle
+              cx="425"
+              cy="425"
+              r={R}
+              fill="none"
+              stroke="url(#outer-glow-gradient)"
+              strokeWidth="2.5"
+              opacity="0.45"
+            />
+            {/* Core White Overlay line (extremely thin for crisp edge definition) */}
+            <circle
+              cx="425"
+              cy="425"
+              r={R}
+              fill="none"
+              stroke="rgba(255, 255, 255, 0.4)"
+              strokeWidth="0.8"
             />
 
             {/* Glowing flowing dash path */}
@@ -520,24 +563,24 @@ export default function FlywheelScene() {
               cy="425"
               r={R}
               fill="none"
-              stroke="url(#flywheel-gradient)"
-              strokeWidth="3"
-              strokeDasharray="80, 500"
+              stroke="url(#outer-glow-gradient)"
+              strokeWidth="4.5"
+              strokeDasharray="120, 600"
               filter="url(#glow-filter)"
               animate={{ strokeDashoffset: [0, -1000] }}
-              transition={{ repeat: Infinity, duration: 18, ease: "linear" }}
+              transition={{ repeat: Infinity, duration: 16, ease: "linear" }}
             />
             <motion.circle
               cx="425"
               cy="425"
               r={R}
               fill="none"
-              stroke="url(#flywheel-gradient)"
+              stroke="#ffffff"
               strokeWidth="1.5"
-              strokeDasharray="40, 250"
+              strokeDasharray="60, 300"
               animate={{ strokeDashoffset: [150, -850] }}
-              transition={{ repeat: Infinity, duration: 14, ease: "linear" }}
-              opacity="0.5"
+              transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
+              opacity="0.35"
             />
           </svg>
 
