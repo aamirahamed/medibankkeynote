@@ -698,7 +698,7 @@ export default function FlywheelScene() {
                       : '0 4px 15px rgba(0,0,0,0.4)',
                     boxSizing: 'border-box',
                     transform: 'translate(-50%, -50%)',
-                    opacity: isActive ? 1 : 0.45,
+                    opacity: isHovered ? (isActive ? 1 : 0.45) : 1,
                     transition: 'opacity 0.4s ease'
                   }}
                   animate={{
