@@ -30,9 +30,20 @@ const hexToRgb = (hex) => {
   return `${parseInt(rgb[0], 16)}, ${parseInt(rgb[1], 16)}, ${parseInt(rgb[2], 16)}`;
 };
 
+const stageBursts = {
+  0: ["App downloaded", "Community post shared", "Reward claimed", "Profile completed"],
+  1: ["Daily health log active", "OSHC details verified", "Habit streak active"],
+  2: ["3x OVHC pricing views", "Graduate webinar attended", "Active in postgraduate group", "Rewards engagement increasing"],
+  3: ["Transition readiness increasing", "Postgraduate intent detected", "High retention probability"],
+  4: ["Graduate transition sequence triggered", "OVHC recommendation flow activated"],
+  5: ["OSHC → OVHC continuity achieved", "Transition flow approved"],
+  6: ["OVHC policy active", "Long-term relationship established", "Loyalty tier upgraded"]
+};
+
 export default function FlywheelScene() {
   const [activeStage, setActiveStage] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [bursts, setBursts] = useState([]);
 
   // Slow auto-cycle through stages
   useEffect(() => {
@@ -42,6 +53,19 @@ export default function FlywheelScene() {
     }, 5500);
     return () => clearInterval(interval);
   }, [isHovered]);
+
+  // Handle active stage changing to trigger floating signal bursts
+  useEffect(() => {
+    const texts = stageBursts[activeStage] || [];
+    const newBursts = texts.map((txt, i) => ({
+      id: `${activeStage}-${i}-${Date.now()}`,
+      text: txt,
+      delay: i * 1.3, // Stagger the entries
+      xOffset: (Math.random() - 0.5) * 50,
+      yOffset: (Math.random() - 0.5) * 20
+    }));
+    setBursts(newBursts);
+  }, [activeStage]);
 
   const stages = [
     {
@@ -123,14 +147,14 @@ export default function FlywheelScene() {
     }
   ];
 
-  // Orbiting concepts details
+  // Orbiting rings details - particles will flow along these paths
   const orbits = [
-    { text: "Learns continuously", radius: 95, speed: 28, delay: 0 },
-    { text: "Detects intent earlier", radius: 115, speed: 34, delay: -6 },
-    { text: "Refines cohorts", radius: 135, speed: 40, delay: -12 },
-    { text: "Adapts interventions", radius: 155, speed: 46, delay: -18 },
-    { text: "Improves engagement", radius: 175, speed: 52, delay: -24 },
-    { text: "Predicts behaviour", radius: 195, speed: 58, delay: -30 }
+    { radius: 95, speed: 28, delay: 0 },
+    { radius: 115, speed: 34, delay: -6 },
+    { radius: 135, speed: 40, delay: -12 },
+    { radius: 155, speed: 46, delay: -18 },
+    { radius: 175, speed: 52, delay: -24 },
+    { radius: 195, speed: 58, delay: -30 }
   ];
 
   const N = 7;
@@ -373,7 +397,7 @@ export default function FlywheelScene() {
           justifyContent: 'center'
         }}>
           
-          {/* SVG Flowing Path and Signal Particles (Connects BETWEEN nodes by running underneath centers) */}
+          {/* SVG Flowing Path, Signal Particles, and Neural Constellations */}
           <svg style={{ position: 'absolute', width: '850px', height: '850px', pointerEvents: 'none', zIndex: 3 }}>
             <defs>
               <linearGradient id="flywheel-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -390,6 +414,45 @@ export default function FlywheelScene() {
                 </feMerge>
               </filter>
             </defs>
+
+            {/* Faint dashed radial neural pathways from core to each stage node */}
+            {stages.map((stage, idx) => {
+              const theta = idx * angleStep - Math.PI / 2;
+              const x = R * Math.cos(theta);
+              const y = R * Math.sin(theta);
+              const isActive = activeStage === idx;
+              return (
+                <g key={`neural-${stage.id}`}>
+                  <line
+                    x1="425"
+                    y1="425"
+                    x2={425 + x}
+                    y2={425 + y}
+                    stroke={isActive ? stage.color : "rgba(255, 255, 255, 0.04)"}
+                    strokeWidth={isActive ? "1.2" : "0.8"}
+                    strokeDasharray="4, 6"
+                    style={{ transition: "stroke 0.4s ease, stroke-width 0.4s ease" }}
+                  />
+                  {/* Subtle Constellation Nodes */}
+                  <circle
+                    cx={425 + x * 0.45}
+                    cy={425 + y * 0.45}
+                    r="2.5"
+                    fill={isActive ? stage.color : "rgba(255, 255, 255, 0.12)"}
+                    opacity="0.6"
+                    style={{ transition: "fill 0.4s ease" }}
+                  />
+                  <circle
+                    cx={425 + x * 0.75}
+                    cy={425 + y * 0.75}
+                    r="2"
+                    fill={isActive ? stage.color : "rgba(255, 255, 255, 0.1)"}
+                    opacity="0.5"
+                    style={{ transition: "fill 0.4s ease" }}
+                  />
+                </g>
+              );
+            })}
 
             {/* Connection Ring */}
             <circle
@@ -428,7 +491,7 @@ export default function FlywheelScene() {
             />
           </svg>
 
-          {/* Orbiting Concepts */}
+          {/* Living Orbiting Signal Particles (Replaces text labels on inner tracks) */}
           <div style={{
             position: 'absolute',
             width: '420px',
@@ -438,69 +501,81 @@ export default function FlywheelScene() {
             justifyContent: 'center',
             pointerEvents: 'none'
           }}>
-            {orbits.map((orbit, index) => (
-              <motion.div
-                key={index}
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: orbit.speed, ease: "linear", delay: orbit.delay }}
-                style={{
+            {orbits.map((orbit, index) => {
+              const colors = ["#38B6FF", "#8B5CF6", "#FF4D6A", "#10B981", "#D946EF", "#00E5FF"];
+              const particleColor = colors[index % colors.length];
+              return (
+                <div key={index} style={{
                   position: 'absolute',
                   width: orbit.radius * 2,
                   height: orbit.radius * 2,
-                  borderRadius: '50%',
-                  border: '1px dashed rgba(255, 255, 255, 0.02)',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center',
-                  zIndex: 2
-                }}
-              >
-                <div style={{
-                  position: 'absolute',
-                  top: 0,
-                  fontSize: '8px',
-                  fontWeight: 600,
-                  letterSpacing: '0.08em',
-                  color: 'rgba(255, 255, 255, 0.32)',
-                  textTransform: 'uppercase',
-                  background: '#040406',
-                  padding: '2px 6px',
-                  borderRadius: '8px',
-                  transform: 'translateY(-50%)',
-                  border: '1px solid rgba(255, 255, 255, 0.02)'
+                  justifyContent: 'center'
                 }}>
-                  {orbit.text}
+                  {/* Faint track line */}
+                  <div style={{
+                    position: 'absolute',
+                    width: '100%',
+                    height: '100%',
+                    borderRadius: '50%',
+                    border: '1px dashed rgba(255, 255, 255, 0.015)'
+                  }} />
+                  
+                  {/* Orbiting Container */}
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ repeat: Infinity, duration: orbit.speed, ease: "linear", delay: orbit.delay }}
+                    style={{
+                      position: 'absolute',
+                      width: '100%',
+                      height: '100%'
+                    }}
+                  >
+                    {/* Glowing particle dot */}
+                    <div style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: '50%',
+                      transform: 'translateX(-50%) translateY(-50%)',
+                      width: '4.5px',
+                      height: '4.5px',
+                      borderRadius: '50%',
+                      backgroundColor: particleColor,
+                      boxShadow: `0 0 10px ${particleColor}, 0 0 4px ${particleColor}`
+                    }} />
+                  </motion.div>
                 </div>
-              </motion.div>
-            ))}
+              );
+            })}
           </div>
 
-          {/* Center Glowing Intelligence Core */}
+          {/* Center Glowing Intelligence Core (Heart of the Ecosystem) */}
           <motion.div
             animate={{
               boxShadow: [
-                '0 0 30px rgba(255, 77, 106, 0.06), inset 0 0 15px rgba(255, 77, 106, 0.02)',
-                '0 0 45px rgba(255, 77, 106, 0.15), inset 0 0 25px rgba(255, 77, 106, 0.06)',
-                '0 0 30px rgba(255, 77, 106, 0.06), inset 0 0 15px rgba(255, 77, 106, 0.02)'
+                '0 0 40px rgba(255, 77, 106, 0.08), inset 0 0 20px rgba(255, 77, 106, 0.03)',
+                '0 0 60px rgba(255, 77, 106, 0.2), inset 0 0 35px rgba(255, 77, 106, 0.08)',
+                '0 0 40px rgba(255, 77, 106, 0.08), inset 0 0 20px rgba(255, 77, 106, 0.03)'
               ]
             }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             style={{
               position: 'absolute',
-              width: '156px',
-              height: '156px',
+              width: '160px',
+              height: '160px',
               borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(10, 10, 15, 0.95) 0%, rgba(5, 5, 8, 0.95) 100%)',
-              border: '1.5px solid rgba(255, 255, 255, 0.1)',
+              background: 'radial-gradient(circle, rgba(10, 10, 15, 0.98) 0%, rgba(4, 4, 6, 0.98) 100%)',
+              border: '1.5px solid rgba(255, 255, 255, 0.12)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '20px',
+              padding: '24px',
               boxSizing: 'border-box',
               zIndex: 6
             }}
           >
-            {/* Internal Pulse Ripple */}
+            {/* Multiple Layered Expanding Pulse Waves */}
             <motion.div
               animate={{ scale: [1, 1.45], opacity: [0.12, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeOut" }}
@@ -509,7 +584,19 @@ export default function FlywheelScene() {
                 width: '100%',
                 height: '100%',
                 borderRadius: '50%',
-                border: '2px solid rgba(255, 77, 106, 0.25)',
+                border: '2px solid rgba(255, 77, 106, 0.2)',
+                pointerEvents: 'none'
+              }}
+            />
+            <motion.div
+              animate={{ scale: [1, 1.7], opacity: [0.08, 0] }}
+              transition={{ duration: 5, delay: 1.5, repeat: Infinity, ease: "easeOut" }}
+              style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                borderRadius: '50%',
+                border: '1px solid rgba(56, 182, 255, 0.15)',
                 pointerEvents: 'none'
               }}
             />
@@ -549,6 +636,44 @@ export default function FlywheelScene() {
                   zIndex: 10
                 }}
               >
+                {/* ── CONTEXTUAL SIGNAL BURSTS (floating upwards from active card) ── */}
+                {isActive && bursts.map((burst) => (
+                  <motion.span
+                    key={burst.id}
+                    initial={{ opacity: 0, y: 15, scale: 0.8 }}
+                    animate={{ 
+                      opacity: [0, 0.9, 0.9, 0], 
+                      y: -50, 
+                      scale: [0.8, 1, 1, 0.9] 
+                    }}
+                    transition={{ 
+                      duration: 4.5, 
+                      delay: burst.delay,
+                      ease: "easeOut"
+                    }}
+                    style={{
+                      position: 'absolute',
+                      fontSize: '9px',
+                      fontWeight: 600,
+                      color: '#ffffff',
+                      background: 'rgba(10, 10, 15, 0.85)',
+                      backdropFilter: 'blur(8px)',
+                      border: `1px solid ${stage.color}`,
+                      boxShadow: `0 0 12px rgba(${hexToRgb(stage.color)}, 0.3)`,
+                      padding: '3px 8px',
+                      borderRadius: '8px',
+                      whiteSpace: 'nowrap',
+                      pointerEvents: 'none',
+                      left: `calc(-50px + ${burst.xOffset}px)`,
+                      top: `calc(-60px + ${burst.yOffset}px)`,
+                      zIndex: 120
+                    }}
+                  >
+                    {burst.text}
+                  </motion.span>
+                ))}
+
+                {/* Node Card Component */}
                 <motion.div
                   onMouseEnter={() => {
                     setActiveStage(idx);
@@ -572,7 +697,9 @@ export default function FlywheelScene() {
                       ? `0 8px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(${hexToRgb(stage.color)}, 0.35)` 
                       : '0 4px 15px rgba(0,0,0,0.4)',
                     boxSizing: 'border-box',
-                    transform: 'translate(-50%, -50%)'
+                    transform: 'translate(-50%, -50%)',
+                    opacity: isActive ? 1 : 0.45,
+                    transition: 'opacity 0.4s ease'
                   }}
                   animate={{
                     scale: isActive ? 1.08 : 1
