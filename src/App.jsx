@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Scene1 from './components/Scene1';
 import Scene2 from './components/Scene2';
+import FlywheelScene from './components/FlywheelScene';
 import './index.css';
 import './App.css';
 
@@ -195,8 +196,8 @@ function App() {
   }, [globalStep, fadeAdminVolume]);
 
   const advanceStep = useCallback(() => {
-    // Scene 2 ends at step 29 now (down from 31)
-    setGlobalStep(prev => (prev < 29 ? prev + 1 : prev));
+    // Scene 2 ends at step 30 (flywheel scene)
+    setGlobalStep(prev => (prev < 30 ? prev + 1 : prev));
   }, []);
 
   const reverseStep = useCallback(() => {
@@ -245,7 +246,8 @@ function App() {
   return (
     <>
       <Scene1 globalStep={globalStep} onCompanionGlow={() => setAudioTrigger(true)} />
-      {globalStep >= 9 && <Scene2 globalStep={globalStep} />}
+      {globalStep >= 9 && globalStep < 30 && <Scene2 globalStep={globalStep} />}
+      {globalStep === 30 && <FlywheelScene />}
       
       {/* Debug UI for development (can be disabled later) */}
       <div style={{ position: 'fixed', bottom: 10, right: 10, color: 'rgba(255,255,255,0.2)', fontSize: '12px', zIndex: 100 }}>
