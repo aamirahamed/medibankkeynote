@@ -31,7 +31,7 @@ const ThankYouScene = () => {
       style={{
         width: '100vw',
         height: '100vh',
-        background: '#030305',
+        background: 'radial-gradient(circle at 50% 50%, #0d0f19 0%, #040508 60%, #000000 100%)',
         position: 'relative',
         overflow: 'hidden',
         display: 'flex',
@@ -70,9 +70,11 @@ const ThankYouScene = () => {
         }}
         style={{
           position: 'absolute',
-          width: '1000px',
-          height: '1000px',
-          background: 'radial-gradient(circle, rgba(255, 77, 106, 0.22) 0%, rgba(139, 92, 246, 0.16) 40%, rgba(37, 99, 235, 0.08) 70%, transparent 100%)',
+          width: '100%',
+          height: '100%',
+          top: 0,
+          left: 0,
+          background: 'radial-gradient(circle at 50% 50%, rgba(255, 77, 106, 0.22) 0%, rgba(139, 92, 246, 0.16) 40%, rgba(37, 99, 235, 0.08) 70%, transparent 100%)',
           pointerEvents: 'none',
           zIndex: 1
         }}
@@ -85,11 +87,11 @@ const ThankYouScene = () => {
         transition={{ duration: 4.0 }}
         style={{
           position: 'absolute',
-          bottom: '-10%',
-          left: '-10%',
-          width: '60%',
-          height: '60%',
-          background: 'radial-gradient(circle, rgba(255, 77, 106, 0.15) 0%, transparent 70%)',
+          bottom: '-20%',
+          left: '-20%',
+          width: '80%',
+          height: '80%',
+          background: 'radial-gradient(circle at 30% 70%, rgba(255, 77, 106, 0.18) 0%, transparent 70%)',
           pointerEvents: 'none',
           zIndex: 1
         }}
@@ -102,11 +104,11 @@ const ThankYouScene = () => {
         transition={{ duration: 4.5, delay: 0.3 }}
         style={{
           position: 'absolute',
-          top: '-15%',
-          right: '-10%',
-          width: '60%',
-          height: '60%',
-          background: 'radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(37, 99, 235, 0.08) 60%, transparent 80%)',
+          top: '-20%',
+          right: '-20%',
+          width: '80%',
+          height: '80%',
+          background: 'radial-gradient(circle at 70% 30%, rgba(139, 92, 246, 0.14) 0%, rgba(37, 99, 235, 0.09) 60%, transparent 80%)',
           pointerEvents: 'none',
           zIndex: 1
         }}
@@ -119,11 +121,11 @@ const ThankYouScene = () => {
         transition={{ duration: 4.8, delay: 0.5 }}
         style={{
           position: 'absolute',
-          bottom: '-15%',
-          right: '-10%',
-          width: '50%',
-          height: '50%',
-          background: 'radial-gradient(circle, rgba(255, 77, 106, 0.10) 0%, rgba(139, 92, 246, 0.08) 50%, transparent 80%)',
+          bottom: '-20%',
+          right: '-20%',
+          width: '70%',
+          height: '70%',
+          background: 'radial-gradient(circle at 70% 70%, rgba(255, 77, 106, 0.12) 0%, rgba(139, 92, 246, 0.10) 50%, transparent 80%)',
           pointerEvents: 'none',
           zIndex: 1
         }}
@@ -251,7 +253,7 @@ const ThankYouScene = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
           style={{
-            fontSize: '4.2rem',
+            fontSize: '6.5rem',
             fontWeight: 200,
             color: '#ffffff',
             margin: 0,
@@ -264,21 +266,6 @@ const ThankYouScene = () => {
           Thank you.
         </motion.h1>
 
-        {/* Subtitle / Caption */}
-        <motion.div
-          initial={{ opacity: 0, letterSpacing: '0.2em' }}
-          animate={{ opacity: 0.4, letterSpacing: '0.35em' }}
-          transition={{ duration: 2.2, ease: [0.16, 1, 0.3, 1], delay: 1.5 }}
-          style={{
-            marginTop: '20px',
-            fontSize: '9.5px',
-            fontWeight: 600,
-            color: '#ffffff',
-            textTransform: 'uppercase'
-          }}
-        >
-          Orbital Ecosystem &middot; Group 6
-        </motion.div>
       </div>
 
       {/* Faint Continuity Footer Statement */}
