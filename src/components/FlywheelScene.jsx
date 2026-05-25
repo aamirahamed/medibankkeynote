@@ -610,7 +610,7 @@ export default function FlywheelScene() {
               letterSpacing: '0.02em',
               textShadow: '0 0 8px rgba(255, 255, 255, 0.15)'
             }}>
-              Every interaction makes the ecosystem smarter.
+              Continuous engagement creates continuous understanding.
             </span>
           </motion.div>
 
