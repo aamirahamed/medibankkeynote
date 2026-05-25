@@ -678,7 +678,7 @@ export default function FlywheelScene() {
                   onClick={() => setActiveStage(idx)}
                   style={{
                     position: 'absolute',
-                    width: '320px',
+                    width: '250px',
                     height: '74px',
                     borderRadius: '14px',
                     background: isActive ? 'rgba(12, 12, 20, 0.88)' : 'rgba(8, 8, 12, 0.65)',
