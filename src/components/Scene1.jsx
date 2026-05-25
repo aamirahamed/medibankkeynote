@@ -935,14 +935,14 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
             {/* Right Column (Team Orbital Constellation Layout) */}
             <div style={{
               position: 'relative',
-              width: '500px',
-              height: '460px',
+              width: '540px',
+              height: '500px',
               zIndex: 10
             }}>
               {(() => {
-                const cx = 250;
-                const cy = 230;
-                const R = 165;
+                const cx = 270;
+                const cy = 250;
+                const R = 210;
                 const N = teamMembers.length;
                 const nodeCoords = Array.from({ length: N }, (_, i) => {
                   const angle = (2 * Math.PI * i) / N - Math.PI / 2;
