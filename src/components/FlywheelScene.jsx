@@ -628,11 +628,6 @@ export default function FlywheelScene() {
                   position: 'absolute',
                   left: `calc(50% + ${x}px)`,
                   top: `calc(50% + ${y}px)`,
-                  width: '0px',
-                  height: '0px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
                   zIndex: 10
                 }}
               >
@@ -682,7 +677,8 @@ export default function FlywheelScene() {
                   onMouseLeave={() => setIsHovered(false)}
                   onClick={() => setActiveStage(idx)}
                   style={{
-                    width: '380px',
+                    position: 'absolute',
+                    width: '320px',
                     height: '74px',
                     borderRadius: '14px',
                     background: isActive ? 'rgba(12, 12, 20, 0.88)' : 'rgba(8, 8, 12, 0.65)',
