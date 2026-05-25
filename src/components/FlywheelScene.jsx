@@ -682,7 +682,7 @@ export default function FlywheelScene() {
                   onMouseLeave={() => setIsHovered(false)}
                   onClick={() => setActiveStage(idx)}
                   style={{
-                    width: '230px',
+                    width: '270px',
                     height: '74px',
                     borderRadius: '14px',
                     background: isActive ? 'rgba(12, 12, 20, 0.88)' : 'rgba(8, 8, 12, 0.65)',
@@ -734,16 +734,13 @@ export default function FlywheelScene() {
                     </motion.div>
 
                     {/* Description Text */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', textAlign: 'left', overflow: 'hidden' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', textAlign: 'left' }}>
                       <span style={{
                         fontSize: '12.5px',
                         fontWeight: 700,
                         color: isActive ? '#ffffff' : 'rgba(255, 255, 255, 0.85)',
                         letterSpacing: '-0.02em',
-                        transition: 'color 0.3s ease',
-                        whiteSpace: 'nowrap',
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis'
+                        transition: 'color 0.3s ease'
                       }}>
                         {stage.label}
                       </span>
@@ -752,9 +749,6 @@ export default function FlywheelScene() {
                         fontWeight: 400,
                         color: isActive ? stage.color : 'rgba(255, 255, 255, 0.45)',
                         transition: 'color 0.3s ease',
-                        whiteSpace: 'nowrap',
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
                         opacity: 0.85
                       }}>
                         {stage.descSmall}
