@@ -47,7 +47,7 @@ export default function FlywheelScene() {
   const [hasEntered, setHasEntered] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setHasEntered(true), 2500);
+    const timer = setTimeout(() => setHasEntered(true), 1200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -179,7 +179,7 @@ export default function FlywheelScene() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 1.5, ease: "easeInOut" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       style={{
         position: 'absolute',
         top: 0,
@@ -189,7 +189,8 @@ export default function FlywheelScene() {
         background: '#040406',
         display: 'flex',
         overflow: 'hidden',
-        boxSizing: 'border-box'
+        boxSizing: 'border-box',
+        opacity: 0
       }}
     >
       {/* Background Soft Medibank Red Gradients */}
@@ -246,8 +247,8 @@ export default function FlywheelScene() {
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}
+          transition={{ duration: 0.5, delay: 0.05, ease: "easeOut" }}
+          style={{ display: 'flex', flexDirection: 'column', gap: '6px', opacity: 0 }}
         >
           <span style={{
             fontSize: '11px',
@@ -282,8 +283,8 @@ export default function FlywheelScene() {
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          style={{ margin: '30px 0', flexGrow: 1, display: 'flex', alignItems: 'center' }}
+          transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+          style={{ margin: '30px 0', flexGrow: 1, display: 'flex', alignItems: 'center', opacity: 0 }}
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -400,8 +401,8 @@ export default function FlywheelScene() {
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-          style={{ display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'left' }}
+          transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
+          style={{ display: 'flex', flexDirection: 'column', gap: '8px', textAlign: 'left', opacity: 0 }}
         >
           <p style={{
             fontSize: '1.05rem',
@@ -439,14 +440,15 @@ export default function FlywheelScene() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
           style={{
             position: 'relative',
             width: '850px',
             height: '850px',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            opacity: 0
           }}
         >
           
@@ -616,8 +618,8 @@ export default function FlywheelScene() {
               ]
             }}
             transition={{
-              scale: { duration: 1.0, delay: 0.4, ease: [0.16, 1, 0.3, 1] },
-              opacity: { duration: 1.0, delay: 0.4, ease: "easeOut" },
+              scale: { duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] },
+              opacity: { duration: 0.6, delay: 0.15, ease: "easeOut" },
               boxShadow: { duration: 5, repeat: Infinity, ease: "easeInOut" }
             }}
             style={{
@@ -632,7 +634,8 @@ export default function FlywheelScene() {
               justifyContent: 'center',
               padding: '24px',
               boxSizing: 'border-box',
-              zIndex: 6
+              zIndex: 6,
+              opacity: 0
             }}
           >
             {/* Multiple Layered Expanding Pulse Waves */}
@@ -755,7 +758,8 @@ export default function FlywheelScene() {
                       ? `0 8px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(${hexToRgb(stage.color)}, 0.35)` 
                       : '0 4px 15px rgba(0,0,0,0.4)',
                     boxSizing: 'border-box',
-                    transform: 'translate(-50%, -50%)'
+                    transform: 'translate(-50%, -50%)',
+                    opacity: 0
                   }}
                   initial={{ opacity: 0, scale: 0.6 }}
                   animate={{
@@ -766,8 +770,8 @@ export default function FlywheelScene() {
                     opacity: { duration: 0.35 },
                     scale: { type: 'spring', stiffness: 250, damping: 18 }
                   } : {
-                    opacity: { duration: 0.8, delay: 0.5 + idx * 0.15, ease: "easeOut" },
-                    scale: { duration: 0.8, delay: 0.5 + idx * 0.15, ease: "easeOut" }
+                    opacity: { duration: 0.6, delay: 0.1 + idx * 0.06, ease: "easeOut" },
+                    scale: { duration: 0.6, delay: 0.1 + idx * 0.06, ease: "easeOut" }
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '100%' }}>
