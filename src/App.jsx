@@ -257,7 +257,7 @@ function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.0, ease: "easeInOut" }}
-            style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, zIndex: 5 }}
+            style={{ position: 'fixed', width: '100vw', height: '100vh', top: 0, left: 0, zIndex: 5 }}
           >
             <Scene2 globalStep={globalStep} />
           </motion.div>
@@ -269,7 +269,7 @@ function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
-            style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, zIndex: 10 }}
+            style={{ position: 'fixed', width: '100vw', height: '100vh', top: 0, left: 0, zIndex: 10 }}
           >
             <FlywheelScene />
           </motion.div>
@@ -281,7 +281,7 @@ function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
-            style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, zIndex: 15 }}
+            style={{ position: 'fixed', width: '100vw', height: '100vh', top: 0, left: 0, zIndex: 15 }}
           >
             <ThankYouScene />
           </motion.div>
