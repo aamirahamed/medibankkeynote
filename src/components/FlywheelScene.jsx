@@ -522,9 +522,9 @@ export default function FlywheelScene() {
               r={R}
               fill="none"
               stroke="url(#outer-glow-gradient)"
-              strokeWidth="16"
+              strokeWidth="24"
               filter="url(#flywheel-glow-large)"
-              opacity="0.22"
+              opacity="0.28"
             />
             <circle
               cx="425"
@@ -532,9 +532,9 @@ export default function FlywheelScene() {
               r={R}
               fill="none"
               stroke="url(#outer-glow-gradient)"
-              strokeWidth="6"
+              strokeWidth="12"
               filter="url(#flywheel-glow-medium)"
-              opacity="0.4"
+              opacity="0.45"
             />
 
             {/* Main Base Outer Ring for Structural Definition */}
@@ -544,17 +544,17 @@ export default function FlywheelScene() {
               r={R}
               fill="none"
               stroke="url(#outer-glow-gradient)"
-              strokeWidth="2.5"
-              opacity="0.45"
+              strokeWidth="5"
+              opacity="0.6"
             />
-            {/* Core White Overlay line (extremely thin for crisp edge definition) */}
+            {/* Core White Overlay line (for crisp edge definition) */}
             <circle
               cx="425"
               cy="425"
               r={R}
               fill="none"
-              stroke="rgba(255, 255, 255, 0.4)"
-              strokeWidth="0.8"
+              stroke="rgba(255, 255, 255, 0.55)"
+              strokeWidth="1.6"
             />
 
             {/* Glowing flowing dash path */}
@@ -564,7 +564,7 @@ export default function FlywheelScene() {
               r={R}
               fill="none"
               stroke="url(#outer-glow-gradient)"
-              strokeWidth="4.5"
+              strokeWidth="7.5"
               strokeDasharray="120, 600"
               filter="url(#glow-filter)"
               animate={{ strokeDashoffset: [0, -1000] }}
@@ -576,11 +576,11 @@ export default function FlywheelScene() {
               r={R}
               fill="none"
               stroke="#ffffff"
-              strokeWidth="1.5"
+              strokeWidth="3"
               strokeDasharray="60, 300"
               animate={{ strokeDashoffset: [150, -850] }}
               transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
-              opacity="0.35"
+              opacity="0.45"
             />
           </svg>
 
