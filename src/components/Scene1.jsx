@@ -570,24 +570,14 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
             }}
           >
             {/* Grain */}
-            <motion.div
-              animate={{
-                x: [0, 8, -5, 6, -8, 0],
-                y: [0, -6, 8, -4, 5, 0],
-                scale: [1, 1.04, 1.01, 1.06, 1.02, 1]
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 25,
-                ease: "linear"
-              }}
+            <div
               style={{
                 position: 'absolute',
-                top: '-10%',
-                left: '-10%',
-                width: '120%',
-                height: '120%',
-                opacity: 0.015,
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                opacity: 0.012,
                 backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 250 250\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.75\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
                 pointerEvents: 'none',
                 zIndex: 1
@@ -808,25 +798,13 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
-                  animate={{ 
-                    opacity: 1, 
-                    y: 0,
-                    backgroundPosition: ['200% center', '-200% center']
-                  }}
-                  transition={{
-                    delay: 0.9,
-                    y: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
-                    opacity: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
-                    backgroundPosition: { repeat: Infinity, duration: 16, ease: "linear" }
-                  }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.9, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                   style={{
                     fontSize: '3.4rem',
                     fontWeight: 800,
                     lineHeight: '1.15',
-                    backgroundImage: 'linear-gradient(120deg, #ffffff 30%, #ff8093 50%, #ffffff 70%)',
-                    backgroundSize: '200% auto',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
+                    color: '#ffffff',
                     margin: 0,
                     letterSpacing: '-0.03em',
                     textAlign: 'left'
