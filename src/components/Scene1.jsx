@@ -916,20 +916,6 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
                 </motion.p>
               </div>
 
-              {/* Bottom-left presented by info */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.8, duration: 1.0, ease: "easeOut" }}
-                style={{ display: 'flex', flexDirection: 'column', gap: '4px', textAlign: 'left' }}
-              >
-                <span style={{ fontSize: '10px', fontWeight: 800, color: '#ff4d6a', textTransform: 'uppercase', letterSpacing: '0.12em' }}>
-                  Presented by
-                </span>
-                <span style={{ fontSize: '15px', fontWeight: 500, color: '#ffffff', letterSpacing: '0.01em' }}>
-                  Group 6
-                </span>
-              </motion.div>
             </div>
 
             {/* Right Column (Team Orbital Constellation Layout) */}
