@@ -457,9 +457,9 @@ export default function FlywheelScene() {
                 <stop offset="100%" stopColor="#10B981" stopOpacity="0.2" />
               </linearGradient>
               <linearGradient id="outer-glow-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#1E40AF" />
-                <stop offset="50%" stopColor="#7C3AED" />
-                <stop offset="100%" stopColor="#D93851" />
+                <stop offset="0%" stopColor="#2563EB" />
+                <stop offset="50%" stopColor="#8B5CF6" />
+                <stop offset="100%" stopColor="#FF4D6A" />
               </linearGradient>
               <filter id="glow-filter" x="-20%" y="-20%" width="140%" height="140%">
                 <feGaussianBlur stdDeviation="5" result="blur" />
@@ -522,9 +522,9 @@ export default function FlywheelScene() {
               r={R}
               fill="none"
               stroke="url(#outer-glow-gradient)"
-              strokeWidth="24"
+              strokeWidth="28"
               filter="url(#flywheel-glow-large)"
-              opacity="0.28"
+              opacity="0.45"
             />
             <circle
               cx="425"
@@ -532,9 +532,9 @@ export default function FlywheelScene() {
               r={R}
               fill="none"
               stroke="url(#outer-glow-gradient)"
-              strokeWidth="12"
+              strokeWidth="14"
               filter="url(#flywheel-glow-medium)"
-              opacity="0.45"
+              opacity="0.65"
             />
 
             {/* Main Base Outer Ring for Structural Definition */}
@@ -544,8 +544,8 @@ export default function FlywheelScene() {
               r={R}
               fill="none"
               stroke="url(#outer-glow-gradient)"
-              strokeWidth="5"
-              opacity="0.6"
+              strokeWidth="6"
+              opacity="0.85"
             />
             {/* Core White Overlay line (for crisp edge definition) */}
             <circle
@@ -553,8 +553,8 @@ export default function FlywheelScene() {
               cy="425"
               r={R}
               fill="none"
-              stroke="rgba(255, 255, 255, 0.55)"
-              strokeWidth="1.6"
+              stroke="rgba(255, 255, 255, 0.75)"
+              strokeWidth="2.2"
             />
 
             {/* Glowing flowing dash path */}
@@ -564,11 +564,12 @@ export default function FlywheelScene() {
               r={R}
               fill="none"
               stroke="url(#outer-glow-gradient)"
-              strokeWidth="7.5"
+              strokeWidth="9"
               strokeDasharray="120, 600"
               filter="url(#glow-filter)"
               animate={{ strokeDashoffset: [0, -1000] }}
               transition={{ repeat: Infinity, duration: 16, ease: "linear" }}
+              opacity="0.9"
             />
             <motion.circle
               cx="425"
@@ -576,11 +577,11 @@ export default function FlywheelScene() {
               r={R}
               fill="none"
               stroke="#ffffff"
-              strokeWidth="3"
+              strokeWidth="3.5"
               strokeDasharray="60, 300"
               animate={{ strokeDashoffset: [150, -850] }}
               transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
-              opacity="0.45"
+              opacity="0.6"
             />
           </svg>
 
