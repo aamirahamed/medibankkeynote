@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Scene1 from './components/Scene1';
 import Scene2 from './components/Scene2';
 import FlywheelScene from './components/FlywheelScene';
@@ -246,8 +247,33 @@ function App() {
   return (
     <>
       <Scene1 globalStep={globalStep} onCompanionGlow={() => setAudioTrigger(true)} />
-      {globalStep >= 9 && globalStep < 30 && <Scene2 globalStep={globalStep} />}
-      {globalStep === 30 && <FlywheelScene />}
+      
+      <AnimatePresence mode="popLayout">
+        {globalStep >= 9 && globalStep < 30 && (
+          <motion.div
+            key="scene2-container"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.0, ease: "easeInOut" }}
+            style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0 }}
+          >
+            <Scene2 globalStep={globalStep} />
+          </motion.div>
+        )}
+        {globalStep === 30 && (
+          <motion.div
+            key="flywheel-scene-container"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0 }}
+          >
+            <FlywheelScene />
+          </motion.div>
+        )}
+      </AnimatePresence>
       
       {/* Debug UI for development (can be disabled later) */}
       <div style={{ position: 'fixed', bottom: 10, right: 10, color: 'rgba(255,255,255,0.2)', fontSize: '12px', zIndex: 100 }}>
