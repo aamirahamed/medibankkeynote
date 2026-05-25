@@ -175,11 +175,7 @@ export default function FlywheelScene() {
   const angleStep = (2 * Math.PI) / N;
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+    <div
       style={{
         position: 'absolute',
         top: 0,
@@ -189,8 +185,7 @@ export default function FlywheelScene() {
         background: '#040406',
         display: 'flex',
         overflow: 'hidden',
-        boxSizing: 'border-box',
-        opacity: 0
+        boxSizing: 'border-box'
       }}
     >
       {/* Background Soft Medibank Red Gradients */}
@@ -849,6 +844,6 @@ export default function FlywheelScene() {
           })}
         </motion.div>
       </div>
-    </motion.div>
+    </div>
   );
 }
