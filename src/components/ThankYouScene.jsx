@@ -125,23 +125,20 @@ const ThankYouScene = () => {
       <div 
         style={{
           position: 'absolute',
-          top: '-8%',
-          left: '-10%',
-          width: '60%',
-          height: '50%',
-          display: 'flex',
-          justifyContent: 'flex-start',
-          alignItems: 'flex-start',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
           zIndex: 2,
           pointerEvents: 'none'
         }}
       >
         <motion.h1
-          initial={{ opacity: 0, scale: 1.05, filter: 'blur(12px)' }}
+          initial={{ opacity: 0, scale: 1.05, filter: 'blur(10px)' }}
           animate={{ 
-            opacity: [0.03, 0.05, 0.03],
+            opacity: [0.08, 0.12, 0.08],
             scale: 1,
-            filter: ['blur(4px)', 'blur(6px)', 'blur(4px)']
+            filter: ['blur(3px)', 'blur(5px)', 'blur(3px)']
           }}
           transition={{
             opacity: {
@@ -159,6 +156,9 @@ const ThankYouScene = () => {
             scale: { duration: 4.0, ease: [0.16, 1, 0.3, 1] }
           }}
           style={{
+            position: 'absolute',
+            top: '-5%',
+            left: '-6%',
             fontSize: '22vw',
             fontWeight: 900,
             textTransform: 'uppercase',
@@ -167,7 +167,7 @@ const ThankYouScene = () => {
             padding: 0,
             lineHeight: '0.8',
             fontFamily: '"SF Pro Display", "Neue Montreal", "Satoshi", sans-serif',
-            color: 'rgba(255, 255, 255, 0.15)',
+            color: '#ffffff',
             whiteSpace: 'nowrap'
           }}
         >
@@ -179,21 +179,18 @@ const ThankYouScene = () => {
       <div 
         style={{
           position: 'absolute',
-          bottom: '-12%',
-          right: '-8%',
-          width: '60%',
-          height: '50%',
-          display: 'flex',
-          justifyContent: 'flex-end',
-          alignItems: 'flex-end',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
           zIndex: 2,
           pointerEvents: 'none'
         }}
       >
         <motion.h1
-          initial={{ opacity: 0, scale: 0.96, filter: 'blur(8px)' }}
+          initial={{ opacity: 0, scale: 0.96, filter: 'blur(6px)' }}
           animate={{ 
-            opacity: [0.07, 0.11, 0.07],
+            opacity: [0.14, 0.22, 0.14],
             scale: [1, 1.015, 1],
             filter: 'blur(1.5px)'
           }}
@@ -213,6 +210,9 @@ const ThankYouScene = () => {
             filter: { duration: 3.5, ease: "easeOut" }
           }}
           style={{
+            position: 'absolute',
+            bottom: '-6%',
+            right: '-5%',
             fontSize: '24vw',
             fontWeight: 900,
             textTransform: 'uppercase',
@@ -221,11 +221,11 @@ const ThankYouScene = () => {
             padding: 0,
             lineHeight: '0.8',
             fontFamily: '"SF Pro Display", "Neue Montreal", "Satoshi", sans-serif',
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.85) 30%, rgba(255,77,106,0.7) 60%, rgba(139,92,246,0.6) 100%)',
+            background: 'linear-gradient(135deg, #ffffff 0%, #ffffff 30%, #ff4d6a 65%, #8b5cf6 100%)',
             backgroundSize: '300% auto',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            textShadow: '0 0 60px rgba(255, 77, 106, 0.15), 0 0 120px rgba(139, 92, 246, 0.1)',
+            textShadow: '0 0 60px rgba(255, 77, 106, 0.25), 0 0 120px rgba(139, 92, 246, 0.15)',
             whiteSpace: 'nowrap',
             animation: 'gradientSweep 12s ease-in-out infinite'
           }}
