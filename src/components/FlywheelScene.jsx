@@ -682,7 +682,7 @@ export default function FlywheelScene() {
                   onMouseLeave={() => setIsHovered(false)}
                   onClick={() => setActiveStage(idx)}
                   style={{
-                    width: '270px',
+                    width: '300px',
                     height: '74px',
                     borderRadius: '14px',
                     background: isActive ? 'rgba(12, 12, 20, 0.88)' : 'rgba(8, 8, 12, 0.65)',
