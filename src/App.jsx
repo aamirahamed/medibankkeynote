@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Scene1 from './components/Scene1';
 import Scene2 from './components/Scene2';
 import FlywheelScene from './components/FlywheelScene';
+import ThankYouScene from './components/ThankYouScene';
 import './index.css';
 import './App.css';
 
@@ -197,8 +198,8 @@ function App() {
   }, [globalStep, fadeAdminVolume]);
 
   const advanceStep = useCallback(() => {
-    // Scene 2 ends at step 30 (flywheel scene)
-    setGlobalStep(prev => (prev < 30 ? prev + 1 : prev));
+    // Keynote ends at step 31 (thank you scene)
+    setGlobalStep(prev => (prev < 31 ? prev + 1 : prev));
   }, []);
 
   const reverseStep = useCallback(() => {
@@ -271,6 +272,18 @@ function App() {
             style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, zIndex: 10 }}
           >
             <FlywheelScene />
+          </motion.div>
+        )}
+        {globalStep === 31 && (
+          <motion.div
+            key="thank-you-scene-container"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, zIndex: 15 }}
+          >
+            <ThankYouScene />
           </motion.div>
         )}
       </AnimatePresence>
