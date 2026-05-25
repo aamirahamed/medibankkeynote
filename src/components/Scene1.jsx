@@ -315,11 +315,38 @@ const TeamProfile = ({ name, initials, index, x, y }) => {
   const [imgError, setImgError] = useState(false);
   const photoUrl = nameToPhotoMap[name];
 
+  // Orbit / float keyframes offset based on index phase to keep movement organic and out of phase
+  const phase = index * ((2 * Math.PI) / 7);
+  const orbitX = [
+    Math.cos(phase) * 6,
+    Math.cos(phase + Math.PI / 2) * 6,
+    Math.cos(phase + Math.PI) * 6,
+    Math.cos(phase + (3 * Math.PI) / 2) * 6,
+    Math.cos(phase) * 6
+  ];
+  const orbitY = [
+    Math.sin(phase) * 6,
+    Math.sin(phase + Math.PI / 2) * 6,
+    Math.sin(phase + Math.PI) * 6,
+    Math.sin(phase + (3 * Math.PI) / 2) * 6,
+    Math.sin(phase) * 6
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: 1.8 + index * 0.12, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+      animate={{ 
+        opacity: 1, 
+        scale: 1,
+        x: orbitX,
+        y: orbitY
+      }}
+      transition={{ 
+        opacity: { delay: 1.8 + index * 0.12, duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+        scale: { delay: 1.8 + index * 0.12, duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+        x: { repeat: Infinity, duration: 16 + (index % 3) * 2, ease: "linear", delay: 2.7 + index * 0.12 },
+        y: { repeat: Infinity, duration: 16 + (index % 3) * 2, ease: "linear", delay: 2.7 + index * 0.12 }
+      }}
       style={{
         display: 'flex',
         flexDirection: 'column',
@@ -328,7 +355,8 @@ const TeamProfile = ({ name, initials, index, x, y }) => {
         position: 'absolute',
         left: x,
         top: y,
-        width: '120px'
+        width: '120px',
+        zIndex: 10
       }}
     >
       <motion.div
@@ -338,8 +366,7 @@ const TeamProfile = ({ name, initials, index, x, y }) => {
             '0 0 20px rgba(255, 77, 106, 0.22), inset 0 0 15px rgba(255, 77, 106, 0.12)',
             '0 0 10px rgba(255, 77, 106, 0.08), inset 0 0 10px rgba(255, 255, 255, 0.03)'
           ],
-          scale: [1, 1.015, 1],
-          y: [0, -6, 4, -4, 0]
+          scale: [1, 1.015, 1]
         }}
         transition={{
           repeat: Infinity,
@@ -425,13 +452,13 @@ const TeamProfile = ({ name, initials, index, x, y }) => {
 };
 
 const teamMembers = [
-  { name: "Aamir Ahamed", initials: "AA", x: 95, y: 0 },
-  { name: "Akanksha Hiremath", initials: "AH", x: 285, y: 0 },
-  { name: "Harshitha Rupesh", initials: "HR", x: 0, y: 165 },
-  { name: "Lalit Aditya", initials: "LA", x: 190, y: 165 },
-  { name: "Navneet Krishna", initials: "NK", x: 380, y: 165 },
-  { name: "Umair Ahamed", initials: "UA", x: 95, y: 330 },
-  { name: "Yojit Kohli", initials: "YK", x: 285, y: 330 }
+  { name: "Aamir Ahamed", initials: "AA" },
+  { name: "Akanksha Hiremath", initials: "AH" },
+  { name: "Harshitha Rupesh", initials: "HR" },
+  { name: "Lalit Aditya", initials: "LA" },
+  { name: "Navneet Krishna", initials: "NK" },
+  { name: "Umair Ahamed", initials: "UA" },
+  { name: "Yojit Kohli", initials: "YK" }
 ];
 
 const dustMotes = Array.from({ length: 15 }, (_, i) => ({
@@ -905,77 +932,148 @@ const Scene1 = ({ globalStep, onCompanionGlow }) => {
               </motion.div>
             </div>
 
-            {/* Right Column (Team Clustered Layout) */}
+            {/* Right Column (Team Orbital Constellation Layout) */}
             <div style={{
               position: 'relative',
               width: '500px',
               height: '460px',
               zIndex: 10
             }}>
-              {/* Ambient Ripple Rings behind the team profiles */}
-              <motion.div
-                animate={{
-                  scale: [0.8, 1.8],
-                  opacity: [0, 0.14, 0]
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 9,
-                  ease: "easeOut",
-                  delay: 2
-                }}
-                style={{
-                  position: 'absolute',
-                  left: '250px',
-                  top: '225px',
-                  width: '350px',
-                  height: '350px',
-                  marginLeft: '-175px',
-                  marginTop: '-175px',
-                  borderRadius: '50%',
-                  border: '1.5px solid rgba(255, 77, 106, 0.12)',
-                  pointerEvents: 'none',
-                  zIndex: 1,
-                  filter: 'blur(3px)'
-                }}
-              />
-              <motion.div
-                animate={{
-                  scale: [0.8, 1.8],
-                  opacity: [0, 0.1, 0]
-                }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 9,
-                  ease: "easeOut",
-                  delay: 6.5
-                }}
-                style={{
-                  position: 'absolute',
-                  left: '250px',
-                  top: '225px',
-                  width: '350px',
-                  height: '350px',
-                  marginLeft: '-175px',
-                  marginTop: '-175px',
-                  borderRadius: '50%',
-                  border: '1.5px solid rgba(99, 102, 241, 0.1)',
-                  pointerEvents: 'none',
-                  zIndex: 1,
-                  filter: 'blur(3px)'
-                }}
-              />
+              {(() => {
+                const cx = 250;
+                const cy = 230;
+                const R = 165;
+                const N = teamMembers.length;
+                const nodeCoords = Array.from({ length: N }, (_, i) => {
+                  const angle = (2 * Math.PI * i) / N - Math.PI / 2;
+                  return {
+                    x: cx + R * Math.cos(angle),
+                    y: cy + R * Math.sin(angle)
+                  };
+                });
 
-              {teamMembers.map((member, idx) => (
-                <TeamProfile
-                  key={member.name}
-                  name={member.name}
-                  initials={member.initials}
-                  index={idx}
-                  x={member.x}
-                  y={member.y}
-                />
-              ))}
+                return (
+                  <>
+                    {/* SVG Connection Lines / Constellation Network */}
+                    <svg style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 1 }}>
+                      {/* Radial Lines from Center Core to Node Centers */}
+                      {nodeCoords.map((coord, idx) => (
+                        <motion.line
+                          key={`radial-line-${idx}`}
+                          x1={cx}
+                          y1={cy}
+                          x2={coord.x}
+                          y2={coord.y}
+                          stroke="rgba(255, 77, 106, 0.22)"
+                          strokeWidth="1.5"
+                          initial={{ pathLength: 0, opacity: 0 }}
+                          animate={{ 
+                            pathLength: 1, 
+                            opacity: [0.3, 0.6, 0.3],
+                            strokeDashoffset: [0, -40]
+                          }}
+                          style={{ strokeDasharray: "4, 16" }}
+                          transition={{
+                            pathLength: { delay: 1.5 + idx * 0.1, duration: 1.2, ease: "easeOut" },
+                            opacity: { repeat: Infinity, duration: 4, ease: "easeInOut" },
+                            strokeDashoffset: { repeat: Infinity, duration: 6, ease: "linear" }
+                          }}
+                        />
+                      ))}
+
+                      {/* Circular Arc Ring Lines Connecting Adjacent Nodes */}
+                      {nodeCoords.map((coord, idx) => {
+                        const nextCoord = nodeCoords[(idx + 1) % N];
+                        return (
+                          <motion.line
+                            key={`ring-line-${idx}`}
+                            x1={coord.x}
+                            y1={coord.y}
+                            x2={nextCoord.x}
+                            y2={nextCoord.y}
+                            stroke="rgba(255, 77, 106, 0.14)"
+                            strokeWidth="1"
+                            initial={{ pathLength: 0, opacity: 0 }}
+                            animate={{ pathLength: 1, opacity: 1 }}
+                            transition={{ delay: 2.2 + idx * 0.1, duration: 1.0, ease: "easeOut" }}
+                          />
+                        );
+                      })}
+                    </svg>
+
+                    {/* Central Group 6 Core Node */}
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.6 }}
+                      animate={{ 
+                        opacity: 1, 
+                        scale: [1, 1.03, 1],
+                        boxShadow: [
+                          '0 0 15px rgba(255, 77, 106, 0.15), inset 0 0 10px rgba(255, 77, 106, 0.05)',
+                          '0 0 30px rgba(255, 77, 106, 0.35), inset 0 0 15px rgba(255, 77, 106, 0.15)',
+                          '0 0 15px rgba(255, 77, 106, 0.15), inset 0 0 10px rgba(255, 77, 106, 0.05)'
+                        ]
+                      }}
+                      transition={{ 
+                        opacity: { delay: 1.2, duration: 1.0 },
+                        scale: { repeat: Infinity, duration: 5, ease: "easeInOut" },
+                        boxShadow: { repeat: Infinity, duration: 5, ease: "easeInOut" }
+                      }}
+                      style={{
+                        position: 'absolute',
+                        left: cx - 50,
+                        top: cy - 50,
+                        width: '100px',
+                        height: '100px',
+                        borderRadius: '50%',
+                        background: 'linear-gradient(135deg, #13141c 0%, #08090d 100%)',
+                        border: '2px solid rgba(255, 77, 106, 0.4)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        zIndex: 2,
+                        cursor: 'default'
+                      }}
+                    >
+                      <span style={{
+                        fontSize: '11px',
+                        fontWeight: 800,
+                        color: 'rgba(255, 255, 255, 0.4)',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.12em'
+                      }}>
+                        Group
+                      </span>
+                      <span style={{
+                        fontSize: '22px',
+                        fontWeight: 800,
+                        color: '#ffffff',
+                        letterSpacing: '-0.02em',
+                        lineHeight: '1'
+                      }}>
+                        6
+                      </span>
+                    </motion.div>
+
+                    {/* Team Member Orbital Nodes */}
+                    {teamMembers.map((member, idx) => {
+                      const coord = nodeCoords[idx];
+                      const targetX = coord.x - 60; // half of card width (120px)
+                      const targetY = coord.y - 55; // center around avatar (height 110px)
+                      return (
+                        <TeamProfile
+                          key={member.name}
+                          name={member.name}
+                          initials={member.initials}
+                          index={idx}
+                          x={targetX}
+                          y={targetY}
+                        />
+                      );
+                    })}
+                  </>
+                );
+              })()}
             </div>
 
 
