@@ -161,7 +161,7 @@ function App() {
     let fadeOutTimer;
 
     if (globalStep === 20) {
-      // Play & Fade in after 8 seconds (when conversion engine chip appears)
+      // Play & Fade in after 11 seconds (when conversion engine chip appears)
       playTimer = setTimeout(() => {
         if (adminAudioRef.current) {
           adminAudioRef.current.play().then(() => {
@@ -170,16 +170,16 @@ function App() {
             console.warn("Admin audio autoplay blocked:", err);
           });
         }
-      }, 8000);
+      }, 11000);
 
-      // Fade out & Pause 3 seconds after laptop UI appears (13.5s + 3s = 16.5s)
+      // Fade out & Pause 3 seconds after laptop UI appears (16.5s + 3s = 19.5s)
       fadeOutTimer = setTimeout(() => {
         fadeAdminVolume(0, 3000, () => {
           if (adminAudioRef.current) {
             adminAudioRef.current.pause();
           }
         });
-      }, 16500);
+      }, 19500);
     } else {
       // If we leave step 20, fade out immediately (1s duration) and pause
       if (adminAudioRef.current && !adminAudioRef.current.paused) {

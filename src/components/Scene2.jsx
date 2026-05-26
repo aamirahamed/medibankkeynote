@@ -277,20 +277,20 @@ const AnimatedJourney = ({ step }) => {
 };
 
 const MOCK_SIGNALS = [
-  { id: 1, text: "OVHC pricing explored", color: "#FF4D6A", delay: 0.1, targetY: -160, targetX: 60 },
-  { id: 2, text: "Referral activity increased", color: "#4ADE80", delay: 0.3, targetY: -90, targetX: 180 },
-  { id: 3, text: "Health engagement spike", color: "#4ADE80", delay: 0.5, targetY: -20, targetX: 90 },
-  { id: 4, text: "Community participation", color: "#38B6FF", delay: 0.7, targetY: 40, targetX: 160 },
-  { id: 5, text: "Inactive for 14 days", color: "#FF9F43", delay: 0.9, targetY: 100, targetX: 70 },
-  { id: 6, text: "Graduation approaching", color: "#38B6FF", delay: 1.1, targetY: 160, targetX: 190 },
-  { id: 7, text: "Webinar attended", color: "#38B6FF", delay: 1.3, targetY: -130, targetX: -20 },
-  { id: 8, text: "Graduate visa discussions", color: "#FF4D6A", delay: 1.5, targetY: 70, targetX: -30 },
-  { id: 9, text: "MediGuide query resolved", color: "#38B6FF", delay: 1.7, targetY: -210, targetX: 40 },
-  { id: 10, text: "OSHC policy activated", color: "#4ADE80", delay: 1.9, targetY: -50, targetX: -100 },
-  { id: 11, text: "Daily step goal achieved", color: "#4ADE80", delay: 2.1, targetY: 130, targetX: -40 },
-  { id: 12, text: "Ambassador tier unlocked", color: "#FF9F43", delay: 2.3, targetY: -100, targetX: -150 },
-  { id: 13, text: "App opened 5 days in a row", color: "#4ADE80", delay: 2.5, targetY: 10, targetX: -120 },
-  { id: 14, text: "Cost of living guide viewed", color: "#38B6FF", delay: 2.7, targetY: 200, targetX: 10 }
+  { id: 1, text: "OVHC pricing explored", color: "#FF4D6A", delay: 0.1, targetY: -220, targetX: -30 },
+  { id: 2, text: "Referral activity increased", color: "#4ADE80", delay: 0.3, targetY: 60, targetX: 120 },
+  { id: 3, text: "Health engagement spike", color: "#4ADE80", delay: 0.5, targetY: -100, targetX: 110 },
+  { id: 4, text: "Community participation", color: "#38B6FF", delay: 0.7, targetY: 220, targetX: 130 },
+  { id: 5, text: "Inactive for 14 days", color: "#FF9F43", delay: 0.9, targetY: 140, targetX: 110 },
+  { id: 6, text: "Graduation approaching", color: "#38B6FF", delay: 1.1, targetY: 300, targetX: 90 },
+  { id: 7, text: "Webinar attended", color: "#38B6FF", delay: 1.3, targetY: -60, targetX: -40 },
+  { id: 8, text: "Graduate visa discussions", color: "#FF4D6A", delay: 1.5, targetY: 260, targetX: -10 },
+  { id: 9, text: "MediGuide query resolved", color: "#38B6FF", delay: 1.7, targetY: -140, targetX: -20 },
+  { id: 10, text: "OSHC policy activated", color: "#4ADE80", delay: 1.9, targetY: 100, targetX: -30 },
+  { id: 11, text: "Daily step goal achieved", color: "#4ADE80", delay: 2.1, targetY: 180, targetX: -20 },
+  { id: 12, text: "Ambassador tier unlocked", color: "#FF9F43", delay: 2.3, targetY: -180, targetX: 120 },
+  { id: 13, text: "App opened 5 days in a row", color: "#4ADE80", delay: 2.5, targetY: 20, targetX: -10 },
+  { id: 14, text: "Cost of living guide viewed", color: "#38B6FF", delay: 2.7, targetY: -20, targetX: 130 }
 ];
 
 function SignalParticles({ transitionPhase }) {
@@ -557,11 +557,11 @@ export default function Scene2({ globalStep }) {
         setCyclingStep(prev => (prev + 1) % 5);
       }, 3000);
       
-      const t2 = setTimeout(() => setTransitionPhase(2), 3000);
-      const t3 = setTimeout(() => setTransitionPhase(3), 5500);
-      const t4 = setTimeout(() => setTransitionPhase(4), 8000);
-      const t5 = setTimeout(() => setTransitionPhase(5), 10500);
-      const t6 = setTimeout(() => setTransitionPhase(6), 13500);
+      const t2 = setTimeout(() => setTransitionPhase(2), 6000);
+      const t3 = setTimeout(() => setTransitionPhase(3), 8500);
+      const t4 = setTimeout(() => setTransitionPhase(4), 11000);
+      const t5 = setTimeout(() => setTransitionPhase(5), 13500);
+      const t6 = setTimeout(() => setTransitionPhase(6), 16500);
       
       return () => {
         clearInterval(interval);
