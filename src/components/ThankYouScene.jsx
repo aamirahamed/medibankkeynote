@@ -330,7 +330,9 @@ const ThankYouScene = () => {
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 1.0 }}
             style={{
               width: '330px',
-              padding: '28px 30px',
+              height: '220px',
+              boxSizing: 'border-box',
+              padding: '24px 30px',
               borderRadius: '24px',
               background: 'linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.005) 100%)',
               border: '1.5px solid rgba(56, 182, 255, 0.12)',
@@ -340,6 +342,7 @@ const ThankYouScene = () => {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
+              justifyContent: 'center',
               textAlign: 'center',
               cursor: 'pointer',
               zIndex: 2,
@@ -381,8 +384,9 @@ const ThankYouScene = () => {
               alignItems: 'center',
               justifyContent: 'center',
               color: '#38B6FF',
-              marginBottom: '18px',
-              boxShadow: '0 0 15px rgba(56, 182, 255, 0.1)'
+              marginBottom: '14px',
+              boxShadow: '0 0 15px rgba(56, 182, 255, 0.1)',
+              flexShrink: 0
             }}>
               <Smartphone size={24} strokeWidth={1.5} />
             </div>
@@ -418,7 +422,9 @@ const ThankYouScene = () => {
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 1.2 }}
             style={{
               width: '330px',
-              padding: '28px 30px',
+              height: '220px',
+              boxSizing: 'border-box',
+              padding: '24px 30px',
               borderRadius: '24px',
               background: 'linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.005) 100%)',
               border: '1.5px solid rgba(255, 77, 106, 0.12)',
@@ -428,6 +434,7 @@ const ThankYouScene = () => {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
+              justifyContent: 'center',
               textAlign: 'center',
               cursor: 'pointer',
               zIndex: 2,
@@ -469,8 +476,9 @@ const ThankYouScene = () => {
               alignItems: 'center',
               justifyContent: 'center',
               color: '#FF4D6A',
-              marginBottom: '18px',
-              boxShadow: '0 0 15px rgba(255, 77, 106, 0.1)'
+              marginBottom: '14px',
+              boxShadow: '0 0 15px rgba(255, 77, 106, 0.1)',
+              flexShrink: 0
             }}>
               <Cpu size={24} strokeWidth={1.5} />
             </div>
