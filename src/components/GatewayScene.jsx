@@ -191,41 +191,43 @@ export default function GatewayScene() {
       </svg>
 
       {/* HEADER SECTION */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', zIndex: 10, position: 'relative' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-          <span style={{
-            fontSize: 9.5,
-            fontWeight: 800,
-            letterSpacing: '0.18em',
-            color: '#FF4D6A',
-            textTransform: 'uppercase'
-          }}>
-            Live System Architecture
-          </span>
-          <h1 style={{
-            fontSize: 'clamp(24px, 2.2vw, 32px)',
-            fontWeight: 800,
-            color: '#ffffff',
-            margin: 0,
-            letterSpacing: '-0.02em',
-            lineHeight: 1.15
-          }}>
-            From Behavioural Signals to Operational Intelligence
-          </h1>
-          <p style={{
-            fontSize: 'clamp(11.5px, 1.1vw, 14px)',
-            color: 'rgba(255, 255, 255, 0.45)',
-            margin: '2px 0 0 0',
-            fontWeight: 300,
-            maxWidth: '750px',
-            lineHeight: 1.45
-          }}>
-            AI agents continuously detect, interpret, orchestrate, and prepare human-reviewable decisions across the student lifecycle.
-          </p>
-        </div>
-        
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center',
+        width: '100%',
+        gap: 6,
+        zIndex: 10,
+        position: 'relative'
+      }}>
+        <h1 style={{
+          fontSize: 'clamp(24px, 2.2vw, 32px)',
+          fontWeight: 800,
+          color: '#ffffff',
+          margin: 0,
+          letterSpacing: '-0.02em',
+          lineHeight: 1.15,
+          maxWidth: '900px'
+        }}>
+          From Behavioural Signals to Operational Intelligence
+        </h1>
+        <p style={{
+          fontSize: 'clamp(11.5px, 1.1vw, 14px)',
+          color: 'rgba(255, 255, 255, 0.45)',
+          margin: '2px 0 0 0',
+          fontWeight: 300,
+          maxWidth: '750px',
+          lineHeight: 1.45
+        }}>
+          AI agents continuously detect, interpret, orchestrate, and prepare human-reviewable decisions across the student lifecycle.
+        </p>
+
         {/* Active System Pulse Status Indicator */}
         <div style={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
           display: 'flex',
           alignItems: 'center',
           gap: 10,
@@ -272,7 +274,7 @@ export default function GatewayScene() {
         {/* ── CENTRAL SYSTEM NUCLEUS CORE ── */}
         <div style={{
           position: 'absolute',
-          top: '50%',
+          top: 'calc(50% - 40px)',
           left: '50%',
           transform: 'translate(-50%, -50%)',
           zIndex: 8,
@@ -348,7 +350,7 @@ export default function GatewayScene() {
         <div style={{ position: 'relative', zIndex: 10, margin: '20px 0', display: 'flex', justifyContent: 'center' }}>
           <LaptopMockup
             initial={{ opacity: 0, scale: 0.5, y: 50 }}
-            animate={{ opacity: 1, scale: 0.72, y: 0 }}
+            animate={{ opacity: 1, scale: 0.68, y: -40 }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           >
             <MemoryRouter initialEntries={['/']}>
@@ -378,62 +380,82 @@ export default function GatewayScene() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
           style={{
-            background: 'linear-gradient(135deg, rgba(205, 13, 45, 0.8) 0%, rgba(99, 102, 241, 0.75) 100%)',
-            border: '1px solid rgba(255,255,255,0.18)',
-            boxShadow: '0 10px 40px rgba(205, 13, 45, 0.25), 0 0 30px rgba(99, 102, 241, 0.2), inset 0 1px 0 rgba(255,255,255,0.2)',
-            padding: '14px 44px',
-            borderRadius: 24,
+            background: 'linear-gradient(135deg, rgba(205, 13, 45, 0.75) 0%, rgba(56, 182, 255, 0.7) 100%)',
+            border: '1.5px solid rgba(255, 255, 255, 0.15)',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5), 0 0 25px rgba(205, 13, 45, 0.25), 0 0 25px rgba(56, 182, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.25)',
+            padding: '16px 48px',
+            borderRadius: 30,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             cursor: 'pointer',
             position: 'relative',
             overflow: 'hidden',
-            minWidth: '380px'
+            minWidth: '400px',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            transition: 'box-shadow 0.4s ease, border-color 0.4s ease, background 0.4s ease'
           }}
           whileHover={{
-            scale: 1.03,
-            boxShadow: '0 15px 50px rgba(205, 13, 45, 0.35), 0 0 45px rgba(99, 102, 241, 0.35), inset 0 1px 0 rgba(255,255,255,0.3)',
-            borderColor: 'rgba(255,255,255,0.35)'
+            scale: 1.04,
+            background: 'linear-gradient(135deg, rgba(205, 13, 45, 0.9) 0%, rgba(56, 182, 255, 0.85) 100%)',
+            boxShadow: '0 15px 50px rgba(205, 13, 45, 0.45), 0 0 40px rgba(56, 182, 255, 0.45), 0 0 50px rgba(139, 92, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.35)',
+            borderColor: 'rgba(255, 255, 255, 0.45)'
           }}
           whileTap={{ scale: 0.98 }}
         >
+          {/* Futuristic Border Glow */}
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            borderRadius: 30,
+            padding: 1.5,
+            background: 'linear-gradient(135deg, rgba(255, 77, 106, 0.4) 0%, rgba(56, 182, 255, 0.4) 100%)',
+            mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+            WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+            maskComposite: 'exclude',
+            WebkitMaskComposite: 'xor',
+            pointerEvents: 'none',
+            opacity: 0.8
+          }} />
+
           {/* Animated Light Sweep Effect */}
           <motion.div
             animate={{ left: ['-100%', '200%'] }}
-            transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
+            transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
             style={{
               position: 'absolute',
               top: 0,
               width: '50%',
               height: '100%',
-              background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent)',
+              background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent)',
               transform: 'skewX(-25deg)',
               pointerEvents: 'none'
             }}
           />
 
           {/* Button Text */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 1 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 4 }}>
             <span style={{
-              fontSize: 16,
+              fontSize: 17,
               fontWeight: 800,
               color: '#ffffff',
               letterSpacing: '-0.02em',
-              textShadow: '0 2px 4px rgba(0,0,0,0.2)'
+              textShadow: '0 2px 4px rgba(0,0,0,0.3)'
             }}>
               Enter the Conversion Engine
             </span>
             <span style={{
               fontSize: 8.5,
-              fontWeight: 800,
+              fontWeight: 900,
               color: '#ffffff',
               background: 'rgba(255, 255, 255, 0.15)',
-              border: '1.5px solid rgba(255,255,255,0.5)',
-              padding: '1.5px 6px',
+              border: '1.5px solid rgba(255, 255, 255, 0.6)',
+              padding: '2px 7px',
               borderRadius: 6,
               letterSpacing: '0.08em',
-              textTransform: 'uppercase'
+              textTransform: 'uppercase',
+              boxShadow: '0 0 10px rgba(255,255,255,0.2)'
             }}>
               Live Demo
             </span>
@@ -441,11 +463,12 @@ export default function GatewayScene() {
 
           {/* Button Subtext */}
           <span style={{
-            fontSize: 10.5,
-            fontWeight: 400,
-            color: 'rgba(255, 255, 255, 0.75)',
-            letterSpacing: '0.02em',
-            textTransform: 'uppercase'
+            fontSize: 10,
+            fontWeight: 500,
+            color: 'rgba(255, 255, 255, 0.8)',
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase',
+            textShadow: '0 1px 2px rgba(0,0,0,0.2)'
           }}>
             Launch live operational workspace ➔
           </span>
