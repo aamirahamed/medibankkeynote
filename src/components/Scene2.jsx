@@ -2873,7 +2873,7 @@ export default function Scene2({ globalStep }) {
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
                 <h1 className="cinematic-text primary" style={{ fontSize: '2.5rem', fontWeight: 600, textAlign: 'center', margin: 0, color: '#ffffff', letterSpacing: '-0.02em' }}>
-                  {step === 12 ? "Powered by a Collaborative Agent Ecosystem" :
+                  {step === 12 ? "Powered by a Collaborative AI Agent Ecosystem" :
                    step === 13 ? "1. Real-time Student Signals Detected" :
                    step === 14 ? "2. Cohort Detected & Synthesised" :
                    step === 15 ? "3. Intelligence Layer Interprets Cohort" :
@@ -2954,6 +2954,62 @@ export default function Scene2({ globalStep }) {
 
           </AnimatePresence>
         </div>
+
+        {/* Powered by AI illustrative tag at bottom right */}
+        <AnimatePresence>
+          {step === 12 && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.8, ease: 'easeOut', delay: 1.2 }}
+              style={{
+                position: 'absolute',
+                bottom: '4%',
+                right: '4%',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                background: 'rgba(255, 255, 255, 0.02)',
+                border: '1px solid rgba(255, 255, 255, 0.06)',
+                padding: '8px 16px',
+                borderRadius: '20px',
+                backdropFilter: 'blur(10px)',
+                boxShadow: '0 4px 24px rgba(0, 0, 0, 0.4), 0 0 15px rgba(139, 92, 246, 0.1)',
+                zIndex: 110
+              }}
+            >
+              {/* Glow dot */}
+              <span style={{ position: 'relative', display: 'flex', height: '6px', width: '6px' }}>
+                <span style={{
+                  animation: 'ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite',
+                  position: 'absolute',
+                  height: '100%', width: '100%',
+                  borderRadius: '50%',
+                  background: '#8B5CF6',
+                  opacity: 0.75
+                }} />
+                <span style={{
+                  position: 'relative',
+                  borderRadius: '50%',
+                  height: '6px', width: '6px',
+                  background: '#8B5CF6',
+                  boxShadow: '0 0 8px #8B5CF6'
+                }} />
+              </span>
+              <span style={{
+                fontSize: '9.5px',
+                fontWeight: 700,
+                letterSpacing: '0.12em',
+                color: 'rgba(255, 255, 255, 0.6)',
+                textTransform: 'uppercase',
+                fontFamily: '"Neue Montreal", sans-serif'
+              }}>
+                Powered by AI
+              </span>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
       </div>
     </div>
