@@ -1,5 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
+import LaptopMockup from './LaptopMockup';
+import CommandCentre from '@admin/pages/CommandCentre';
+import Layout from '@admin/components/Layout';
 
 /* ─── PARTICLE CANVAS ─────────────────────────────────────────────── */
 function ParticleCanvas() {
@@ -113,62 +117,6 @@ export default function GatewayScene() {
     }, 1200);
   };
 
-  const layers = [
-    {
-      id: 'orchestration',
-      name: 'Orchestration Layer',
-      desc: 'Packages intelligence into actionable, channel-specific briefs.',
-      color: '#FF4D6A',
-      glow: 'rgba(255, 77, 106, 0.25)',
-      dim: 'rgba(255, 77, 106, 0.05)',
-      border: 'rgba(255, 77, 106, 0.22)',
-      agents: ['Campaign Optimisation', 'Insight Narrator'],
-      icon: (color) => (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <line x1="4" y1="21" x2="4" y2="14" />
-          <line x1="4" y1="10" x2="4" y2="3" />
-          <line x1="12" y1="21" x2="12" y2="12" />
-          <line x1="12" y1="8" x2="12" y2="3" />
-          <line x1="20" y1="21" x2="20" y2="16" />
-          <line x1="20" y1="12" x2="20" y2="3" />
-          <line x1="2" y1="14" x2="6" y2="14" />
-          <line x1="10" y1="8" x2="14" y2="8" />
-          <line x1="18" y1="16" x2="22" y2="16" />
-        </svg>
-      )
-    },
-    {
-      id: 'intelligence',
-      name: 'Intelligence Layer',
-      desc: 'Models behavioral telemetry, scores propensity, and tracks intent.',
-      color: '#8B5CF6',
-      glow: 'rgba(139, 92, 246, 0.25)',
-      dim: 'rgba(139, 92, 246, 0.05)',
-      border: 'rgba(139, 92, 246, 0.22)',
-      agents: ['Conversion Agent', 'Activation Agent', 'Community Agent', 'Visa Transition Agent'],
-      icon: (color) => (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10" />
-          <circle cx="12" cy="12" r="4" />
-        </svg>
-      )
-    },
-    {
-      id: 'detection',
-      name: 'Detection Layer',
-      desc: 'Continuously monitors raw app telemetry to identify micro-events.',
-      color: '#38B6FF',
-      glow: 'rgba(56, 182, 255, 0.25)',
-      dim: 'rgba(56, 182, 255, 0.05)',
-      border: 'rgba(56, 182, 255, 0.22)',
-      agents: ['Segmentation Agent', 'Retention Risk Agent', 'Referral Agent'],
-      icon: (color) => (
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        </svg>
-      )
-    }
-  ];
 
   return (
     <div style={{
@@ -396,111 +344,21 @@ export default function GatewayScene() {
             </svg>
           </motion.div>
         </div>
-
-        {/* ── 3 STACKED ARCHITECTURE LAYERS ── */}
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 34,
-          width: '100%',
-          maxWidth: 960,
-          position: 'relative',
-          zIndex: 10
-        }}>
-          {layers.map((layer, idx) => (
-            <motion.div
-              key={layer.id}
-              initial={{ opacity: 0, x: idx % 2 === 0 ? -30 : 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.0, delay: 0.15 + idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              style={{
-                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.005) 100%)',
-                border: `1px solid ${layer.border}`,
-                boxShadow: `0 8px 32px rgba(0, 0, 0, 0.35), inset 0 0 0 0.5px rgba(255,255,255,0.02), 0 0 20px ${layer.glow}30`,
-                borderRadius: 14,
-                padding: '16px 24px',
-                backdropFilter: 'blur(16px)',
-                WebkitBackdropFilter: 'blur(16px)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                gap: 24,
-                transition: 'box-shadow 0.3s ease, border-color 0.3s ease'
-              }}
-              whileHover={{
-                boxShadow: `0 8px 40px rgba(0, 0, 0, 0.5), inset 0 0 0 1px ${layer.color}35, 0 0 35px ${layer.color}35`,
-                borderColor: layer.color
-              }}
-            >
-              {/* Left Side Info */}
-              <div style={{ display: 'flex', alignItems: 'center', gap: 14, flex: 1.2 }}>
-                <div style={{
-                  width: 32, height: 32, borderRadius: 8,
-                  background: layer.dim,
-                  border: `1px solid ${layer.border}`,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: layer.color,
-                  boxShadow: `0 0 10px ${layer.color}15`
-                }}>
-                  {layer.icon(layer.color)}
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                  <h3 style={{ fontSize: 13, fontWeight: 800, color: '#ffffff', margin: 0, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                    {layer.name}
-                  </h3>
-                  <span style={{ fontSize: 10.5, color: 'rgba(255,255,255,0.4)', lineHeight: 1.35 }}>
-                    {layer.desc}
-                  </span>
-                </div>
-              </div>
-
-              {/* Middle Connected Energy Channel (Space around center core) */}
-              <div style={{ flex: 0.6, minWidth: 100 }} />
-
-              {/* Right Side Specialized Agents List */}
-              <div style={{
-                display: 'flex',
-                gap: 8,
-                flexWrap: 'wrap',
-                justifyContent: 'flex-end',
-                flex: 1.8
-              }}>
-                {layer.agents.map((agent, aIdx) => (
-                  <motion.div
-                    key={agent}
-                    initial={{ opacity: 0, scale: 0.85 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.4 + idx * 0.15 + aIdx * 0.08 }}
-                    style={{
-                      background: 'rgba(255, 255, 255, 0.02)',
-                      border: '1px solid rgba(255, 255, 255, 0.05)',
-                      padding: '5px 12px',
-                      borderRadius: 20,
-                      fontSize: 10.5,
-                      color: 'rgba(255, 255, 255, 0.65)',
-                      fontWeight: 500,
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 6
-                    }}
-                    whileHover={{
-                      background: layer.dim,
-                      borderColor: `${layer.color}60`,
-                      color: '#ffffff',
-                      boxShadow: `0 0 10px ${layer.color}15`
-                    }}
-                  >
-                    <span style={{
-                      width: 5, height: 5, borderRadius: '50%',
-                      background: layer.color,
-                      boxShadow: `0 0 5px ${layer.color}`
-                    }} />
-                    {agent}
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+        {/* ── CENTERED LAPTOP MOCKUP (ADMIN ENGINE) ── */}
+        <div style={{ position: 'relative', zIndex: 10, margin: '20px 0', display: 'flex', justifyContent: 'center' }}>
+          <LaptopMockup
+            initial={{ opacity: 0, scale: 0.5, y: 50 }}
+            animate={{ opacity: 1, scale: 0.72, y: 0 }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <MemoryRouter initialEntries={['/']}>
+              <Routes>
+                <Route path="/" element={<Layout />}>
+                  <Route index element={<CommandCentre />} />
+                </Route>
+              </Routes>
+            </MemoryRouter>
+          </LaptopMockup>
         </div>
       </div>
 
