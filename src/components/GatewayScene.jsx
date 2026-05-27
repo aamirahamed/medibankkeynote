@@ -267,91 +267,105 @@ export default function GatewayScene() {
         alignItems: 'center',
         justifyContent: 'center',
         flex: 1,
-        margin: '20px 0',
+        margin: '10px 0',
         zIndex: 10
       }}>
-
-        {/* ── CENTRAL SYSTEM NUCLEUS CORE ── */}
+        {/* Unified Center Stage Wrapper */}
         <div style={{
-          position: 'absolute',
-          top: 'calc(50% - 40px)',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          zIndex: 8,
-          pointerEvents: 'none'
+          position: 'relative',
+          width: '666px',
+          height: '416px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexShrink: 0
         }}>
-          {/* Outer Rotating Glowing Ring */}
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-            style={{
-              width: 240,
-              height: 240,
-              borderRadius: '50%',
-              border: '1px dashed rgba(139, 92, 246, 0.2)',
-              boxShadow: '0 0 50px rgba(139, 92, 246, 0.05), inset 0 0 30px rgba(139, 92, 246, 0.02)',
-              position: 'absolute',
-              top: -120,
-              left: -120
-            }}
-          />
+          {/* ── CENTRAL SYSTEM NUCLEUS CORE ── */}
+          <div style={{
+            position: 'absolute',
+            top: 'calc(50% - 25px)',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 8,
+            pointerEvents: 'none'
+          }}>
+            {/* Outer Rotating Glowing Ring */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+              style={{
+                width: 240,
+                height: 240,
+                borderRadius: '50%',
+                border: '1px dashed rgba(139, 92, 246, 0.2)',
+                boxShadow: '0 0 50px rgba(139, 92, 246, 0.05), inset 0 0 30px rgba(139, 92, 246, 0.02)',
+                position: 'absolute',
+                top: -120,
+                left: -120
+              }}
+            />
 
-          {/* Inner Rotating Orbit Ring */}
-          <motion.div
-            animate={{ rotate: -360 }}
-            transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
-            style={{
-              width: 170,
-              height: 170,
-              borderRadius: '50%',
-              border: '1px solid rgba(255, 77, 106, 0.1)',
-              position: 'absolute',
-              top: -85,
-              left: -85
-            }}
-          >
-            {/* Tiny orbiting electron particle */}
-            <div style={{
-              width: 6, height: 6, borderRadius: '50%',
-              background: '#FF4D6A',
-              boxShadow: '0 0 8px #FF4D6A',
-              position: 'absolute',
-              top: '12%',
-              left: '12%'
-            }} />
-          </motion.div>
+            {/* Inner Rotating Orbit Ring */}
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
+              style={{
+                width: 170,
+                height: 170,
+                borderRadius: '50%',
+                border: '1px solid rgba(255, 77, 106, 0.1)',
+                position: 'absolute',
+                top: -85,
+                left: -85
+              }}
+            >
+              {/* Tiny orbiting electron particle */}
+              <div style={{
+                width: 6, height: 6, borderRadius: '50%',
+                background: '#FF4D6A',
+                boxShadow: '0 0 8px #FF4D6A',
+                position: 'absolute',
+                top: '12%',
+                left: '12%'
+              }} />
+            </motion.div>
 
-          {/* Glowing Center Core */}
-          <motion.div
-            animate={{ scale: [1, 1.08, 1], boxShadow: ['0 0 40px rgba(139, 92, 246, 0.35)', '0 0 60px rgba(139, 92, 246, 0.55)', '0 0 40px rgba(139, 92, 246, 0.35)'] }}
-            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-            style={{
-              width: 90,
-              height: 90,
-              borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(139, 92, 246, 0.15) 50%, rgba(3, 7, 18, 0.95) 90%)',
-              border: '1.5px solid rgba(139, 92, 246, 0.3)',
-              position: 'absolute',
-              top: -45,
-              left: -45,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              backdropFilter: 'blur(20px)'
-            }}
-          >
-            {/* Core Icon/Graphic */}
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" strokeWidth="2">
-              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-            </svg>
-          </motion.div>
-        </div>
-        {/* ── CENTERED LAPTOP MOCKUP (ADMIN ENGINE) ── */}
-        <div style={{ position: 'relative', zIndex: 10, margin: '20px 0', display: 'flex', justifyContent: 'center' }}>
+            {/* Glowing Center Core */}
+            <motion.div
+              animate={{ scale: [1, 1.08, 1], boxShadow: ['0 0 40px rgba(139, 92, 246, 0.35)', '0 0 60px rgba(139, 92, 246, 0.55)', '0 0 40px rgba(139, 92, 246, 0.35)'] }}
+              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+              style={{
+                width: 90,
+                height: 90,
+                borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(255,255,255,0.12) 0%, rgba(139, 92, 246, 0.15) 50%, rgba(3, 7, 18, 0.95) 90%)',
+                border: '1.5px solid rgba(139, 92, 246, 0.3)',
+                position: 'absolute',
+                top: -45,
+                left: -45,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backdropFilter: 'blur(20px)'
+              }}
+            >
+              {/* Core Icon/Graphic */}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" strokeWidth="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+              </svg>
+            </motion.div>
+          </div>
+
+          {/* ── CENTERED LAPTOP MOCKUP (ADMIN ENGINE) ── */}
           <LaptopMockup
             initial={{ opacity: 0, scale: 0.5, y: 50 }}
-            animate={{ opacity: 1, scale: 0.68, y: -40 }}
+            animate={{ opacity: 1, scale: 0.65, y: -25 }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+              position: 'absolute',
+              transformOrigin: 'center center',
+              zIndex: 10
+            }}
           >
             <MemoryRouter initialEntries={['/']}>
               <Routes>
