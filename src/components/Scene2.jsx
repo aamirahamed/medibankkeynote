@@ -557,11 +557,11 @@ export default function Scene2({ globalStep }) {
         setCyclingStep(prev => (prev + 1) % 5);
       }, 3000);
       
-      const t2 = setTimeout(() => setTransitionPhase(2), 6000);
-      const t3 = setTimeout(() => setTransitionPhase(3), 8500);
-      const t4 = setTimeout(() => setTransitionPhase(4), 11000);
-      const t5 = setTimeout(() => setTransitionPhase(5), 13500);
-      const t6 = setTimeout(() => setTransitionPhase(6), 16500);
+      const t2 = setTimeout(() => setTransitionPhase(2), 8000);
+      const t3 = setTimeout(() => setTransitionPhase(3), 10500);
+      const t4 = setTimeout(() => setTransitionPhase(4), 13000);
+      const t5 = setTimeout(() => setTransitionPhase(5), 15500);
+      const t6 = setTimeout(() => setTransitionPhase(6), 18500);
       
       return () => {
         clearInterval(interval);
@@ -2878,7 +2878,7 @@ export default function Scene2({ globalStep }) {
                    step === 14 ? "2. Cohort Detected & Synthesised" :
                    step === 15 ? "3. Intelligence Layer Interprets Cohort" :
                    step === 16 ? "4. Recommended Campaign Formulated" :
-                   step === 17 ? "5. Actionable Recommendation Prepared" :
+                   step === 17 ? "5. Actionable Recommendation Prepared for Human Review & Execution" :
                    step === 18 ? "6. Human Review & Execution" :
                    "Signal Journey Complete"}
                 </h1>

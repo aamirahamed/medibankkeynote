@@ -4,6 +4,8 @@ import Scene1 from './components/Scene1';
 import Scene2 from './components/Scene2';
 import FlywheelScene from './components/FlywheelScene';
 import ThankYouScene from './components/ThankYouScene';
+import IntelligenceEcosystemScene from './components/IntelligenceEcosystemScene';
+import EngagementFlywheelsScene from './components/EngagementFlywheelsScene';
 import './index.css';
 import './App.css';
 
@@ -161,7 +163,7 @@ function App() {
     let fadeOutTimer;
 
     if (globalStep === 20) {
-      // Play & Fade in after 11 seconds (when conversion engine chip appears)
+      // Play & Fade in after 13 seconds (when conversion engine chip appears)
       playTimer = setTimeout(() => {
         if (adminAudioRef.current) {
           adminAudioRef.current.play().then(() => {
@@ -170,16 +172,16 @@ function App() {
             console.warn("Admin audio autoplay blocked:", err);
           });
         }
-      }, 11000);
+      }, 13000);
 
-      // Fade out & Pause 3 seconds after laptop UI appears (16.5s + 3s = 19.5s)
+      // Fade out & Pause 3 seconds after laptop UI appears (18.5s + 3s = 21.5s)
       fadeOutTimer = setTimeout(() => {
         fadeAdminVolume(0, 3000, () => {
           if (adminAudioRef.current) {
             adminAudioRef.current.pause();
           }
         });
-      }, 19500);
+      }, 21500);
     } else {
       // If we leave step 20, fade out immediately (1s duration) and pause
       if (adminAudioRef.current && !adminAudioRef.current.paused) {
@@ -198,12 +200,21 @@ function App() {
   }, [globalStep, fadeAdminVolume]);
 
   const advanceStep = useCallback(() => {
-    // Keynote ends at step 31 (thank you scene)
-    setGlobalStep(prev => (prev < 31 ? prev + 1 : prev));
+    setGlobalStep(prev => {
+      if (prev === 2) return 4;
+      if (prev === 26) return 28;
+      if (prev === 28) return 30;
+      return prev < 33 ? prev + 1 : prev;
+    });
   }, []);
 
   const reverseStep = useCallback(() => {
-    setGlobalStep(prev => (prev > 0 ? prev - 1 : prev));
+    setGlobalStep(prev => {
+      if (prev === 4) return 2;
+      if (prev === 28) return 26;
+      if (prev === 30) return 28;
+      return prev > 0 ? prev - 1 : prev;
+    });
   }, []);
 
   useEffect(() => {
@@ -285,6 +296,32 @@ function App() {
             style={{ position: 'fixed', width: '100vw', height: '100vh', top: 0, left: 0, zIndex: 15 }}
           >
             <ThankYouScene />
+          </motion.div>
+        )}
+
+        {globalStep === 32 && (
+          <motion.div
+            key="intelligence-ecosystem-scene"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            style={{ position: 'fixed', width: '100vw', height: '100vh', top: 0, left: 0, zIndex: 15 }}
+          >
+            <IntelligenceEcosystemScene />
+          </motion.div>
+        )}
+
+        {globalStep === 33 && (
+          <motion.div
+            key="engagement-flywheels-scene"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            style={{ position: 'fixed', width: '100vw', height: '100vh', top: 0, left: 0, zIndex: 15 }}
+          >
+            <EngagementFlywheelsScene />
           </motion.div>
         )}
       </AnimatePresence>
